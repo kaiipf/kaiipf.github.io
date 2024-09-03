@@ -81,6 +81,22 @@
         .walk{
             margin-left: 445px;
         }
+        /*rocketIn is when rocket first flies in screen, land is when it lands after stop*/
+        .rocketIn{
+            transition: top 2s ease-out;
+        }
+        .rocketLand{
+            transition: top .5s ease-in;
+        }
+        .rocketInitialPos{
+            top:-150px
+        }
+        .rocketInPos{
+            top:540px
+        }
+        .rocketLandPos{
+            top:595px
+        }
         .rightInfo{
             width: 465px;
             float: right; 
@@ -143,7 +159,7 @@
         }
         @media screen and (max-width: 720px) {
             .bannerText h2{
-                display: none;
+                font-size: 18px;
             }
             .homeBanner {
                 height: 400px;
@@ -151,13 +167,19 @@
             .bannerImg{
             height: 400px;
             }
+            .rocketInPos{
+            top:280px
+        }
+        .rocketLandPos{
+            top:320px
+        }
             .bannerText h1{
                 font-size: 32px;
                 text-align: center;
             }
             .bannerText{
                 text-align: center;
-                top:32%;
+                top:28%;
                 width: 60vw;
             }
             
@@ -211,6 +233,12 @@
         <h1 id="bigHeader" class="invisible">Where Art<br>Meets Science</h1>
         </div>
         </div>
+        <div style="position: absolute; height:675px; width: 1536px;">
+        <div id="rocketWrapper" style="position: relative;" class="rocketInitialPos rocketIn">
+            <img src="Images/shuttle.png" style="position: relative; width: 80px; left: 240px;">
+            <img src="Images/atRocketFlame.gif" id="rocketFlame" style="position: absolute; width: 20px; left: 270px; top: 80px; transition: opacity .5s ease;;">
+        </div>
+        </div>
         <img src="Images/BorderDecoSvg.svg" id="bannerDecoration" class="bannerDecoInvisible">
         <img src="Images/homeBanner1.jpg" class="bannerImg">
     </div>
@@ -258,19 +286,35 @@
             }
         setTimeout(function() {
         document.getElementById("navbar").classList.remove('startup');
-        setTimeout(function() {
-            document.getElementById("screenCover").classList.add('flashyIntroCover');
-            typeWriter()
-        setTimeout(function() {
-            document.querySelector('body').classList.remove('noScroll');
-            document.getElementById("bannerDecoration").classList.add('bannerDecoVisible');
-            document.getElementById("bannerDecoration").classList.remove('bannerDecoInvisible');
-            document.getElementById("screenCover").remove()
-            document.getElementById("bigHeader").classList.remove('invisible');
-            document.getElementById("bigHeader").classList.add('visible');
-        }, 1000);
-        }, 1000);
+            setTimeout(function() {
+                document.getElementById("screenCover").classList.add('flashyIntroCover');
+                typeWriter()
+                setTimeout(function() {
+                    document.querySelector('body').classList.remove('noScroll');
+                    document.getElementById("bannerDecoration").classList.add('bannerDecoVisible');
+                    document.getElementById("bannerDecoration").classList.remove('bannerDecoInvisible');
+                    document.getElementById("rocketWrapper").classList.remove('rocketInitialPos');
+                    document.getElementById("rocketWrapper").classList.add('rocketInPos');
+                    document.getElementById("screenCover").remove()
+                    setTimeout(function() {
+                        document.getElementById("bigHeader").classList.remove('invisible');
+                        document.getElementById("bigHeader").classList.add('visible');
+                    },1000 )
+                    setTimeout(function() {
+                        document.getElementById("rocketWrapper").classList.remove('rocketIn');
+                        document.getElementById("rocketWrapper").classList.add('rocketLand');
+                        document.getElementById("rocketWrapper").classList.remove('rocketInPos');
+                        document.getElementById("rocketWrapper").classList.add('rocketLandPos');
+                        document.getElementById("rocketFlame").style.opacity = 0
+                        setTimeout(function() {
+                            document.getElementById("rocketWrapper").classList.remove('rocketLand');
+                            // so that when resizing the page, the rocket doesnt transition there cus it looks weird
+                        }, 500)
+                     }, 2000);
+                }, 1000);
+            }, 1000);
         }, 100);
+
     // Scroll animations
 
     const targetElement = document.querySelector('.target-element');
