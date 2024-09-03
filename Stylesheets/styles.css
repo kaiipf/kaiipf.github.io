@@ -1,0 +1,141 @@
+@font-face {
+    font-family: Grobold;
+    src: url(../Misc/GROBOLD.ttf);
+ }
+ @font-face {
+    font-family: Anek Devangari;
+    src: url(../Misc/AnekDevanagari-VariableFont_wdth\,wght.ttf);
+ }
+
+html{
+    overflow-x: hidden;
+}
+ body {
+    margin: 0;
+    font-family: Anek Devangari;
+    padding-top: 75px;
+    overflow-x: hidden;
+ }
+
+ .noScroll{
+    overflow-y: hidden;
+ }
+p{
+    font-size: 18px;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: Grobold;
+}
+ hr{
+    border: 0px;
+    border-top: 2px solid gray;
+ }
+ #screenCover{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: black;
+    position: fixed;
+    z-index: 998;
+    transition: opacity 1s ease;
+ }
+ .flashyIntroCover{
+    opacity: 0%;
+ }
+ .highlight {
+    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #FFD0AE 50%);
+    background-size: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 1s ease;
+  }
+ .navbar {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    font-family: Grobold;
+    align-items: center;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    top: 0;
+    z-index: 1000;
+    transition: top 1s ease;
+}
+.startup{
+    top:-999px;
+}
+.navMenu{
+    display: none;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    height: 0px;
+    box-shadow: 0px .5px 5px black;
+    height:290px;
+    top: -999px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    z-index: 999;
+    transform-origin: scaleY(0);
+    transition: top .5s ease;
+}
+
+.navMenu li{
+    font-family: Grobold;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px;
+    color: rgb(80, 80, 80);
+    cursor: pointer;
+}
+
+.navMenu a{
+    padding-right: 2000px;
+}
+.navbar a{
+    margin-left: 4%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    transition: 100ms;
+    cursor: pointer;
+}
+
+.navbar button{
+    position: absolute;
+    right: 50px;
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.navbar a:Hover{
+    background-color: white;
+    color: black;
+}
+
+.expandedMenu{
+    top: 80px;
+}
+
+.button{
+    
+}
+
+@media screen and (max-width: 730px) {
+    .navbar a{
+        margin-left: 1%;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    .navMenu{
+        display: flex;
+    }
+    .navbar a{
+        display: none;
+    }
+    .navbar button{
+        display: block;
+    }
+}
