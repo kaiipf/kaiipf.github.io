@@ -57,10 +57,11 @@
         .textSection h1{
             font-size: 64px;
         }
-        #bannerDecoration{
+        .bannerDecoration{
             position: absolute; 
-            height: 675px; 
-            transition: bottom 1s ease;
+            width: 100vw;
+            height: calc(100vw * 0.43935185185 );
+            transition: all 1s ease;
         }
         .bannerDecoInvisible{
             bottom: -999px;
@@ -89,25 +90,39 @@
             transition: top .5s ease-in;
         }
         .rocketInitialPos{
-            top:-150px
+            top:-350px
         }
         .rocketInPos{
-            top:540px
+            top:390px
         }
         .rocketLandPos{
-            top:595px
+            top:480px
         }
         .rightInfo{
             width: 465px;
             float: right; 
             padding-top: 50px;
         }
+        #rocketWrapper{
+            width: 160px;
+        }
         #aboutImg{
             width: 355px;
         }
+        @media screen and (min-width: 1737px) {
+            .textSection{
+            margin-left: 30%;
+            margin-right: 30%;
+            }
+        }
         @media screen and (min-width: 1537px) {
-            #bannerDecoration{
-            width: 100%;
+            .bannerDecoration{
+            width: 100vw;
+            height: calc(100vw * 0.43935185185 );
+        }
+        .textSection{
+            margin-left: 21%;
+            margin-right: 21%;
         }
         }
         @media screen and (max-width: 1380px) {
@@ -167,6 +182,9 @@
             .bannerImg{
             height: 400px;
             }
+            #rocketWrapper{
+            width: 60px;
+        }
             .rocketInPos{
             top:280px
         }
@@ -233,13 +251,14 @@
         <h1 id="bigHeader" class="invisible">Where Art<br>Meets Science</h1>
         </div>
         </div>
-        <div style="position: absolute; height:675px; width: 1536px;">
-        <div id="rocketWrapper" style="position: relative;" class="rocketInitialPos rocketIn">
-            <img src="Images/shuttle.png" style="position: relative; width: 80px; left: 240px;">
-            <img src="Images/atRocketFlame.gif" id="rocketFlame" style="position: absolute; width: 20px; left: 270px; top: 80px; transition: opacity .5s ease;;">
+        <div class="bannerDecoration">
+        <div id="rocketWrapper" style="position: relative; left: 68%;" class="rocketInitialPos rocketIn">
+            <img src="Images/shuttle.png" style="position: relative; width:100%;">
+            <img src="Images/atRocketFlame.gif" id="rocketFlame" style="position: absolute; width: 15%; left: 50%; top: 50%; transform: translate(-50%,90%); transition: opacity .5s ease;">
         </div>
         </div>
-        <img src="Images/BorderDecoSvg.svg" id="bannerDecoration" class="bannerDecoInvisible">
+        <img src="Images/skyscape.png"class="bannerDecoration" id="bannerSky" style="top: -999px;">
+        <img src="Images/Marscape.png" id="bannerDecoration" class="bannerDecoInvisible bannerDecoration">
         <img src="Images/homeBanner1.jpg" class="bannerImg">
     </div>
     <div class="textSection" id="About">
@@ -293,12 +312,13 @@
                     document.querySelector('body').classList.remove('noScroll');
                     document.getElementById("bannerDecoration").classList.add('bannerDecoVisible');
                     document.getElementById("bannerDecoration").classList.remove('bannerDecoInvisible');
-                    document.getElementById("rocketWrapper").classList.remove('rocketInitialPos');
-                    document.getElementById("rocketWrapper").classList.add('rocketInPos');
+                    document.getElementById("bannerSky").style.top = "0px";
                     document.getElementById("screenCover").remove()
                     setTimeout(function() {
                         document.getElementById("bigHeader").classList.remove('invisible');
                         document.getElementById("bigHeader").classList.add('visible');
+                        document.getElementById("rocketWrapper").classList.remove('rocketInitialPos');
+                        document.getElementById("rocketWrapper").classList.add('rocketInPos');
                     },1000 )
                     setTimeout(function() {
                         document.getElementById("rocketWrapper").classList.remove('rocketIn');
@@ -310,7 +330,7 @@
                             document.getElementById("rocketWrapper").classList.remove('rocketLand');
                             // so that when resizing the page, the rocket doesnt transition there cus it looks weird
                         }, 500)
-                     }, 2000);
+                     }, 3000);
                 }, 1000);
             }, 1000);
         }, 100);
