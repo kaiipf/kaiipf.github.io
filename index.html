@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArThematic</title>
+    <link rel="stylesheet" href="Stylesheets/styles.css">
+    <link rel="icon" type="image/x-icon" href="Images/atLogo.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <style>
+        .homeBanner {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            position: relative;
+            height: 675px;
+            background-color: white;
+        }
+        .bannerImg{
+            width: 100%;
+            height: 675px;
+            object-fit: cover;
+        }
+        .bannerText{
+            color: white;
+            position: absolute;
+            text-align: left;
+            left: 50%;
+            top:20%;
+            transform: translate(-50%, 0);
+        }
+        .bannerText h2{
+            font-family: Anek Devangari;
+            font-weight: 500;
+        }
+        .bannerText h1{
+            font-size: 86px;
+            margin-top: -20px;
+            text-align: left;
+            position: relative; 
+            left: 2px;
+            transition: top 1s ease;
+        }
+        .invisible{
+         top: -200px;
+        }
+        .visible{
+            top: 20px;
+        }
+        .textSection{
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 42px;
+            position: relative;
+        }
+        .textSection h1{
+            font-size: 64px;
+        }
+        #bannerDecoration{
+            position: absolute; 
+            height: 675px; 
+            transition: bottom 1s ease;
+        }
+        .bannerDecoInvisible{
+            bottom: -999px;
+        }
+        .bannerDecoVisible{
+            bottom: -5px;
+        }
+        #walkingDino{
+            position: absolute;
+            margin-top:-25px;
+            background-color: white;
+            opacity: 0;
+
+        }
+        .canWalk{
+            transition: margin-left 1.5s linear, opacity .25s ease;
+        }
+        .walk{
+            margin-left: 445px;
+        }
+        .rightInfo{
+            width: 465px;
+            float: right; 
+            padding-top: 50px;
+        }
+        #aboutImg{
+            width: 355px;
+        }
+        @media screen and (min-width: 1537px) {
+            #bannerDecoration{
+            width: 100%;
+        }
+        }
+        @media screen and (max-width: 1380px) {
+            .textSection{
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        }
+        @media screen and (max-width: 1296px) {
+            .bannerText h1{
+                font-size: 66px;
+            }
+        }
+        @media screen and (max-width: 1190px) {
+            .textSection{
+            margin-left: 7%;
+            margin-right: 7%;
+        }
+        }
+        @media screen and (max-width: 953px) {
+            .rightInfo{
+            width: 100%;
+        }
+        #aboutHeader{
+            text-align: center;
+        }
+        #About{
+            width: 90%;
+            margin-top: -60px;
+        }
+        #aboutBody{
+            margin-left: 75px;
+            margin-right: 75px;
+        }
+        .walk{
+            margin-left: 91%;
+        }
+        #aboutImg{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        }
+        @media screen and (max-width: 945px) {
+            .bannerText h1{
+                font-size: 52px;
+            }
+        }
+        @media screen and (max-width: 720px) {
+            .bannerText h2{
+                display: none;
+            }
+            .homeBanner {
+                height: 400px;
+            }
+            .bannerImg{
+            height: 400px;
+            }
+            .bannerText h1{
+                font-size: 32px;
+                text-align: center;
+            }
+            .bannerText{
+                text-align: center;
+                top:32%;
+                width: 60vw;
+            }
+            
+        @media screen and (max-width: 400px) {
+            #aboutImg{
+                width: 90%;
+            }
+        }
+        }
+    </style>
+</head>
+
+<body class="noScroll">
+    <!--Fade to page elements-->
+    <noscript><h1 style="position: fixed; z-index: 999; color:white;">This website requires javascript to be enabled.</h1></noscript>
+    <div id="screenCover">
+        <img src="Images/atLogo.png" style="width: 20%; position: absolute; left: 50%; top:35%; transform: translate(-50%, 0)">
+    </div>
+    <div class="navbar startup" id="navbar">
+            <img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;">
+            <a>Home</a>
+            <a>Programs</a>
+            <a>About us</a>
+            <a>Contact us</a>
+            <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
+            <script>
+                var hidden = true
+                function showHide() {
+                    if (hidden == false) {
+                        document.getElementById("navMenu").classList.remove('expandedMenu');
+                        hidden = true
+                    } else {
+                        document.getElementById("navMenu").classList.add('expandedMenu');
+                        hidden = false
+                    }
+                }
+            </script>
+    </div>
+    <div class="navMenu" id="navMenu">
+        <ul>
+        <li style="list-style-type: none;"><a>Home</a></li>
+        <li style="list-style-type: none;"><a>Programs</a></li>
+        <li style="list-style-type: none;"><a>About us</a></li>
+        <li style="list-style-type: none;"><a>Contact us</a></li>
+        </ul>
+    </div>
+    <div class="homeBanner">
+        <div class="bannerText">
+        <h2 style="top: 47%;" id="welcomeText"></h2>
+        <div style="overflow: hidden;">
+        <h1 id="bigHeader" class="invisible">Where Art<br>Meets Science</h1>
+        </div>
+        </div>
+        <img src="Images/BorderDecoSvg.svg" id="bannerDecoration" class="bannerDecoInvisible">
+        <img src="Images/homeBanner1.jpg" class="bannerImg">
+    </div>
+    <div class="textSection" id="About">
+    <div class="rightInfo">
+    <h1 class="highlight" id="aboutHeader">About us</h1>
+    <img src="Images/dinoWalk.gif" width="40px" id="walkingDino" class="canWalk">
+    <div id="trailLine" style="width: 0; opacity: 0; border-top: 2px solid gray; transform-origin: center left; transition: width 1.5s linear, opacity .25s ease;"></div>
+    <p id="aboutBody" style="padding: 10px; letter-spacing: 1px; position: relative; top: -30px; opacity: 0; transition: all 1s ease;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum sem sed mattis pulvinar. Phasellus eget nisi erat. Blah Blah Blah Blah Blah Blah Blah Blah  </p>
+    </div>
+    <img id="aboutImg" src="Images/theThematic.jpg">
+    </div>
+    <br>
+    <div class="textSection" style="overflow-y: none; position: relative;">
+        <h1 class="highlight" style="text-align: center;">Why choose us?</h1>
+        <p style="z-index: 5; position: relative;">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills.
+            <br><br>
+            Our program aims to inspire the next generation of innovative leaders by cultivating a mindset that values creativity, exploration, and critical thinking. Whether your child dreams of becoming an architect, a scientist, or a storyteller, Art Thematic provides the tools and inspiration to help them realize their full potential.
+            <br><br>
+            Enroll your child today and watch them thrive in a learning environment that bridges the gap between art and science, nurturing both their imagination and intellect!</p>
+            <div style="position: absolute; bottom: -250px; z-index: -5px; opacity: 30%; left:50%; margin-bottom: -43px; transform: translate(-50%,-50%);">
+            <div style="position: relative; height: 550px; overflow-x: hidden; overflow-y: hidden;">
+            <img src="Images/globe.svg" id="globe" width="2160px" style="object-position: top; display:block; transform-origin: 1080px 1080px; -moz-user-select: none; -webkit-user-select: none; pointer-events: none; user-select: none;">
+            </div>
+        </div>
+        </div>
+        <div style="width: 100%; height:250px; background-color: lightskyblue;"></div>
+    <!--Startup animation-->
+    <script>
+            var i = 0;
+            var txt = 'Welcome to arThematic!';
+            var speed = 50;
+            function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("welcomeText").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+                }
+            }
+        setTimeout(function() {
+        document.getElementById("navbar").classList.remove('startup');
+        setTimeout(function() {
+            document.getElementById("screenCover").classList.add('flashyIntroCover');
+            typeWriter()
+        setTimeout(function() {
+            document.querySelector('body').classList.remove('noScroll');
+            document.getElementById("bannerDecoration").classList.add('bannerDecoVisible');
+            document.getElementById("bannerDecoration").classList.remove('bannerDecoInvisible');
+            document.getElementById("screenCover").remove()
+            document.getElementById("bigHeader").classList.remove('invisible');
+            document.getElementById("bigHeader").classList.add('visible');
+        }, 1000);
+        }, 1000);
+        }, 100);
+    // Scroll animations
+
+    const targetElement = document.querySelector('.target-element');
+    function onElementInView(entry) {
+        if (entry.id == "About") {
+        document.getElementById("walkingDino").classList.add('walk');
+        document.getElementById("walkingDino").style.opacity = 100
+        document.getElementById("trailLine").style.opacity = 100
+        document.getElementById("trailLine").style.width = "95%"
+        document.getElementById("aboutHeader").style.backgroundSize = "100%"
+        setTimeout(function() {
+            document.getElementById("aboutBody").style.top = "0px"
+            document.getElementById("aboutBody").style.opacity = "100%";
+        },750)
+        setTimeout(function() {
+        document.getElementById("walkingDino").src = "Images/dino1.png"
+        document.getElementById("walkingDino").classList.remove('canWalk')
+        }, 1500)
+    }
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            onElementInView(entry.target);
+            // Optionally, if you only want to trigger the function once, you can unobserve the element
+            observer.unobserve(entry.target);
+            }
+        });
+    }, {
+    root: null, // Use the viewport as the root
+    rootMargin: '0px', // Margin around the root
+    threshold: .4 // Trigger when 100% of the element is in view
+    });
+
+    // Start observing the target element
+    setTimeout(function() {
+        observer.observe(document.getElementById("About"));
+    },2000)
+    var elem = document.getElementById('globe');
+        window.addEventListener('scroll', function() {
+	        var value = window.scrollY * 0.05;
+	        elem.style.transform = `rotate(${value - 90}deg)`; 
+        });
+    </script>
+</body>
+
+</html>
