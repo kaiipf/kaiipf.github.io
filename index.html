@@ -50,9 +50,10 @@
             top: 20px;
         }
         .textSection{
-            margin-left: 20%;
-            margin-right: 20%;
+            margin-left: auto;
+            margin-right: auto;
             margin-top: 42px;
+            width: 55%;
             position: relative;
         }
         .textSection h1{
@@ -110,10 +111,10 @@
         #aboutImg{
             width: 355px;
         }
-        @media screen and (min-width: 1737px) {
-            .textSection{
-            margin-left: 30%;
-            margin-right: 30%;
+        @media screen and (min-width: 1600px) {
+            #aboutImg{
+                width: 40%;
+                max-width: 600px;
             }
         }
         @media screen and (min-width: 1537px) {
@@ -121,15 +122,12 @@
             width: 100vw;
             height: calc(100vw * 0.43935185185 );
         }
-        .textSection{
-            margin-left: 21%;
-            margin-right: 21%;
-        }
         }
         @media screen and (max-width: 1380px) {
             .textSection{
-            margin-left: 15%;
-            margin-right: 15%;
+                margin-left: auto;
+                margin-right: auto;
+                width: 80%;
         }
         }
         @media screen and (max-width: 1296px) {
@@ -137,13 +135,7 @@
                 font-size: 66px;
             }
         }
-        @media screen and (max-width: 1190px) {
-            .textSection{
-            margin-left: 7%;
-            margin-right: 7%;
-        }
-        }
-        @media screen and (max-width: 953px) {
+        @media screen and (max-width: 1030px) {
             .rightInfo{
             width: 100%;
         }
@@ -154,12 +146,11 @@
             text-align: center;
         }
         #About{
-            width: 90%;
             margin-top: -60px;
+            
         }
-        #aboutBody{
-            margin-left: 75px;
-            margin-right: 75px;
+        .textSection{
+            width: 80%;
         }
         .walk{
             margin-left: 91%;
@@ -270,18 +261,42 @@
     <h1 class="highlight" id="aboutHeader">About us</h1>
     <img src="Images/dinoWalk.gif" width="40px" id="walkingDino" class="canWalk">
     <div id="trailLine" style="width: 0; opacity: 0; border-top: 2px solid gray; transform-origin: center left; transition: width 1.5s linear, opacity .25s ease;"></div>
-    <p id="aboutBody" style="padding: 10px; position: relative; top: -30px; opacity: 0; transition: all 1s ease;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum sem sed mattis pulvinar. Phasellus eget nisi erat. Blah Blah Blah Blah Blah Blah Blah Blah  </p>
+    <p id="aboutBody" style=" position: relative; top: -30px; opacity: 0; transition: all 1s ease;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum sem sed mattis pulvinar. Phasellus eget nisi erat. Blah Blah Blah Blah Blah Blah Blah Blah  </p>
     </div>
     <img id="aboutImg" src="Images/theThematic.jpg">
     </div>
     <br>
     <div class="textSection" style="overflow-y: none; position: relative;">
         <h1 class="highlight" style="text-align: center;">Why choose us?</h1>
-        <p style="z-index: 5; position: relative;">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills.
+        <p style="z-index: 5; position: relative;">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills.</p>
+    </div>
+    <div class="activityFlow" id="activityFlow" style="position: relative; width: 100%;">
+        <div style="position: relative;">
+            <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+                <tr>
+                    <td><h2 id="actText1" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">2D Visual</h2></td>
+                    <td><img src="Images/rocket.jpg" id="actRocket1" style="position: absolute; width: 30px; top: 20px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine1" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
+                    <td><h2 id="actText2" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">3D Models</h2></td>
+                    <td><img src="Images/rocket.jpg" id="actRocket2" style="position: absolute; width: 30px; top: 20px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine2" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
+                    <td><h2 id="actText3" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">Storyboarding</h2></td>
+                </tr>
+                <tr>
+                    <td style="overflow: hidden;"><img src="Images/flow(1).png" id="actPhase1" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                    <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
+                    <td style="overflow: hidden;"><img src="Images/flow(2).png" id="actPhase2" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                    <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
+                    <td style="overflow: hidden;"><img src="Images/flow(3).png" id="actPhase3" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                </tr>
+            </table>
+     </div>
+    </div>
+    <div class="textSection" style="overflow-y: none; position: relative; margin-top: 0;">
+        <p style="z-index: 5; position: relative;">
             <br><br>
             Our program aims to inspire the next generation of innovative leaders by cultivating a mindset that values creativity, exploration, and critical thinking. Whether your child dreams of becoming an architect, a scientist, or a storyteller, Art Thematic provides the tools and inspiration to help them realize their full potential.
             <br><br>
             Enroll your child today and watch them thrive in a learning environment that bridges the gap between art and science, nurturing both their imagination and intellect!</p>
+        </p>
             <div style="position: absolute; bottom: -250px; z-index: -5px; opacity: 30%; left:50%; margin-bottom: -43px; transform: translate(-50%,-50%);">
             <div style="position: relative; height: 550px; overflow-x: hidden; overflow-y: hidden;">
             <img src="Images/globe.svg" id="globe" width="2160px" style="object-position: top; display:block; transform-origin: 1080px 1080px; -moz-user-select: none; -webkit-user-select: none; pointer-events: none; user-select: none;">
@@ -357,8 +372,37 @@
         document.getElementById("walkingDino").src = "Images/dino1.png"
         document.getElementById("walkingDino").classList.remove('canWalk')
         }, 1500)
+    }  else if (entry.id == "activityFlow") {
+            document.getElementById("actPhase1").style.left = "0px"
+            document.getElementById("actPhase1").style.opacity = "100"
+            document.getElementById("actText1").style.opacity = "100"
+            document.getElementById("actText1").style.marginLeft = "0px"
+        setTimeout(function() {
+            document.getElementById("actRocket1").style.marginLeft = "15vw"
+            document.getElementById("actLine1").style.width = "15vw"
+            document.getElementById("actRocket1").style.opacity = "100"
+            document.getElementById("actLine1").style.opacity = "100"
+            setTimeout(function() {
+                document.getElementById("actPhase2").style.left = "0px"
+                document.getElementById("actPhase2").style.opacity = "100"
+                document.getElementById("actText2").style.opacity = "100"
+                document.getElementById("actText2").style.marginLeft = "0px"
+                setTimeout(function() {
+                    document.getElementById("actRocket2").style.marginLeft = "15vw"
+                    document.getElementById("actLine2").style.width = "15vw"
+                    document.getElementById("actRocket2").style.opacity = "100"
+                    document.getElementById("actLine2").style.opacity = "100"
+                    setTimeout(function() {
+                        document.getElementById("actPhase3").style.left = "0px"
+                        document.getElementById("actPhase3").style.opacity = "100"
+                        document.getElementById("actText3").style.opacity = "100"
+                        document.getElementById("actText3").style.marginLeft = "0px"
+                    } ,500)
+                } ,500)
+            } ,500)
+        },500)
     }
-    }
+}
 
     const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -377,6 +421,7 @@
     // Start observing the target element
     setTimeout(function() {
         observer.observe(document.getElementById("About"));
+        observer.observe(document.getElementById("activityFlow"));
     },2000)
     var elem = document.getElementById('globe');
         window.addEventListener('scroll', function() {
