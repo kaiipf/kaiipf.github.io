@@ -111,6 +111,9 @@
         #aboutImg{
             width: 355px;
         }
+        #verticalFlow{
+            display: none;
+        }
         @media screen and (min-width: 1600px) {
             #aboutImg{
                 width: 40%;
@@ -128,6 +131,14 @@
                 margin-left: auto;
                 margin-right: auto;
                 width: 80%;
+        }
+        @media screen and (max-width: 1300px) {
+            #activityFlow{
+                display: none;
+            }
+            #verticalFlow{
+                display: block;
+            }
         }
         }
         @media screen and (max-width: 1296px) {
@@ -271,7 +282,6 @@
         <p style="z-index: 5; position: relative;">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills.</p>
     </div>
     <div class="activityFlow" id="activityFlow" style="position: relative; width: 100%;">
-        <div style="position: relative;">
             <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
                 <tr>
                     <td><h2 id="actText1" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">2D Visual</h2></td>
@@ -288,7 +298,30 @@
                     <td style="overflow: hidden;"><img src="Images/flow(3).png" id="actPhase3" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
                 </tr>
             </table>
-     </div>
+    </div>
+    <div id="verticalFlow" style="width: 400px;  margin-left: auto; margin-right: auto; position: relative;">
+        <img src="Images/rocket.jpg" id="responsiveRocket" style="width: 30px; opacity: 0; position: absolute; float: right; z-index: 20; margin-right: 50px; left: 82%; top: 0%; transform: translate(-50%,-50%) rotate(90deg); transition: top 1.5s linear, opacity .5s ease;">
+        <div id="responsiveFlowLine" style="height: 0px; opacity: 0; position: relative; width: 0px; border-left: 2px solid gray; float: right; right: 18%; transition: height 1.5s linear, opacity .5s ease;"></div>
+        <table style="border-collapse: collapse;">
+            <tr>
+                <td style="text-align: right; overflow: hidden;"><h2 id="rActivity1" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">2D Visual</h2></td>
+            </tr>
+            <tr>
+                <td style="overflow: hidden;"><img src="Images/flow(1).png" id="vertPhase1" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+            </tr>
+            <tr>
+                <td  style="text-align: right; overflow: hidden;"><h2 id="rActivity2" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">3D Models</h2></td>
+            </tr>
+            <tr>
+                <td style="overflow: hidden;"><img src="Images/flow(2).png" id="vertPhase2" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+            </tr>
+            <tr>
+                <td style="text-align: right; overflow: hidden;"><h2 id="rActivity3" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">Storyboarding</h2></td>
+            </tr>
+            <tr>
+                <td style="overflow: hidden;"><img src="Images/flow(3).png" id="vertPhase3" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+            </tr>
+        </table>
     </div>
     <div class="textSection" style="overflow-y: none; position: relative; margin-top: 0;">
         <p style="z-index: 5; position: relative;">
@@ -401,6 +434,27 @@
                 } ,500)
             } ,500)
         },500)
+    }  else if (entry.id == "verticalFlow") {
+            document.getElementById("responsiveFlowLine").style.height = "800px"
+            document.getElementById("responsiveFlowLine").style.opacity = "100"
+            document.getElementById("responsiveRocket").style.top = "100%"
+            document.getElementById("responsiveRocket").style.opacity = "100"
+            document.getElementById("vertPhase1").style.opacity = "100"
+            document.getElementById("vertPhase1").style.left = "0px"
+            document.getElementById("rActivity1").style.opacity = "100"
+            document.getElementById("rActivity1").style.left = "0px"
+            setTimeout(function() {
+            document.getElementById("vertPhase2").style.opacity = "100"
+            document.getElementById("vertPhase2").style.left = "0px"
+            document.getElementById("rActivity2").style.opacity = "100"
+            document.getElementById("rActivity2").style.left = "0px"
+                setTimeout(function() {
+                    document.getElementById("vertPhase3").style.opacity = "100"
+                    document.getElementById("vertPhase3").style.left = "0px"
+                    document.getElementById("rActivity3").style.opacity = "100"
+                    document.getElementById("rActivity3").style.left = "0px"            
+                } ,750)
+            } ,750)
     }
 }
 
@@ -422,6 +476,7 @@
     setTimeout(function() {
         observer.observe(document.getElementById("About"));
         observer.observe(document.getElementById("activityFlow"));
+        observer.observe(document.getElementById("verticalFlow"));
     },2000)
     var elem = document.getElementById('globe');
         window.addEventListener('scroll', function() {
