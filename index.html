@@ -116,13 +116,14 @@
         }
         .activityInfoButton{
             background: none;
-            font-weight: bold;
             font-size: 18px;
             border-radius: 20px;
             padding: 5px;
             width: 120px;
             transition: all .2s ease;
+            font-family: Grobold;
             cursor: pointer;
+            background-color: white;
         }
         #ThematicButton{
             border: 3px solid #ec008b;
@@ -132,6 +133,10 @@
             background: #ec008b;
             color: white;
         }
+        #ThematicButton:active{
+            background: #ffa8db;
+            border: 3px solid #ffa8db;
+        }
         #InspirationButton{
             border: 3px solid #89c33c;
             color:#89c33c;
@@ -140,6 +145,10 @@
             background: #89c33c;
             color: white;
         }
+        #InspirationButton:active{
+            background: #d5fba3;
+            border: 3px solid #d5fba3;
+        }
         #InnovationButton{
             border: 3px solid #25abe3;
             color:#25abe3;
@@ -147,6 +156,16 @@
         #InnovationButton:hover{
             background: #25abe3;
             color: white;
+        }
+        #InnovationButton:active{
+            background: #97e0ff;
+            border: 3px solid #97e0ff;
+        }
+        #inspirationImages{
+            display: block;
+        }
+        #responsiveInspiration{
+            display: none;
         }
         @media screen and (min-width: 1600px) {
             #aboutImg{
@@ -210,6 +229,14 @@
         @media screen and (max-width: 945px) {
             .bannerText h1{
                 font-size: 52px;
+            }
+        }
+        @media screen and (max-width: 900px) {
+            #inspirationImages{
+                display: none;
+            }
+            #responsiveInspiration{
+                display: block;
             }
         }
         @media screen and (max-width: 720px) {
@@ -325,23 +352,45 @@
             </div>
         </div>
         </div>
-        <div style="width: 100%; height:250px; background-color: lightskyblue;">
+        <div style="width: 100%; height:250px; margin-bottom: -43px; background-color: lightskyblue;">
             <p>statistics goes here</p>
         </div>
+    <div style="background-image: url(Images/skylayer.png); background-size: 100vw; background-color: rgb(214, 244, 255); background-blend-mode: lighten;">
         <div class="textSection" style="overflow-y: none; position: relative;">
             <h1 style="text-align: center;">Our programs</h1>
         </div>
         <div class="center" style="text-align: center;">
-            <button class="activityInfoButton" id="ThematicButton">Thematic</button>
-            <button class="activityInfoButton" id="InspirationButton">Inspiration</button>
-            <button class="activityInfoButton" id="InnovationButton">Innovation</button>
-            <p style="font-size: 12px; color: gray;">Click the buttons for information about our programming</p>
+            <button class="activityInfoButton" id="ThematicButton" onclick="changeActivity('Thematic')">Thematic</button>
+            <button class="activityInfoButton" id="InspirationButton" onclick="changeActivity('Inspiration')">Inspiration</button>
+            <button class="activityInfoButton" id="InnovationButton" onclick="changeActivity('Innovation')">Innovation</button>
+            <p style="font-size: 12px; color: gray;">Click the buttons for information about specific programming</p>
+            <script>
+                var currentActivity = "Thematic"
+                function changeActivity(activity) {
+                    if (activity != currentActivity) {
+                    document.getElementById(currentActivity).style.display = "none"
+                    document.getElementById(currentActivity).style.top = "-50px"
+                    document.getElementById(currentActivity).style.opacity = "0"
+
+                    document.getElementById(activity).style.display = "block"
+                    setTimeout(function(){                    
+                        document.getElementById(activity).style.top = "0px"
+                        document.getElementById(activity).style.opacity = "100"
+                        currentActivity = activity;
+                    },100)
+                    }
+                }
+            </script>
         </div>
-        <h1 style="text-align: center;">Thematic Month activities</h1>
+<div id="Thematic" style="position: relative; top:0px; opacity: 100; transition: all .5s ease;">
+    <div class="textSection">
+        <p>Explain stuff here</p>
+    </div>
+    <h1 style="text-align: center;">Thematic Month activities</h1>
     <div class="activityFlow" id="activityFlow" style="position: relative; width: 100%;">
             <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
                 <tr>
-                    <td><h2 id="actText1" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">2D Visual</h2></td>
+                    <td><h2 id="actText1" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">2D Visuals</h2></td>
                     <td><img src="Images/pterodactyl.gif" id="actRocket1" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine1" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
                     <td><h2 id="actText2" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">3D Models</h2></td>
                     <td><img src="Images/pterodactyl.gif" id="actRocket2" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine2" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
@@ -380,9 +429,49 @@
             </tr>
         </table>
     </div>
+</div>
+<div id="Inspiration" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+    <div class="textSection">
+        <p>Explain stuff here</p>
+    </div>
+    <h1 style="text-align: center;">Inspiration Month activities</h1>
+    <div id="inspirationImages" style="width: 900px; margin: auto;">
+        <div style="display: inline; float: left;">
+            <h2 style="text-align: center;">STEAM Kidz</h2>
+            <img src="Images/steamkids(1).jpg" width="400px">
+        </div>
+        <div class="inspirationImage" style="display: block;  float: right;">
+            <h2 style="text-align: center;">Digital Art</h2>
+            <img src="Images/digitalArt.jpg" width="400px">
+        </div>
+    </div>
+    <!--Responsive part-->
+    <div id="responsiveInspiration">
+        <div style="display: block; width: 900px; margin: auto;">
+            <div style="display: block;">
+                <h2 style="text-align: center;">STEAM Kidz</h2>
+                <img src="Images/steamkids(1).jpg" width="400px" style=" display: block; margin-left: auto; margin-right: auto;">
+            </div>
+            <div class="inspirationImage" style="display: block;">
+                <h2 style="text-align: center;">Digital Art</h2>
+                <img src="Images/digitalArt.jpg" width="400px" style=" display: block; margin-left: auto; margin-right: auto;">
+            </div>
+    </div>
+</div>
+</div>
+<div id="Innovation" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+    <div class="textSection">
+        <p>Explain stuff here</p>
+    </div>
+    <h1 style="text-align: center;">Innovation Month activities</h1>
+    <h2 style="text-align: center;">Fine Art</h2>
+    <img src="Images/fineart(1).jpg" width="400px" style=" display: block; margin-left: auto; margin-right: auto;">
+</div>
+    <h1 style="text-align: center;">Individual Programs</h1>
     <div class="textSection" style="overflow-y: none; position: relative;">
             <img src="Images/6 PROGRAMS LOGOTYPES.png" width="100%">
         </div>
+</div>
     <!--Startup animation-->
     <script>
             var i = 0;
