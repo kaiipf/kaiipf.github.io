@@ -16,7 +16,10 @@ html{
     padding-top: 65px;
     overflow-x: hidden;
  }
-
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
  .noScroll{
     overflow-y: hidden;
  }
@@ -117,10 +120,6 @@ h1, h2, h3, h4, h5, h6{
 
 .expandedMenu{
     top: 80px;
-}
-
-.button{
-    
 }
 
 @media screen and (max-width: 730px) {
