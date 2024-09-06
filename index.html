@@ -121,10 +121,16 @@
             padding: 5px;
             width: 32%;
             max-width: 120px;
+            position: relative;
+            z-index: 2;
             transition: all .2s ease;
             font-family: Grobold;
             cursor: pointer;
             background-color: white;
+        }
+        .programDiv div{
+            position: relative;
+            z-index: 2;
         }
         #ThematicButton{
             border: 3px solid #ec008b;
@@ -363,6 +369,23 @@
             <p>statistics goes here</p>
         </div>
     <div id="ProgramDiv" style="background-image: url(Images/upgradedsky.png);">
+        <img src="Images/transparentPteroBlue.gif" id="randomPtero" style="width: 80px; position: absolute; right: -80px; z-index: 0; transition: all 15s linear; user-select: none;">
+        <script>
+            function summonPtero() {
+                const clone = document.getElementById("randomPtero").cloneNode();
+                clone.style.marginTop = Math.floor(Math.random() * 400) + "px";
+                // clone.style.transition = "all " + travelTime + "s linear";
+                document.getElementById("ProgramDiv").prepend(clone); 
+                setTimeout(function() {   
+                    clone.style.right = "102vw"
+                    setTimeout(summonPtero, 20000)
+                    setTimeout(function() {
+                        clone.remove()
+                    }, 15000)
+                }, 50)
+            }
+            setTimeout(summonPtero, 0)
+        </script>
         <div class="textSection" style="overflow-y: none; position: relative;">
             <h1 style="text-align: center;">Our programs</h1>
         </div>
@@ -370,7 +393,7 @@
             <button class="activityInfoButton" id="ThematicButton" onclick="changeActivity('Thematic')">Thematic</button>
             <button class="activityInfoButton" id="InspirationButton" onclick="changeActivity('Inspiration')">Inspiration</button>
             <button class="activityInfoButton" id="InnovationButton" onclick="changeActivity('Innovation')">Innovation</button>
-            <p style="font-size: 12px; color: gray;">Click the buttons for information about specific programming</p>
+            <p style="font-size: 12px; color: gray; position: relative; z-index: 5;">Click the buttons for information about specific programming</p>
             <script>
                 var currentActivity = "Thematic"
                 function changeActivity(activity) {
@@ -551,7 +574,7 @@
             document.getElementById("actRocket1").style.opacity = "100"
             document.getElementById("actLine1").style.opacity = "100"
             setTimeout(function() {
-                document.getElementById("actRocket1").src = "Images/pterodactyl.jpg"
+                document.getElementById("actRocket1").src = "Images/pterodactyl.png"
                 document.getElementById("actPhase2").style.left = "0px"
                 document.getElementById("actPhase2").style.opacity = "100"
                 document.getElementById("actText2").style.opacity = "100"
@@ -562,7 +585,7 @@
                     document.getElementById("actRocket2").style.opacity = "100"
                     document.getElementById("actLine2").style.opacity = "100"
                     setTimeout(function() {
-                        document.getElementById("actRocket2").src = "Images/pterodactyl.jpg"
+                        document.getElementById("actRocket2").src = "Images/pterodactyl.png"
                         document.getElementById("actPhase3").style.left = "0px"
                         document.getElementById("actPhase3").style.opacity = "100"
                         document.getElementById("actText3").style.opacity = "100"
