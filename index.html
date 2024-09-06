@@ -114,8 +114,23 @@
         #verticalFlow{
             display: none;
         }
+        .readMore{
+            border-radius: 40px;
+            padding:15px;
+            font-family: Grobold;
+            font-size: 24px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: all .2s ease;
+            cursor: pointer;
+            color:white;
+            background-color: rgb(255, 207, 33);
+        }
+        .readMore:hover{
+            background-color: rgb(135, 109, 17);
+        }
         .activityInfoButton{
-            background: none;
             font-size: min(5vw, 18px);
             border-radius: 20px;
             padding: 5px;
@@ -389,12 +404,13 @@
         </script>
         <div class="textSection" style="overflow-y: none; position: relative;">
             <h1 style="text-align: center;">Our programs</h1>
+            <p>ArThematic's unique programming explores a new topic each month, ranging from exciting topics in history, geography, science and many more. Each month, children engage with these subjects through a structured approach built on three core pillars: <b>Thematics</b>, <b>Inspiration</b> and <b>Innovation</b>. This approach ensures a rich, well-rounded learning experience that sparks curiosity, encourages creativity, and fosters innovative thinking.</p>
         </div>
         <div class="center" style="text-align: center;">
             <button class="activityInfoButton" id="ThematicButton" onclick="changeActivity('Thematic')">Thematic</button>
             <button class="activityInfoButton" id="InspirationButton" onclick="changeActivity('Inspiration')">Inspiration</button>
             <button class="activityInfoButton" id="InnovationButton" onclick="changeActivity('Innovation')">Innovation</button>
-            <p style="font-size: 12px; color: gray; position: relative; z-index: 5;">Click the buttons for information about specific programming</p>
+            <p style="font-size: 12px; color: gray; position: relative; z-index: 5;">Click the buttons for information about our program structure</p>
             <script>
                 var currentActivity = "Thematic"
                 function changeActivity(activity) {
@@ -413,95 +429,106 @@
                 }
             </script>
         </div>
-<div id="Thematic" style="position: relative; top:0px; opacity: 100; transition: all .5s ease;">
-    <div class="textSection">
-        <p>Explain stuff here</p>
+        <div id="Thematic" style="position: relative; top:0px; opacity: 100; transition: all .5s ease;">
+            <h1 style="text-align: center;">Thematic Month</h1>
+            <div class="textSection">
+                <p>During Thematic Month, we focus on integrating drawing, crafting, storyboarding, and presenting into a unified study flow, with our goal being to guide children through the creative transformation of a themed idea into a fully realized project, whilst also learning about the world around them. Throughout this process, your child will explore various aspects of creative design, ultimately mastering skills such as visual illustration, 3D modeling, and effective storyboarding for presentations. By the end of the program, they will have developed a comprehensive project that showcases their creativity, technical skills, and storytelling abilities.</p>
+            </div>
+            <h1 style="text-align: center;">Activity Flow</h1>
+            <div class="activityFlow" id="activityFlow" style="position: relative; width: 100%;">
+                    <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td><h2 id="actText1" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">2D Visuals</h2></td>
+                            <td><img src="Images/pterodactyl.gif" id="actRocket1" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine1" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
+                            <td><h2 id="actText2" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">3D Models</h2></td>
+                            <td><img src="Images/pterodactyl.gif" id="actRocket2" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine2" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
+                            <td><h2 id="actText3" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">Storyboarding</h2></td>
+                        </tr>
+                        <tr>
+                            <td style="overflow: hidden;"><img src="Images/flow(1).png" id="actPhase1" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                            <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
+                            <td style="overflow: hidden;"><img src="Images/flow(2).png" id="actPhase2" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                            <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
+                            <td style="overflow: hidden;"><img src="Images/flow(3).png" id="actPhase3" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                        </tr>
+                    </table>
+            </div>
+            <div id="verticalFlow" style="width: 400px;  margin-left: auto; margin-right: auto; margin-bottom: 20px; position: relative;">
+                <img src="Images/pterodactyl.gif" id="responsiveRocket" style="width: 40px; opacity: 0; position: absolute; float: right; z-index: 20; margin-right: 50px; left: 84%; top: 0%; transform: translate(-50%,-50%) rotate(90deg); transition: top 1.5s linear, opacity .5s ease;">
+                <div id="responsiveFlowLine" style="height: 0px; opacity: 0; position: relative; width: 0px; border-left: 2px solid gray; float: right; right: 18%; transition: height 1.5s linear, opacity .5s ease;"></div>
+                <table style="border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align: right; overflow: hidden;"><h2 id="rActivity1" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">2D Visual</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(1).png" id="vertPhase1" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                    <tr>
+                        <td  style="text-align: right; overflow: hidden;"><h2 id="rActivity2" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">3D Models</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(2).png" id="vertPhase2" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; overflow: hidden;"><h2 id="rActivity3" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">Storyboarding</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(3).png" id="vertPhase3" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    <div id="Inspiration" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+        <h1 style="text-align: center;">Inspiration Month</h1>
+        <div class="textSection">
+            <p>Inspiration Month is designed to unlock your child's self-expression through the transformative power of art. Whether they are just beginning or already experienced, this program equips them with essential techniques that foster creativity and personal expression. By the end of the program, your child will have discovered new and meaningful ways to communicate through art, gaining confidence and developing their unique creative voice.</p>
+        </div>
+        <h1 style="text-align: center;">Inspiration Month activities</h1>
+        <h2 style="text-align: center;">Fine Art</h2>
+        <img src="Images/fineart(1).jpg" style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
     </div>
-    <h1 style="text-align: center;">Thematic Month activities</h1>
-    <div class="activityFlow" id="activityFlow" style="position: relative; width: 100%;">
-            <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
-                <tr>
-                    <td><h2 id="actText1" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">2D Visuals</h2></td>
-                    <td><img src="Images/pterodactyl.gif" id="actRocket1" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine1" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
-                    <td><h2 id="actText2" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">3D Models</h2></td>
-                    <td><img src="Images/pterodactyl.gif" id="actRocket2" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine2" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
-                    <td><h2 id="actText3" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">Storyboarding</h2></td>
-                </tr>
-                <tr>
-                    <td style="overflow: hidden;"><img src="Images/flow(1).png" id="actPhase1" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
-                    <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
-                    <td style="overflow: hidden;"><img src="Images/flow(2).png" id="actPhase2" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
-                    <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
-                    <td style="overflow: hidden;"><img src="Images/flow(3).png" id="actPhase3" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
-                </tr>
-            </table>
-    </div>
-    <div id="verticalFlow" style="width: 400px;  margin-left: auto; margin-right: auto; position: relative;">
-        <img src="Images/pterodactyl.gif" id="responsiveRocket" style="width: 40px; opacity: 0; position: absolute; float: right; z-index: 20; margin-right: 50px; left: 84%; top: 0%; transform: translate(-50%,-50%) rotate(90deg); transition: top 1.5s linear, opacity .5s ease;">
-        <div id="responsiveFlowLine" style="height: 0px; opacity: 0; position: relative; width: 0px; border-left: 2px solid gray; float: right; right: 18%; transition: height 1.5s linear, opacity .5s ease;"></div>
-        <table style="border-collapse: collapse;">
+    <div id="Innovation" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+        <h1 style="text-align: center;">Innovation Month</h1>
+        <div class="textSection">
+            <p>Our Innovation Month is aimed on helping your child discover the wonderful world of both art and science. Through our themed hands-on projects and more, this program encourages your child to experiment and explore the world around them, igniting that spark of curiosity in your child. This program will bring out the full extent of your child's creative mind and inspire them to become an innovative leader. </p>
+        </div>
+        <h1 style="text-align: center;">Innovation Month activities</h1>
+        <div  id="InnovationImages" style="margin-left: auto; margin-right: auto; width: 900px;">
+        <table>
             <tr>
-                <td style="text-align: right; overflow: hidden;"><h2 id="rActivity1" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">2D Visual</h2></td>
+                <td><h2 style="text-align: center;">STEAM Kidz</h2></td>
+                <td><h2 style="text-align: center;">Digital Art</h2></td>
             </tr>
             <tr>
-                <td style="overflow: hidden;"><img src="Images/flow(1).png" id="vertPhase1" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
-            </tr>
-            <tr>
-                <td  style="text-align: right; overflow: hidden;"><h2 id="rActivity2" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">3D Models</h2></td>
-            </tr>
-            <tr>
-                <td style="overflow: hidden;"><img src="Images/flow(2).png" id="vertPhase2" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
-            </tr>
-            <tr>
-                <td style="text-align: right; overflow: hidden;"><h2 id="rActivity3" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">Storyboarding</h2></td>
-            </tr>
-            <tr>
-                <td style="overflow: hidden;"><img src="Images/flow(3).png" id="vertPhase3" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                <td><img src="Images/steamkids(1).jpg" style="max-width: 400px; padding-right: 50px;"></td>
+                <td><img src="Images/digitalArt.jpg" style="max-width: 400px;  padding-left: 50px;"></td>
             </tr>
         </table>
     </div>
-</div>
-<div id="Inspiration" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
-    <div class="textSection">
-        <p>Explain stuff here</p>
-    </div>
-    <h1 style="text-align: center;">Inspiration Month activities</h1>
-    <h2 style="text-align: center;">Fine Art</h2>
-    <img src="Images/fineart(1).jpg" style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
-</div>
-<div id="Innovation" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
-    <div class="textSection">
-        <p>Explain stuff here</p>
-    </div>
-    <h1 style="text-align: center;">Innovation Month activities</h1>
-    <div id="InnovationImages" style="width: 900px; margin: auto;">
-        <div style="display: inline; float: left;">
-            <h2 style="text-align: center;">STEAM Kidz</h2>
-            <img src="Images/steamkids(1).jpg" width="400px">
-        </div>
-        <div class="InnovationImage" style="display: block;  float: right;">
-            <h2 style="text-align: center;">Digital Art</h2>
-            <img src="Images/digitalArt.jpg" width="400px">
-        </div>
-    </div>
-    <!--Responsive part-->
-    <div id="responsiveInnovation">
-            <div style="display: block;">
-                <h2 style="text-align: center;">STEAM Kidz</h2>
-                <img src="Images/steamkids(1).jpg" style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+        <!--Responsive part-->
+        <div id="responsiveInnovation">
+                <div style="display: block;">
+                    <h2 style="text-align: center;">STEAM Kidz</h2>
+                    <img src="Images/steamkids(1).jpg" style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+                <div class="InnovationImage" style="display: block;">
+                    <h2 style="text-align: center;">Digital Art</h2>
+                    <img src="Images/digitalArt.jpg"style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+                </div>
             </div>
-            <div class="InnovationImage" style="display: block;">
-                <h2 style="text-align: center;">Digital Art</h2>
-                <img src="Images/digitalArt.jpg"style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
-            </div>
-</div>
-</div>
+    </div>
 
-    <h1 style="text-align: center;">Individual Programs</h1>
-    <div class="textSection" style="overflow-y: none; position: relative;">
-            <img src="Images/6 PROGRAMS LOGOTYPES.png" width="100%">
+        <p style="font-size: 12px; color: gray; position: relative; z-index: 5; text-align: center; margin: 0;">For details about program scheduling, please refer to the link below</p>
+        <div style="margin:auto; margin-top: 20px; width: 158px;"><a class="readMore">Read More</a></div>
+        <h1 style="text-align: center;">Individual Programs</h1>
+            <div class="textSection" style="overflow-y: none; position: relative;">
+                    <img src="Images/6 PROGRAMS LOGOTYPES.png" width="100%">
+                </div>
+            </div>
         </div>
-</div>
+
+    
+<p>test</p>
     <!--Startup animation-->
     <script>
             var i = 0;
@@ -610,7 +637,7 @@
             document.getElementById("rActivity2").style.opacity = "100"
             document.getElementById("rActivity2").style.left = "0px"
                 setTimeout(function() {
-                    document.getElementById("responsiveRocket").src = "Images/pterodactyl.jpg"
+                    document.getElementById("responsiveRocket").src = "Images/pterodactyl.png"
                     document.getElementById("vertPhase3").style.opacity = "100"
                     document.getElementById("vertPhase3").style.left = "0px"
                     document.getElementById("rActivity3").style.opacity = "100"
