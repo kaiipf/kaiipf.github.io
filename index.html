@@ -388,8 +388,8 @@
         function parallax() {
                 var s = document.getElementById("satellite");
             var yPos = 0 - window.pageYOffset/60;  
-            s.style.top = 75 + yPos + "%"; }
-
+            s.style.bottom = 0 - yPos + "%"; 
+        }
             window.addEventListener("scroll", function(){
                 parallax(); 
         });
