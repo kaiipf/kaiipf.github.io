@@ -147,7 +147,7 @@
             cursor: pointer;
             background-color: white;
         }
-        .programDiv div{
+        #programDiv div{
             position: relative;
             z-index: 2;
         }
@@ -211,7 +211,7 @@
                 max-width: 600px;
             }
             .rightInfo{
-            margin-right: 5%; 
+            margin-right: 4%; 
         }
         }
         @media screen and (min-width: 1537px) {
@@ -220,11 +220,11 @@
             height: calc(100vw * 0.43935185185 );
         }
         }
-        @media screen and (max-width: 1380px) {
+        @media screen and (max-width: 1490px) {
             .textSection{
                 margin-left: auto;
                 margin-right: auto;
-                width: 80%;
+                width: 70%;
         }
         @media screen and (max-width: 1300px) {
             #activityFlow{
@@ -240,9 +240,10 @@
                 font-size: 66px;
             }
         }
-        @media screen and (max-width: 1030px) {
+        @media screen and (max-width: 1171px) {
             .rightInfo{
             width: 100%;
+            margin-bottom: 20px;
         }
         .rocketLandPos{
             top:80vh
@@ -321,7 +322,7 @@
     </style>
 </head>
 
-<body class="noScroll">
+<body id="body" class="noScroll">
     <!--Fade to page elements-->
     <noscript><h1 style="position: fixed; z-index: 999; color:white;">This website requires javascript to be enabled.</h1></noscript>
     <div id="screenCover">
@@ -372,28 +373,20 @@
         <img src="Images/Marscape.png" id="bannerDecoration" class="bannerDecoInvisible bannerDecoration">
         <img src="Images/homeBanner1.jpg" class="bannerImg">
     </div>
-    <div style="background-image: url(Images/bluestars.png); overflow-x: hidden; position: relative; margin-bottom: -18px; background-size:contain;">
+    <div id="starScape" style="background-image: url(Images/bluestars.png); overflow-x: hidden; position: relative; margin-bottom: -18px; background-size:contain;">
     <div class="textSection" id="About">
     <div class="rightInfo">
     <h1 class="highlight" id="aboutHeader">About us</h1>
     <img src="Images/dinoWalk.gif" width="40px" id="walkingDino" class="canWalk">
     <div id="trailLine" style="width: 0; opacity: 0; border-top: 2px solid gray; transform-origin: center left; transition: width 1.5s linear, opacity .25s ease;"></div>
     <p id="aboutBody" style=" position: relative; top: -30px; opacity: 0;transition: all 1s ease;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum sem sed mattis pulvinar. Phasellus eget nisi erat. Blah Blah Blah Blah Blah Blah Blah Blah  </p>
+    <div id="aboutMore" style="margin:auto; margin-top: 20px; width: 158px; top: -30px; opacity: 0;transition: all 1s ease;"><a class="readMore">Read More</a></div>
     </div>
     <img id="aboutImg" src="Images/theThematic.jpg">
     </div>
     <br>
     <img src="Images/satellite.png" id="satellite" style="width: 150px; left: 10%; position: absolute; z-index: 1;">
-    <script>
-        function parallax() {
-                var s = document.getElementById("satellite");
-            var yPos = 0 - window.pageYOffset/60;  
-            s.style.bottom = 0 - yPos + "%"; 
-        }
-            window.addEventListener("scroll", function(){
-                parallax(); 
-        });
-    </script>
+    
     <div class="textSection" style="overflow-y: none; position: relative;">
         <h1 class="highlight" style="text-align: center;">Why choose us?</h1>
         <p style="z-index: 5; position: relative;">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills.
@@ -525,8 +518,8 @@
         <div  id="InnovationImages" style="margin-left: auto; margin-right: auto; width: 900px;">
         <table>
             <tr>
-                <td><h2 style="text-align: center;">STEAM Kidz</h2></td>
-                <td><h2 style="text-align: center;">Digital Art</h2></td>
+                <td><h2 style="text-align: center;  padding-right: 50px;">STEAM Kidz</h2></td>
+                <td><h2 style="text-align: center;  padding-left: 50px;">Digital Art</h2></td>
             </tr>
             <tr>
                 <td><img src="Images/steamkids(1).jpg" style="max-width: 400px; padding-right: 50px;"></td>
@@ -615,6 +608,8 @@
         setTimeout(function() {
             document.getElementById("aboutBody").style.top = "0px"
             document.getElementById("aboutBody").style.opacity = "100%";
+            document.getElementById("aboutMore").style.top = "0px"
+            document.getElementById("aboutMore").style.opacity = "100%";
         },750)
         setTimeout(function() {
         document.getElementById("walkingDino").src = "Images/dino1.png"
@@ -700,6 +695,26 @@
         window.addEventListener('scroll', function() {
 	        var value = window.scrollY * 0.05;
 	        elem.style.transform = `rotate(${value - 90}deg)`; 
+        });
+        // background parallax
+        function parallax() {
+                var s = document.getElementById("satellite");
+                var yPos = 0 - window.pageYOffset/60;  
+                s.style.bottom = 0 - yPos + "%"; 
+                var scrolltotop = document.scrollingElement.scrollTop;
+                var target = document.getElementById("starScape");
+                var xvalue = "center";
+                var factor = 0.5;
+                var yvalue = scrolltotop * factor;
+                target.style.backgroundPosition = xvalue + " " + yvalue + "px";
+                var target = document.getElementById("ProgramDiv");
+                var xvalue = "center";
+                var factor = 0.5;
+                var yvalue = scrolltotop * factor;
+                target.style.backgroundPosition = xvalue + " " + yvalue + "px";
+        }
+            window.addEventListener("scroll", function(){
+                parallax(); 
         });
     </script>
 </body>
