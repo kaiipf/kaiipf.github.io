@@ -520,8 +520,8 @@
                     }
                     const touchEnd = (event) => {
                         touchStarted = false
-                        console.log(Math.floor((currentSlide * 258) + (xPos - curTouch))/ 258)
-                        changeSlide(Math.floor(((currentSlide * 258) + (xPos - curTouch))/ 258));
+                        console.log(Math.round((currentSlide * 258) + (xPos - curTouch))/ 258)
+                        changeSlide(Math.round(((currentSlide * 258) + (xPos - curTouch))/ 258));
                     };
                     document.getElementById("partnerCarousel").addEventListener('touchmove', touchMove);
                     window.addEventListener('touchstart', touchStart);
