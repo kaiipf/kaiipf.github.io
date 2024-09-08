@@ -409,8 +409,10 @@
         <div style="width: 100%; color:white; margin-top: -21.5px; text-align: center; background-color: lightskyblue;">
             <h1 style="padding-top: 10px;">Our Partners</h1>
             <p class="textSection" style="text-align: left; margin-top: -20px; ">ArThematic's unique program design is supported and accepted amongst top international schools in Malaysia</p>
-            <div style="overflow: scroll; width: round(down,80vw,258px);  display: inline-block;">
-                <table style="position:relative; border-collapse: collapse; table-layout: fixed; ">
+            <div style="overflow: hidden; width: round(down,80vw,258px);  display: inline-block;">
+                <button onclick="next('back')"><</button>
+                <button onclick="next('front')">></button>
+                <table id="partnerCarousel" style="position:relative; border-collapse: collapse; transition: left .5s ease;">
                     <tr class="partners">
                         <td><img src="Images/ucsi.png" alt="UCSI International School" width="256px"></td>
                         <td><img src="Images/ISKL.png" alt="International School of Kualar Lumpur" width="256px"></td>
@@ -418,8 +420,77 @@
                         <td><img src="Images/nexusis.png" alt="Nexus International School" width="256px"></td>
                         <td><img src="Images/PHIS.png" alt="Pine Hills International School" width="256px"></td>
                         <td><img src="Images/bnis.png" alt="Beaconhouse Newlands International School" width="256px"></td>
+                        <td><img src="Images/tis.png" alt="Taylor's International School" width="256px"></td>
+                        <td><img src="Images/tbiskl.png" alt="British International School Kualar Lumpur" width="256px"></td>
+                        <td><img src="Images/apis.png" alt="Asia Pacific School" width="256px"></td>
+                        <td><img src="Images/lsl.png" alt="Learn Share Lead (LSL) International School" width="256px"></td>
+                        <td><img src="Images/gkmk.png" alt="Global Kids Kindergarten" width="256px"></td>
+                        <td><img src="Images/ew.png" alt="Emilia Wolsey" width="256px"></td>
                     </tr>
                 </table>
+                <div id="dotContainer">
+                    <button onclick="next(1)">1</button>
+                </div>
+                <script>
+                    var noOfDots = 12
+                    var noOfItems = 12
+                    var currentSlide = 0
+                    var currentTimeout = null
+                    function limitNumberWithinRange(num, min, max){
+                        const MIN = min ?? 0;
+                        const MAX = max ?? noOfDots;
+                        const parsed = parseInt(num)
+                        return Math.min(Math.max(parsed, MIN), MAX)
+                    }
+                    function changeSlide(slide) {
+                        timeout()
+                        currentSlide = limitNumberWithinRange(slide)
+                        document.getElementById("partnerCarousel").style.left = "-" + (currentSlide * 258) + "px"
+                        console.log((currentSlide * 258))
+                    }
+                    function next(slide) {
+                        if (slide == "back") {
+                            if (currentSlide - 1 < 0) {
+                                changeSlide(noOfDots)
+                            } else {
+                                changeSlide(currentSlide - 1)
+                            }
+                        } else if (slide == "front") {
+                            if (currentSlide + 1 > noOfDots) {
+                                changeSlide(0)
+                            } else {
+                                changeSlide(currentSlide + 1)
+                            }
+                            } else {
+                            changeSlide(slide)
+                        }
+                    }
+                    function timeout() {
+                            clearTimeout(currentTimeout)
+                            currentTimeout = setTimeout(function() {
+                                    next("front")
+                                timeout();
+                            }, 5000);
+                        }
+                        timeout()
+                    function detectDots() {
+                        //detect size of screen and choose how many dots to display
+                        var currentOnScreen = (Math.floor((window.innerWidth * (8/10))/ 258));
+                        if (noOfDots != noOfItems - currentOnScreen) {
+                            document.getElementById("dotContainer").innerHTML = ""
+                            noOfDots = noOfItems - currentOnScreen
+                            console.log(currentOnScreen)
+                            for (let i = 0; i < noOfDots+1; i++) { 
+                                document.getElementById("dotContainer").innerHTML = document.getElementById("dotContainer").innerHTML + '<button onclick="next('+ i +')">' + i + '</button>'
+                            }
+                            changeSlide(currentSlide)
+                        }
+                    }
+
+                    $(window).resize(detectDots);
+                    detectDots();
+                    
+                </script>
             </div>
             <h1>Test</h1>
         </div>
