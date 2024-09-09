@@ -412,10 +412,11 @@
     </div>
         <div style="width: 100%; color:white; margin-top: -21.5px; text-align: center; background-color: lightskyblue;">
             <h1 style="padding-top: 10px;">Our Partners</h1>
+            <div>
             <p class="textSection" style="text-align: left; margin-top: -20px; ">ArThematic's unique program design is supported and accepted amongst top international schools in Malaysia</p>
             <div style="overflow: hidden; width: round(down,80vw,258px); min-width: 258px; display: inline-block;">
-                <button onclick="next('back')"><</button>
-                <button onclick="next('front')">></button>
+                <button style="width: 50px; height: 50px; right: 90%;  margin-top: 100px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
+                <button style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="next('front')">></button>
                 <table id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
                     <tr class="partners">
                         <td><img src="Images/ucsi.png" alt="UCSI International School" width="256px"></td>
@@ -454,7 +455,7 @@
                     }
                     function next(slide) {
                         if (slide == "back") {
-                            if (currentSlide - 1 < 0) {
+                            if (currentSlide - 1 <= -1) {
                                 changeSlide(noOfDots)
                             } else {
                                 changeSlide(currentSlide - 1)
@@ -532,6 +533,7 @@
             </div>
             <h1>Test</h1>
         </div>
+    </div>
     <div id="ProgramDiv" style="background-image: url(Images/upgradedsky.png); overflow-x: hidden; position: relative;">
         <img src="Images/transparentPteroBlue.gif" id="randomPtero" style="width: 80px; display: none; position: absolute; right: -80px; z-index: 0; transition: all 15s linear; user-select: none;">
         <script>
