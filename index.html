@@ -204,6 +204,31 @@
         #ProgramDiv{
             background-size: 100vw; 
         }
+        .unselectedCarousel{
+            background-color: rgb(230, 230, 230);
+            border: none;
+        }
+        .selectedCarousel{
+            background-color: rgb(255, 255, 255);
+            border: none;
+        }
+        .nextButton{
+            font-weight: bolder;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+            border: none; 
+            background: rgba(0, 0, 0, 0.527); 
+            color:white;  
+            border-radius: 10px;
+            transition: .1s ease;  
+        }
+        .nextButton:hover{
+            font-weight: bolder;
+            border: none; 
+            background: rgba(71, 75, 104, 0.527); 
+            color:white;  
+            border-radius: 10px;  
+        }
         @media screen and (min-width: 1680px) {
             #aboutImg{
                 margin-left: 5%; 
@@ -415,8 +440,8 @@
             <div>
             <p class="textSection" style="text-align: left; margin-top: -20px; ">ArThematic's unique program design is supported and accepted amongst top international schools in Malaysia</p>
             <div style="overflow: hidden; width: round(down,80vw,258px); min-width: 258px; display: inline-block;">
-                <button style="width: 50px; height: 50px; right: 90%;  margin-top: 100px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
-                <button style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="next('front')">></button>
+                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
+                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="next('front')">></button>
                 <table id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
                     <tr class="partners">
                         <td><img src="Images/ucsi.png" alt="UCSI International School" width="256px"></td>
@@ -449,8 +474,12 @@
                     }
                     function changeSlide(slide) {
                         timeout()
+                        document.getElementById("carou" + limitNumberWithinRange(currentSlide)).classList.remove("selectedCarousel")
+                        document.getElementById("carou" + limitNumberWithinRange(currentSlide)).classList.add("unselectedCarousel")
                         currentSlide = limitNumberWithinRange(slide)
                         document.getElementById("partnerCarousel").style.left = "-" + (currentSlide * 258) + "px"
+                        document.getElementById("carou" + currentSlide).classList.remove("unselectedCarousel")
+                        document.getElementById("carou" + currentSlide).classList.add("selectedCarousel")
                         console.log((currentSlide * 258))
                     }
                     function next(slide) {
@@ -486,7 +515,7 @@
                             noOfDots = noOfItems - currentOnScreen
                             console.log(currentOnScreen)
                             for (let i = 0; i < noOfDots+1; i++) { 
-                                document.getElementById("dotContainer").innerHTML = document.getElementById("dotContainer").innerHTML + '<button onclick="next('+ i +')">' + i + '</button>'
+                                document.getElementById("dotContainer").innerHTML = document.getElementById("dotContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="next('+ i +')"" id="carou'+ i +'"></button>'
                             }
                             changeSlide(currentSlide)
                         }
@@ -533,7 +562,7 @@
                     document.getElementById("partnerCarousel").addEventListener('touchend', touchEnd);
                 </script>
             </div>
-            <h1>Test</h1>
+            <h1>Testimonials</h1>
         </div>
     </div>
     <div id="ProgramDiv" style="background-image: url(Images/upgradedsky.png); overflow-x: hidden; position: relative;">
