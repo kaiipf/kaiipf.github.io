@@ -511,12 +511,12 @@
                             if (event.touches[0].clientX < xPos) {
                                 console.log(event.touches[0].clientX - xPos)
                                 curTouch = event.touches[0].clientX * 0.5
-                                document.getElementById("partnerCarousel").style.left = "-" + ((currentSlide * 258)  + (xPos - event.touches[0].clientX * 0.5)) + "px"
+                                document.getElementById("partnerCarousel").style.left = - ((currentSlide * 258)  + (xPos - event.touches[0].clientX * 0.5)) + "px"
                             } else {
                             // you swiped right
                                 console.log(event.touches[0].clientX - xPos)
                                 curTouch = event.touches[0].clientX 
-                                document.getElementById("partnerCarousel").style.left = "-" + ((currentSlide * 258) + (xPos - event.touches[0].clientX)) + "px"
+                                document.getElementById("partnerCarousel").style.left = - ((currentSlide * 258) + (xPos - event.touches[0].clientX)) + "px"
                             }
                         }
                     }
