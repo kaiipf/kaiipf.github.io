@@ -500,12 +500,12 @@
                     var touchStarted = false
                     const touchStart = (event) => {
                     clearTimeout(currentTimeout)
-                    console.log(event.pageX)
+                    console.log(event.touches[0].pageX)
                     touchStarted = true
                     xPos = event.touches[0].pageX;
                     curTouch = (currentSlide * 258)
                     }
-                    const touchMove = (event) => {
+                    function touchMove(event) {
                         if (touchStarted == true) {
                             event.preventDefault();
 
@@ -522,13 +522,15 @@
                         }
                     }
                     const touchEnd = (event) => {
-                        touchStarted = false
-                        console.log(Math.round((currentSlide * 258) + (xPos - curTouch))/ 258)
-                        changeSlide(Math.round(((currentSlide * 258) + (xPos - curTouch))/ 258));
+                        if (touchStarted == true) {
+                            touchStarted = false
+                            console.log(Math.round((currentSlide * 258) + (xPos - curTouch))/ 258)
+                            changeSlide(Math.round(((currentSlide * 258) + (xPos - curTouch))/ 258));
+                        }
                     };
                     document.getElementById("partnerCarousel").addEventListener('touchmove', touchMove);
                     window.addEventListener('touchstart', touchStart);
-                    window.addEventListener('touchend', touchEnd);
+                    document.getElementById("partnerCarousel").addEventListener('touchend', touchEnd);
                 </script>
             </div>
             <h1>Test</h1>
