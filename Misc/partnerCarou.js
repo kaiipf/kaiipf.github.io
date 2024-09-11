@@ -49,7 +49,9 @@ function detectDots() {
     if (noOfDots != noOfItems - currentOnScreen) {
         document.getElementById("dotContainer").innerHTML = ""
         noOfDots = noOfItems - currentOnScreen
-        console.log(currentOnScreen)
+        if ((window.innerWidth * (8/10))/ 258 * 258< 258) {
+            noOfDots = noOfDots - 1
+        }
         for (let i = 0; i < noOfDots+1; i++) { 
             document.getElementById("dotContainer").innerHTML = document.getElementById("dotContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="next('+ i +')"" id="carou'+ i +'"></button>'
         }

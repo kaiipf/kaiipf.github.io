@@ -1,4 +1,4 @@
-var quotenoOfDots = 5
+var quotenoOfDots = null
 var quotenoOfItems = 5
 var quotecurrentSlide = 0
 var quotecurrentTimeout = null
@@ -49,16 +49,19 @@ function quotedetectDots() {
     if (quotenoOfDots != quotenoOfItems - quotecurrentOnScreen) {
         document.getElementById("quoteContainer").innerHTML = ""
         quotenoOfDots = quotenoOfItems - quotecurrentOnScreen
-        console.log(quotecurrentOnScreen)
+        if ((window.innerWidth * (8/10))/ 346 * 346 < 346) {
+            quotenoOfDots = quotenoOfDots - 1
+        }
         for (let i = 0; i < quotenoOfDots+1; i++) { 
             document.getElementById("quoteContainer").innerHTML = document.getElementById("quoteContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="quotenext('+ i +')"" id="quoteCarou'+ i +'"></button>'
         }
         quotechangeSlide(quotecurrentSlide)
     }
 }
+quotedetectDots();
 
 $(window).resize(quotedetectDots);
-quotedetectDots();
+
 var quotetouchUpdate;
 let quotexPos;
 let quotecurTouch;
