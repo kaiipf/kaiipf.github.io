@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6{
     top: 0;
     background-color: black;
     position: fixed;
-    z-index: 998;
+    z-index: 2000;
     transition: opacity 1s ease;
  }
  .flashyIntroCover{
@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6{
     background-color: black;
     color: white;
     top: 0;
-    z-index: 1000;
+    z-index: 2001;
     transition: top 1s ease;
 }
 .startup{

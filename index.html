@@ -9,6 +9,8 @@
     <link rel="icon" type="image/x-icon" href="Images/atLogo.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
         .homeBanner {
             overflow-y: hidden;
@@ -465,34 +467,8 @@
     </div>
     </div>
         <div style="width: 100%; color:white; margin-top: -21.5px; text-align: center; background-color: lightskyblue;">
-            <h1 style="padding-top: 10px;">Our Partners</h1>
-            <div>
-            <p class="textSection" style="text-align: left; margin-top: -20px; ">ArThematic's unique program design is supported amongst the top international schools in Malaysia.</p>
-            <div style="overflow: hidden; width: round(down,80vw,258px); min-width: 258px; display: inline-block;">
-                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
-                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="next('front')">></button>
-                <table ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
-                    <tr class="partners">
-                        <td><img src="Images/ucsi.png" alt="UCSI International School" width="256px"></td>
-                        <td><img src="Images/ISKL.png" alt="International School of Kualar Lumpur" width="256px"></td>
-                        <td><img src="Images/aism.png" alt="Australian Internation School Malaysia" width="256px"></td>
-                        <td><img src="Images/nexusis.png" alt="Nexus International School" width="256px"></td>
-                        <td><img src="Images/PHIS.png" alt="Pine Hills International School" width="256px"></td>
-                        <td><img src="Images/bnis.png" alt="Beaconhouse Newlands International School" width="256px"></td>
-                        <td><img src="Images/tis.png" alt="Taylor's International School" width="256px"></td>
-                        <td><img src="Images/tbiskl.png" alt="British International School Kualar Lumpur" width="256px"></td>
-                        <td><img src="Images/apis.png" alt="Asia Pacific School" width="256px"></td>
-                        <td><img src="Images/lsl.png" alt="Learn Share Lead (LSL) International School" width="256px"></td>
-                        <td><img src="Images/gkmk.png" alt="Global Kids Kindergarten" width="256px"></td>
-                        <td><img src="Images/ew.png" alt="Emilia Wolsey" width="256px"></td>
-                    </tr>
-                </table>
-                <div id="dotContainer">
-                    <button onclick="next(1)">1</button>
-                </div>
-                <script src="Misc/partnerCarou.js"></script>
-            </div>
-            <h1>Testimonials</h1>
+            <h1 style="padding-top: 10px;">Our Testimonials</h1>
+            <p class="textSection" style="text-align: center; margin-top: -20px; ">Hear directly from our families</p>
             <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px; display: inline-block;">
                 <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="quotenext('back')"><</button>
                 <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="quotenext('front')">></button>
@@ -675,9 +651,69 @@
                 </div>
             </div>
         </div>
+        <div style="width: 100%; color:white; margin-top: -21.5px; text-align: center; background-color: lightskyblue;">
+            <h1 style="padding-top: 10px;">Our Partners</h1>
+            <div>
+            <p class="textSection" style="text-align: center; margin-top: -20px; ">ArThematic's unique program design is supported amongst the top international schools in Malaysia.</p>
+            <div style="overflow: hidden; width: round(down,80vw,258px); min-width: 258px; display: inline-block;">
+                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
+                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="next('front')">></button>
+                <table ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+                    <tr class="partners">
+                        <td><img src="Images/ucsi.png" alt="UCSI International School" width="256px"></td>
+                        <td><img src="Images/ISKL.png" alt="International School of Kualar Lumpur" width="256px"></td>
+                        <td><img src="Images/aism.png" alt="Australian Internation School Malaysia" width="256px"></td>
+                        <td><img src="Images/nexusis.png" alt="Nexus International School" width="256px"></td>
+                        <td><img src="Images/PHIS.png" alt="Pine Hills International School" width="256px"></td>
+                        <td><img src="Images/bnis.png" alt="Beaconhouse Newlands International School" width="256px"></td>
+                        <td><img src="Images/tis.png" alt="Taylor's International School" width="256px"></td>
+                        <td><img src="Images/tbiskl.png" alt="British International School Kualar Lumpur" width="256px"></td>
+                        <td><img src="Images/apis.png" alt="Asia Pacific School" width="256px"></td>
+                        <td><img src="Images/lsl.png" alt="Learn Share Lead (LSL) International School" width="256px"></td>
+                        <td><img src="Images/gkmk.png" alt="Global Kids Kindergarten" width="256px"></td>
+                        <td><img src="Images/ew.png" alt="Emilia Wolsey" width="256px"></td>
+                    </tr>
+                </table>
+                <div id="dotContainer">
+                    <button onclick="next(1)">1</button>
+                </div>
+                <script src="Misc/partnerCarou.js"></script>
+            </div>
+        </div>
+</div>
+<div class="textSection">
+    <h1>Our Locations</h1>
+    <div id="map" style="height: 500px;"></div>
+    <script>
+        var map = L.map('map').setView([-10.10293, 121.73305], 3);
+        var countryMarker = L.Icon.extend({
+            options: {
+                iconSize:     [64, 64], // size of the icon
+                iconAnchor:   [32, 64], // point of the icon which will correspond to marker's location
+                popupAnchor:  [0, -64] // point from which the popup should open relative to the iconAnchor
+            }
+        });
+        L.icon = function (options) {
+            return new L.Icon(options);
+         };
+         
+        var msiaIcon = new countryMarker({iconUrl: 'Images/msiamarker.png'});
+        var ausIcon = new countryMarker({iconUrl: 'Images/ausmarker.png'});
+        var msiaMarker = L.marker([3.10293, 101.73305], {icon: msiaIcon}).addTo(map).bindPopup("View locations in Malaysia<br><br><div style='margin-bottom:20px;'><a class='readMore' style='color:white;'>Read More</a></div>");
+        var ausMarker = L.marker([-37.839532, 145.045621], {icon: ausIcon}).addTo(map).bindPopup("View locations in Australia<br><br><div style='margin-bottom:20px;'><a class='readMore' style='color:white;'>Read More</a></div>");
+        
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    </script>
+</div>
 
-    
-<p>test</p>
+
+
+
+
+
     <!--Startup animation-->
     <script>
             var i = 0;
