@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArThematic</title>
+    <link rel="stylesheet" href="Stylesheets/styles copy.css">
+    <link rel="icon" type="image/x-icon" href="Images/atLogo.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        .homeBanner {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            position: relative;
+            height: 95vh;
+            background-color: white;
+        }
+        .bannerImg{
+            width: 100%;
+            height: 95vh;
+            object-fit: cover;
+        }
+        .bannerText{
+            color: white;
+            position: absolute;
+            text-align: left;
+            left: 50%;
+            top:25%;
+            transform: translate(-50%, 0);
+        }
+        .bannerText h2{
+            font-family: Anek Devangari;
+            font-size: 4vh;
+            font-weight: 500;
+        }
+        .toContact{
+            border: 2px solid white;
+            padding: 10px;
+            padding-bottom: 3px;
+            cursor: pointer;
+            transition: .5s ease;
+        }
+        .toContact:hover{
+            background-color: white;
+            color:black
+        }
+        .bannerText h1{
+            font-size: 11vh;
+            margin-top: -20px;
+            text-align: left;
+            position: relative; 
+            left: 2px;
+            transition: top 1s ease;
+        }
+        .invisible{
+         top: -100vh;
+        }
+        .visible{
+            top: 20px;
+        }
+        .textSection{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 42px;
+            width: 55%;
+            position: relative;
+        }
+        .textSection h1{
+            font-size: 64px;
+        }
+        .bannerDecoration{
+            position: absolute; 
+            width: 100vw;
+            height: calc(100vw * 0.43935185185 );
+            transition: all 1s ease;
+        }
+        .bannerDecoInvisible{
+            bottom: -999px;
+        }
+        .bannerDecoVisible{
+            bottom: -5px;
+        }
+        #walkingDino{
+            position: absolute;
+            margin-top:-20px;
+            z-index: 5;
+            opacity: 0;
+
+        }
+        .canWalk{
+            transition: margin-left 1.5s linear, opacity .25s ease;
+        }
+        .walk{
+            margin-left: 445px;
+        }
+        /*rocketIn is when rocket first flies in screen, land is when it lands after stop*/
+        .rocketIn{
+            transition: top 2s ease-out;
+        }
+        .rocketLand{
+            transition: top .5s ease-in;
+        }
+        .rocketInitialPos{
+            top:-350px
+        }
+        .rocketInPos{
+            top:55vh
+        }
+        .rocketLandPos{
+            top:65vh
+        }
+        .rightInfo{
+            width: 465px;
+            float: right; 
+            padding-top: 50px;
+        }
+        #rocketWrapper{
+            width: 12%;
+        }
+        #aboutImg{
+            width: 355px;
+        }
+        #About div{
+            position: relative;
+            z-index: 5;
+        }
+        #verticalFlow{
+            display: none;
+        }
+        .partners td{
+            width: 256px;
+        }
+        .quotes td{
+            width: 256px;
+        }
+        .quotes td img{
+            user-select: none;
+            pointer-events: none;
+        }
+        .partners td img{
+            user-select: none;
+            pointer-events: none;
+        }
+        .readMore{
+            border-radius: 40px;
+            padding:15px;
+            font-family: Grobold;
+            font-size: 24px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: all .2s ease;
+            cursor: pointer;
+            color:white;
+            background-color: rgb(255, 207, 33);
+        }
+        .readMore:hover{
+            background-color: rgb(135, 109, 17);
+        }
+        .activityInfoButton{
+            font-size: min(5vw, 18px);
+            border-radius: 20px;
+            padding: 5px;
+            width: 32%;
+            max-width: 120px;
+            position: relative;
+            z-index: 2;
+            transition: all .2s ease;
+            font-family: Grobold;
+            cursor: pointer;
+            background-color: white;
+        }
+        #programDiv div{
+            position: relative;
+            z-index: 2;
+        }
+        #ThematicButton{
+            border: 3px solid #ec008b;
+            color:#ec008b;
+        }
+        #ThematicButton:hover{
+            background: #ec008b;
+            color: white;
+        }
+        #ThematicButton:active{
+            background: #ffa8db;
+            border: 3px solid #ffa8db;
+        }
+        #InspirationButton{
+            border: 3px solid #89c33c;
+            color:#89c33c;
+        }
+        #InspirationButton:hover{
+            background: #89c33c;
+            color: white;
+        }
+        #InspirationButton:active{
+            background: #d5fba3;
+            border: 3px solid #d5fba3;
+        }
+        #InnovationButton{
+            border: 3px solid #25abe3;
+            color:#25abe3;
+        }
+        #InnovationButton:hover{
+            background: #25abe3;
+            color: white;
+        }
+        #InnovationButton:active{
+            background: #97e0ff;
+            border: 3px solid #97e0ff;
+        }
+        #InnovationImages{
+            display: block;
+        }
+        #responsiveInnovation{
+            display: none;
+        }
+        #ProgramDiv{
+            background-size: 100vw; 
+        }
+        .unselectedCarousel{
+            background-color: rgb(230, 230, 230);
+            border: none;
+        }
+        .selectedCarousel{
+            background-color: rgb(255, 255, 255);
+            border: none;
+        }
+        .nextButton{
+            font-weight: bolder;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+            border: none; 
+            background: rgba(147, 145, 220, 0.508); 
+            color:white;  
+            border-radius: 10px;
+            transition: .1s ease;  
+        }
+        .nextButton:hover{
+            font-weight: bolder;
+            border: none; 
+            background: rgba(71, 75, 104, 0.527); 
+            color:white;  
+            border-radius: 10px;  
+        }
+        .bubble {
+            --r: 1em;  /* the radius */
+            --t: 1.5em; /* the size of the tail */
+            color: rgb(89, 89, 89);
+            width: 328px;
+            height: 256px;
+            padding: .5em;
+            background: url(Images/bubble.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            text-align: left;
+            /*border-inline: var(--t) solid #0000;
+            border-radius: calc(var(--r) + var(--t))/var(--r);
+            mask: 
+                radial-gradient(100% 100% at var(--_p) 0,#0000 99%,#000 102%) 
+                var(--_p) 100%/var(--t) var(--t) no-repeat,
+                linear-gradient(#000 0 0) padding-box;
+            background: #1384C5 border-box;
+            color: #fff;
+                --_p: 0;
+            border-bottom-left-radius: 0 0;
+            place-self: start;*/
+        }
+        @media screen and (min-width: 1680px) {
+            #aboutImg{
+                margin-left: 5%; 
+            }
+            .rightInfo{
+                width: 40%;
+            margin-right: 5%; 
+        }
+        }
+        @media screen and (min-width: 1600px) {
+            #aboutImg{
+                width: 40%;
+                max-width: 600px;
+            }
+            .rightInfo{
+            margin-right: 4%; 
+        }
+        }
+        @media screen and (min-width: 1537px) {
+            .bannerDecoration{
+            width: 100vw;
+            height: calc(100vw * 0.43935185185 );
+        }
+        }
+        @media screen and (max-width: 1490px) {
+            .textSection{
+                margin-left: auto;
+                margin-right: auto;
+                width: 70%;
+        }
+        @media screen and (max-width: 1300px) {
+            #activityFlow{
+                display: none;
+            }
+            #verticalFlow{
+                display: block;
+            }
+        }
+        }
+        @media screen and (max-width: 1296px) {
+            .bannerText h1{
+                font-size: 66px;
+            }
+        }
+        @media screen and (max-width: 1171px) {
+            .rightInfo{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .rocketLandPos{
+            top:80vh
+        }
+        #aboutHeader{
+            text-align: center;
+        }
+        #About{
+            margin-top: -60px;
+            
+        }
+        .textSection{
+            width: 80%;
+        }
+        .walk{
+            margin-left: 95%;
+        }
+        #aboutImg{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        }
+        @media screen and (max-width: 945px) {
+            .bannerText h1{
+                font-size: 52px;
+            }
+        }
+        @media screen and (max-width: 900px) {
+            #InnovationImages{
+                display: none;
+            }
+            #responsiveInnovation{
+                display: block;
+            }
+        }
+        @media screen and (max-width: 720px) {
+            #ProgramDiv{
+            background-size: 1000px; 
+            }
+            .bannerText h2{
+                font-size: 18px;
+            }
+            .homeBanner {
+                height: 400px;
+            }
+            .bannerImg{
+            height: 400px;
+            }
+            #rocketWrapper{
+            width: 60px;
+        }
+            .rocketInPos{
+            top:280px
+        }
+        .rocketLandPos{
+            top:320px
+        }
+            .bannerText h1{
+                font-size: 32px;
+                text-align: center;
+            }
+            .bannerText{
+                text-align: center;
+                top:28%;
+                width: 60vw;
+            }
+            
+        @media screen and (max-width: 400px) {
+            #aboutImg{
+                width: 90%;
+            }
+        }
+        }
+    </style>
+</head>
+
+<body id="body" class="noScroll">
+    <!--Fade to page elements-->
+    <noscript><h1 style="position: fixed; z-index: 999; color:white;">This website requires javascript to be enabled.</h1></noscript>
+    <div id="screenCover">
+        <img src="Images/atLogo.png" style="width: 20%; position: absolute; left: 50%; top:35%; transform: translate(-50%, 0)">
+    </div>
+    <div class="navbar startup" id="navbar">
+            <img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;">
+            <a>Home</a>
+            <a>Programs</a>
+            <a>About us</a>
+            <a>Contact us</a>
+            <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
+            <script>
+                var hidden = true
+                function showHide() {
+                    if (hidden == false) {
+                        document.getElementById("navMenu").classList.remove('expandedMenu');
+                        hidden = true
+                    } else {
+                        document.getElementById("navMenu").classList.add('expandedMenu');
+                        hidden = false
+                    }
+                }
+            </script>
+    </div>
+    <div class="navMenu" id="navMenu">
+        <ul>
+        <li style="list-style-type: none;"><a>Home</a></li>
+        <li style="list-style-type: none;"><a>Programs</a></li>
+        <li style="list-style-type: none;"><a>About us</a></li>
+        <li style="list-style-type: none;"><a>Contact us</a></li>
+        </ul>
+    </div>
+    <div class="homeBanner">
+        <div class="bannerText">
+        <h2 style="top: 47%;" id="welcomeText"></h2>
+        <div style="overflow: hidden;">
+        <h1 id="bigHeader" class="invisible">Where Art<br>Meets Science</h1>
+        </div>
+        </div>
+        <div class="bannerDecoration">
+        <div id="rocketWrapper" style="position: relative; left: 68%;" class="rocketInitialPos rocketIn">
+            <img src="Images/shuttle.png" style="position: relative; width:100%;">
+            <img src="Images/atRocketFlame.gif" id="rocketFlame" style="position: absolute; width: 15%; left: 50%; top: 50%; transform: translate(-50%,90%); transition: opacity .5s ease;">
+        </div>
+        </div>
+        <img src="Images/skyscape.png"class="bannerDecoration" id="bannerSky" style="top: -999px;">
+        <img src="Images/Marscape.png" id="bannerDecoration" class="bannerDecoInvisible bannerDecoration">
+        <img src="Images/homeBanner1.jpg" class="bannerImg">
+    </div>
+    <div id="starScape" style="background-image: url(Images/bluestars.png); overflow-x: hidden; position: relative; margin-bottom: -18px; background-size:contain;">
+    <div class="textSection" id="About">
+    <div class="rightInfo">
+    <h1 class="highlight" id="aboutHeader">About us</h1>
+    <img src="Images/rocket.png" width="40px" id="walkingDino" class="canWalk">
+    <div id="trailLine" style="width: 0; opacity: 0; border-top: 2px solid gray; z-index: 0; transform-origin: center left; transition: width 1.5s linear, opacity .25s ease;"></div>
+    <p id="aboutBody" style=" position: relative; top: -30px; opacity: 0;transition: all 1s ease;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum sem sed mattis pulvinar. Phasellus eget nisi erat. Blah Blah Blah Blah Blah Blah Blah Blah  </p>
+    <div id="aboutMore" style="margin:auto; margin-top: 20px; width: 158px; top: -30px; opacity: 0;transition: all 1s ease;"><a class="readMore">Read More</a></div>
+    </div>
+    <img id="aboutImg" src="Images/theThematic.jpg">
+    </div>
+    <br>
+    <img src="Images/satellite.png" id="satellite" style="width: 150px; left: 10%; position: absolute; z-index: 1;">
+    
+    <div class="textSection" style="overflow-y: none; position: relative;">
+        <h1 class="highlight" style="text-align: center;">Why choose us?</h1>
+        <p style="z-index: 5; position: relative;">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills.
+            <br><br>
+            Our program aims to inspire the next generation of innovative leaders by cultivating a mindset that values creativity, exploration, and critical thinking. Whether your child dreams of becoming an architect, a scientist, or a storyteller, Art Thematic provides the tools and inspiration to help them realize their full potential.
+            <br><br>
+            Enroll your child today and watch them thrive in a learning environment that bridges the gap between art and science, nurturing both their imagination and intellect!</p>
+        </p>
+            <div style="position: absolute; bottom: -250px; z-index: -5px; opacity: 100%; left:50%; margin-bottom: -43px; transform: translate(-50%,-50%);">
+            <div style="position: relative; height: 550px; overflow-x: hidden; overflow-y: hidden;">
+            <img src="Images/globe.svg" id="globe" width="2160px" style="object-position: top; display:block; transform-origin: 1080px 1080px; -moz-user-select: none; -webkit-user-select: none; pointer-events: none; user-select: none;">
+            </div>
+        </div>
+    </div>
+    </div>
+        <div style="width: 100%; color:white; margin-top: -21.5px; text-align: center; background-color: lightskyblue;">
+            <h1 style="padding-top: 10px;">Our Testimonials</h1>
+            <p class="textSection" style="text-align: center; margin-top: -20px; ">Hear directly from our families</p>
+            <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px; display: inline-block;">
+                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="quotenext('back')"><</button>
+                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="quotenext('front')">></button>
+                <table  ontouchstart="quotetouchStart(event)" ontouchmove="quotetouchMove(event)" ontouchend="quotetouchEnd(event)" id="quoteCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+                    <tr class="quotes">
+                        <td>
+                            <div class="bubble">
+                                <p style="padding-left: 70px; padding-right: 70px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum sem sed mattis pulvinar.</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubble">
+                                <p style="padding-left: 70px; padding-right: 70px;">ArThematic saved my marriage</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubble">
+                                <p style="padding-left: 70px; padding-right: 70px;">ArThematic...</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubble">
+                                <p style="padding-left: 70px; padding-right: 70px;">ArThematic...</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubble">
+                                <p style="padding-left: 70px; padding-right: 70px;">ArThematic...</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div id="quoteContainer">
+                    <button onclick="quotenext(1)">1</button>
+                </div>
+                <script src="Misc/quoteCarou.js"></script>
+            </div>
+        </div>
+    </div>
+    <div id="ProgramDiv" style="background-image: url(Images/upgradedsky.png); overflow-x: hidden; position: relative;">
+        <img src="Images/transparentPteroBlue.gif" id="randomPtero" style="width: 80px; display: none; position: absolute; right: -80px; z-index: 0; transition: all 15s linear; user-select: none;">
+        <script>
+            function summonPtero() {
+                const clone = document.getElementById("randomPtero").cloneNode();
+                clone.style.marginTop = Math.floor(Math.random() * 400) + "px";
+                clone.style.display = "block"
+                // clone.style.transition = "all " + travelTime + "s linear";
+                document.getElementById("ProgramDiv").prepend(clone); 
+                setTimeout(function() {   
+                    clone.style.right = "102vw"
+                    setTimeout(summonPtero, 20000)
+                    setTimeout(function() {
+                        clone.remove()
+                    }, 15000)
+                }, 50)
+            }
+            setTimeout(summonPtero, 0)
+        </script>
+        <div class="textSection" style="overflow-y: none; position: relative;">
+            <h1 style="text-align: center;">Our programs</h1>
+            <p>ArThematic's unique programming explores a new topic each month, ranging from exciting topics in history, geography, science and many more. Each month, children engage with these subjects through a structured approach built on three core pillars: <b>Thematics</b>, <b>Inspiration</b> and <b>Innovation</b>. This approach ensures a rich, well-rounded learning experience that sparks curiosity, encourages creativity, and fosters innovative thinking.</p>
+        </div>
+        <div class="center" style="text-align: center;">
+            <button class="activityInfoButton" id="ThematicButton" onclick="changeActivity('Thematic')">Thematic</button>
+            <button class="activityInfoButton" id="InspirationButton" onclick="changeActivity('Inspiration')">Inspiration</button>
+            <button class="activityInfoButton" id="InnovationButton" onclick="changeActivity('Innovation')">Innovation</button>
+            <p style="font-size: 12px; color: gray; position: relative; z-index: 5;">Click the buttons for information about our program structure</p>
+            <script>
+                var currentActivity = "Thematic"
+                function changeActivity(activity) {
+                    if (activity != currentActivity) {
+                    document.getElementById(currentActivity).style.display = "none"
+                    document.getElementById(currentActivity).style.top = "-50px"
+                    document.getElementById(currentActivity).style.opacity = "0"
+
+                    document.getElementById(activity).style.display = "block"
+                    setTimeout(function(){                    
+                        document.getElementById(activity).style.top = "0px"
+                        document.getElementById(activity).style.opacity = "100"
+                        currentActivity = activity;
+                    },100)
+                    }
+                }
+            </script>
+        </div>
+        <div id="Thematic" style="position: relative; top:0px; opacity: 100; transition: all .5s ease;">
+            <h1 style="text-align: center;">Thematic Month</h1>
+            <div class="textSection">
+                <p>During Thematic Month, we focus on integrating drawing, crafting, storyboarding, and presenting into a unified study flow, with our goal being to guide children through the creative transformation of a themed idea into a fully realized project, whilst also learning about the world around them. Throughout this process, your child will explore various aspects of creative design, ultimately mastering skills such as visual illustration, 3D modeling, and effective storyboarding for presentations. By the end of the program, they will have developed a comprehensive project that showcases their creativity, technical skills, and storytelling abilities.</p>
+            </div>
+            <h1 style="text-align: center;">Activity Flow</h1>
+            <div class="activityFlow" id="activityFlow" style="position: relative; width: 100%;">
+                    <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td><h2 id="actText1" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">2D Visuals</h2></td>
+                            <td><img src="Images/pterodactyl.gif" id="actRocket1" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine1" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
+                            <td><h2 id="actText2" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">3D Models</h2></td>
+                            <td><img src="Images/pterodactyl.gif" id="actRocket2" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine2" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
+                            <td><h2 id="actText3" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">Storyboarding</h2></td>
+                        </tr>
+                        <tr>
+                            <td style="overflow: hidden;"><img src="Images/flow(1).png" id="actPhase1" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                            <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
+                            <td style="overflow: hidden;"><img src="Images/flow(2).png" id="actPhase2" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                            <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
+                            <td style="overflow: hidden;"><img src="Images/flow(3).png" id="actPhase3" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                        </tr>
+                    </table>
+            </div>
+            <div id="verticalFlow" style="width: 400px;  margin-left: auto; margin-right: auto; margin-bottom: 20px; position: relative;">
+                <img src="Images/pterodactyl.gif" id="responsiveRocket" style="width: 40px; opacity: 0; position: absolute; float: right; z-index: 20; margin-right: 50px; left: 84%; top: 0%; transform: translate(-50%,-50%) rotate(90deg); transition: top 1.5s linear, opacity .5s ease;">
+                <div id="responsiveFlowLine" style="height: 0px; opacity: 0; position: relative; width: 0px; border-left: 2px solid gray; float: right; right: 18%; transition: height 1.5s linear, opacity .5s ease;"></div>
+                <table style="border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align: right; overflow: hidden;"><h2 id="rActivity1" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">2D Visual</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(1).png" id="vertPhase1" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                    <tr>
+                        <td  style="text-align: right; overflow: hidden;"><h2 id="rActivity2" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">3D Models</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(2).png" id="vertPhase2" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; overflow: hidden;"><h2 id="rActivity3" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">Storyboarding</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(3).png" id="vertPhase3" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    <div id="Inspiration" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+        <h1 style="text-align: center;">Inspiration Month</h1>
+        <div class="textSection">
+            <p>Inspiration Month is designed to unlock your child's self-expression through the transformative power of art. Whether they are just beginning or already experienced, this program equips them with essential techniques that foster creativity and personal expression. By the end of the program, your child will have discovered new and meaningful ways to communicate through art, gaining confidence and developing their unique creative voice.</p>
+        </div>
+        <h1 style="text-align: center;">Inspiration Month activities</h1>
+        <h2 style="text-align: center;">Fine Art</h2>
+        <img src="Images/fineart(1).jpg" style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+    </div>
+    <div id="Innovation" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+        <h1 style="text-align: center;">Innovation Month</h1>
+        <div class="textSection">
+            <p>Our Innovation Month is aimed on helping your child discover the wonderful world of both art and science. Through our themed hands-on projects and more, this program encourages your child to experiment and explore the world around them, igniting that spark of curiosity in your child. This program will bring out the full extent of your child's creative mind and inspire them to become an innovative leader. </p>
+        </div>
+        <h1 style="text-align: center;">Innovation Month activities</h1>
+        <div  id="InnovationImages" style="margin-left: auto; margin-right: auto; width: 900px;">
+        <table>
+            <tr>
+                <td><h2 style="text-align: center;  padding-right: 50px;">STEAM Kidz</h2></td>
+                <td><h2 style="text-align: center;  padding-left: 50px;">Digital Art</h2></td>
+            </tr>
+            <tr>
+                <td><img src="Images/steamkids(1).jpg" style="max-width: 400px; padding-right: 50px;"></td>
+                <td><img src="Images/digitalArt.jpg" style="max-width: 400px;  padding-left: 50px;"></td>
+            </tr>
+        </table>
+    </div>
+        <!--Responsive part-->
+        <div id="responsiveInnovation">
+                <div style="display: block;">
+                    <h2 style="text-align: center;">STEAM Kidz</h2>
+                    <img src="Images/steamkids(1).jpg" style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+                <div class="InnovationImage" style="display: block;">
+                    <h2 style="text-align: center;">Digital Art</h2>
+                    <img src="Images/digitalArt.jpg"style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+            </div>
+    </div>
+
+        <p style="font-size: 12px; color: gray; position: relative; z-index: 5; text-align: center; margin: 0;">For details about program scheduling, please refer to the link below</p>
+        <div style="margin:auto; margin-top: 20px; width: 158px;"><a class="readMore">Read More</a></div>
+        <h1 style="text-align: center;">Individual Programs</h1>
+            <div class="textSection" style="overflow-y: none; position: relative;">
+                    <img src="Images/6 PROGRAMS LOGOTYPES.png" width="100%">
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%; color:white; margin-top: -21.5px; text-align: center; background-color: lightskyblue;">
+            <h1 style="padding-top: 10px;">Our Partners</h1>
+            <div>
+            <p class="textSection" style="text-align: center; margin-top: -20px; ">ArThematic's unique program design is supported amongst the top international schools in Malaysia.</p>
+            <div style="overflow: hidden; width: round(down,80vw,258px); min-width: 258px; display: inline-block;">
+                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
+                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="next('front')">></button>
+                <table ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+                    <tr class="partners">
+                        <td><img src="Images/ucsi.png" alt="UCSI International School" width="256px"></td>
+                        <td><img src="Images/ISKL.png" alt="International School of Kualar Lumpur" width="256px"></td>
+                        <td><img src="Images/aism.png" alt="Australian Internation School Malaysia" width="256px"></td>
+                        <td><img src="Images/nexusis.png" alt="Nexus International School" width="256px"></td>
+                        <td><img src="Images/PHIS.png" alt="Pine Hills International School" width="256px"></td>
+                        <td><img src="Images/bnis.png" alt="Beaconhouse Newlands International School" width="256px"></td>
+                        <td><img src="Images/tis.png" alt="Taylor's International School" width="256px"></td>
+                        <td><img src="Images/tbiskl.png" alt="British International School Kualar Lumpur" width="256px"></td>
+                        <td><img src="Images/apis.png" alt="Asia Pacific School" width="256px"></td>
+                        <td><img src="Images/lsl.png" alt="Learn Share Lead (LSL) International School" width="256px"></td>
+                        <td><img src="Images/gkmk.png" alt="Global Kids Kindergarten" width="256px"></td>
+                        <td><img src="Images/ew.png" alt="Emilia Wolsey" width="256px"></td>
+                    </tr>
+                </table>
+                <div id="dotContainer">
+                    <button onclick="next(1)">1</button>
+                </div>
+                <script src="Misc/partnerCarou.js"></script>
+            </div>
+        </div>
+</div>
+<div class="textSection">
+    <h1>Our Locations</h1>
+    <div id="map" style="height: 500px;"></div>
+    <script>
+        var map = L.map('map').setView([-10.10293, 121.73305], 3);
+        var countryMarker = L.Icon.extend({
+            options: {
+                iconSize:     [64, 64], // size of the icon
+                iconAnchor:   [32, 64], // point of the icon which will correspond to marker's location
+                popupAnchor:  [0, -64] // point from which the popup should open relative to the iconAnchor
+            }
+        });
+        L.icon = function (options) {
+            return new L.Icon(options);
+         };
+         
+        var msiaIcon = new countryMarker({iconUrl: 'Images/msiamarker.png'});
+        var ausIcon = new countryMarker({iconUrl: 'Images/ausmarker.png'});
+        var msiaMarker = L.marker([3.10293, 101.73305], {icon: msiaIcon}).addTo(map).bindPopup("View locations in Malaysia<br><br><div style='margin-bottom:20px;'><a class='readMore' style='color:white;'>Read More</a></div>");
+        var ausMarker = L.marker([-37.839532, 145.045621], {icon: ausIcon}).addTo(map).bindPopup("View locations in Australia<br><br><div style='margin-bottom:20px;'><a class='readMore' style='color:white;'>Read More</a></div>");
+        
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    </script>
+</div>
+<div style="width: 100%; background-color: #5d534c; color:white">
+    <div class="textSection" style="padding-top: 40px; padding-bottom: 40px; text-align: center;" >
+        <h1>Interested in joining us?</h1>
+
+        <a class="toContact" style="font-size: 24px;">Lets get in touch!</a>
+    </div>
+</div>
+
+
+
+
+    <!--Startup animation-->
+    <script>
+            var i = 0;
+            var txt = 'Welcome to arThematic!';
+            var speed = 50;
+            function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("welcomeText").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+                }
+            }
+        setTimeout(function() {
+        document.getElementById("navbar").classList.remove('startup');
+            setTimeout(function() {
+                document.getElementById("screenCover").classList.add('flashyIntroCover');
+                typeWriter()
+                setTimeout(function() {
+                    document.querySelector('body').classList.remove('noScroll');
+                    document.getElementById("bannerDecoration").classList.add('bannerDecoVisible');
+                    document.getElementById("bannerDecoration").classList.remove('bannerDecoInvisible');
+                    document.getElementById("bannerSky").style.top = "0px";
+                    document.getElementById("screenCover").remove()
+                    setTimeout(function() {
+                        document.getElementById("bigHeader").classList.remove('invisible');
+                        document.getElementById("bigHeader").classList.add('visible');
+                        document.getElementById("rocketWrapper").classList.remove('rocketInitialPos');
+                        document.getElementById("rocketWrapper").classList.add('rocketInPos');
+                    },1000 )
+                    setTimeout(function() {
+                        document.getElementById("rocketWrapper").classList.remove('rocketIn');
+                        document.getElementById("rocketWrapper").classList.add('rocketLand');
+                        document.getElementById("rocketWrapper").classList.remove('rocketInPos');
+                        document.getElementById("rocketWrapper").classList.add('rocketLandPos');
+                        document.getElementById("rocketFlame").style.opacity = 0
+                        setTimeout(function() {
+                            document.getElementById("rocketWrapper").classList.remove('rocketLand');
+                            // so that when resizing the page, the rocket doesnt transition there cus it looks weird
+                        }, 500)
+                     }, 3000);
+                }, 1000);
+            }, 1000);
+        }, 100);
+
+    // Scroll animations
+
+    const targetElement = document.querySelector('.target-element');
+    function onElementInView(entry) {
+        if (entry.id == "About") {
+        document.getElementById("walkingDino").classList.add('walk');
+        document.getElementById("walkingDino").style.opacity = 100
+        document.getElementById("trailLine").style.opacity = 100
+        document.getElementById("trailLine").style.width = "100%"
+        document.getElementById("aboutHeader").style.backgroundSize = "100%"
+        setTimeout(function() {
+            document.getElementById("aboutBody").style.top = "0px"
+            document.getElementById("aboutBody").style.opacity = "100%";
+            document.getElementById("aboutMore").style.top = "0px"
+            document.getElementById("aboutMore").style.opacity = "100%";
+        },750)
+        setTimeout(function() {
+        document.getElementById("walkingDino").classList.remove('canWalk')
+        }, 1500)
+    }  else if (entry.id == "activityFlow") {
+            document.getElementById("actPhase1").style.left = "0px"
+            document.getElementById("actPhase1").style.opacity = "100"
+            document.getElementById("actText1").style.opacity = "100"
+            document.getElementById("actText1").style.marginLeft = "0px"
+        setTimeout(function() {
+            document.getElementById("actRocket1").style.marginLeft = "15vw"
+            document.getElementById("actLine1").style.width = "15vw"
+            document.getElementById("actRocket1").style.opacity = "100"
+            document.getElementById("actLine1").style.opacity = "100"
+            setTimeout(function() {
+                document.getElementById("actRocket1").src = "Images/pterodactyl.png"
+                document.getElementById("actPhase2").style.left = "0px"
+                document.getElementById("actPhase2").style.opacity = "100"
+                document.getElementById("actText2").style.opacity = "100"
+                document.getElementById("actText2").style.marginLeft = "0px"
+                setTimeout(function() {
+                    document.getElementById("actRocket2").style.marginLeft = "15vw"
+                    document.getElementById("actLine2").style.width = "15vw"
+                    document.getElementById("actRocket2").style.opacity = "100"
+                    document.getElementById("actLine2").style.opacity = "100"
+                    setTimeout(function() {
+                        document.getElementById("actRocket2").src = "Images/pterodactyl.png"
+                        document.getElementById("actPhase3").style.left = "0px"
+                        document.getElementById("actPhase3").style.opacity = "100"
+                        document.getElementById("actText3").style.opacity = "100"
+                        document.getElementById("actText3").style.marginLeft = "0px"
+                    } ,500)
+                } ,500)
+            } ,500)
+        },500)
+    }  else if (entry.id == "verticalFlow") {
+            document.getElementById("responsiveFlowLine").style.height = "800px"
+            document.getElementById("responsiveFlowLine").style.opacity = "100"
+            document.getElementById("responsiveRocket").style.top = "100%"
+            document.getElementById("responsiveRocket").style.opacity = "100"
+            document.getElementById("vertPhase1").style.opacity = "100"
+            document.getElementById("vertPhase1").style.left = "0px"
+            document.getElementById("rActivity1").style.opacity = "100"
+            document.getElementById("rActivity1").style.left = "0px"
+            setTimeout(function() {
+            document.getElementById("vertPhase2").style.opacity = "100"
+            document.getElementById("vertPhase2").style.left = "0px"
+            document.getElementById("rActivity2").style.opacity = "100"
+            document.getElementById("rActivity2").style.left = "0px"
+                setTimeout(function() {
+                    document.getElementById("responsiveRocket").src = "Images/pterodactyl.png"
+                    document.getElementById("vertPhase3").style.opacity = "100"
+                    document.getElementById("vertPhase3").style.left = "0px"
+                    document.getElementById("rActivity3").style.opacity = "100"
+                    document.getElementById("rActivity3").style.left = "0px"            
+                } ,750)
+            } ,750)
+    }
+}
+
+    const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            onElementInView(entry.target);
+            // Optionally, if you only want to trigger the function once, you can unobserve the element
+            observer.unobserve(entry.target);
+            }
+        });
+    }, {
+    root: null, // Use the viewport as the root
+    rootMargin: '0px', // Margin around the root
+    threshold: .4 // Trigger when 100% of the element is in view
+    });
+
+    // Start observing the target element
+    setTimeout(function() {
+        observer.observe(document.getElementById("About"));
+        observer.observe(document.getElementById("activityFlow"));
+        observer.observe(document.getElementById("verticalFlow"));
+    },2000)
+    var elem = document.getElementById('globe');
+        window.addEventListener('scroll', function() {
+	        var value = window.scrollY * 0.05;
+	        elem.style.transform = `rotate(${value - 90}deg)`; 
+        });
+        // background parallax
+        function parallax() {
+                var s = document.getElementById("satellite");
+                var yPos = 0 - window.pageYOffset/60;  
+                s.style.bottom = 0 - yPos + "%"; 
+                var scrolltotop = document.scrollingElement.scrollTop;
+                var target = document.getElementById("starScape");
+                var xvalue = "center";
+                var factor = 0.5;
+                var yvalue = scrolltotop * factor;
+                target.style.backgroundPosition = xvalue + " " + yvalue + "px";
+                var target = document.getElementById("ProgramDiv");
+                var xvalue = "center";
+                var factor = 0.5;
+                var yvalue = scrolltotop * factor;
+                target.style.backgroundPosition = xvalue + " " + yvalue + "px";
+        }
+            window.addEventListener("scroll", function(){
+                parallax(); 
+        });
+    </script>
+</body>
+
+</html>
