@@ -78,6 +78,68 @@
             font-size: 4vh;
             font-weight: 500;
         }
+        .activityInfoButton{
+            font-size: min(5vw, 18px);
+            border-radius: 20px;
+            padding: 5px;
+            width: 32%;
+            max-width: 120px;
+            position: relative;
+            z-index: 2;
+            transition: all .2s ease;
+            font-family: Grobold;
+            cursor: pointer;
+            background-color: white;
+        }
+        #ThematicButton{
+            border: 3px solid #ec008b;
+            color:#ec008b;
+        }
+        #ThematicButton:hover{
+            background: #ec008b;
+            color: white;
+        }
+        #ThematicButton:active{
+            background: #ffa8db;
+            border: 3px solid #ffa8db;
+        }
+        #InspirationButton{
+            border: 3px solid #89c33c;
+            color:#89c33c;
+        }
+        #InspirationButton:hover{
+            background: #89c33c;
+            color: white;
+        }
+        #InspirationButton:active{
+            background: #d5fba3;
+            border: 3px solid #d5fba3;
+        }
+        #InnovationButton{
+            border: 3px solid #25abe3;
+            color:#25abe3;
+        }
+        #InnovationButton:hover{
+            background: #25abe3;
+            color: white;
+        }
+        #InnovationButton:active{
+            background: #97e0ff;
+            border: 3px solid #97e0ff;
+        }
+        .smallColourBox{
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.57);
+            width: 280px;
+            min-height: 320px;
+            padding: 20px;
+            color: white;
+            margin: auto;
+            margin-top: 40px;
+            max-width: 1280px;
+            position: relative;
+            flex-wrap: nowrap;
+            
+        }
         .bannerText h1{
             font-size: 11vh;
             margin-top: -20px;
@@ -146,6 +208,9 @@
         #rocketWrapper{
             width: 12%;
         }
+        .compactMonths{
+            display: none;
+        }
         @media screen and (max-width: 1150px) {
             .colourBox{
                 text-align:center;
@@ -153,6 +218,12 @@
             .left{
             float: none;
             margin-right: 0px;
+        }
+        .largeMonths{
+            display: none;
+        }
+        .compactMonths{
+            display: block;
         }
         .right{
             float: none; 
@@ -277,6 +348,68 @@
         <p  class="rightText">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills. </p>
         </div>
     </div>
+    <h1 style="text-align: center; font-size: 82px;">Our Programs</h1>
+    <div class="largeMonths" style="margin: auto; width: 1140px;">
+        <table>
+        <tr>
+            <td style="padding-left: 30px; padding-right: 30px;">
+                <div class="smallColourBox" style="background-color: #ec008b;">
+                    <img src="Images/TMTitle.png" width="100%" style="margin-top: -130px;">
+                    Test
+                </div> 
+            </td>
+            <td style="padding-left: 30px; padding-right: 30px;">
+                <div class="smallColourBox" style="background-color: #8cc63e;">
+                    <img src="Images/InspMTitle.png" width="100%" style="margin-top: -130px;">
+                    Test
+                </div>
+            </td>
+            <td style="padding-left: 30px; padding-right: 30px;">
+                <div class="smallColourBox" style="background-color: #00adef">
+                    <img src="Images/InnoMTitle.png" width="100%" style="margin-top: -130px;">
+                    Test
+                </div>
+        </tr>
+    </div>
+    </table>
+</div>
+    <div class="compactMonths">
+        <div class="center" style="text-align: center;">
+            <button class="activityInfoButton" id="ThematicButton" onclick="changeActivity('Thematic')">Thematic</button>
+            <button class="activityInfoButton" id="InspirationButton" onclick="changeActivity('Inspiration')">Inspiration</button>
+            <button class="activityInfoButton" id="InnovationButton" onclick="changeActivity('Innovation')">Innovation</button>
+            <script>
+                var currentActivity = "Thematic"
+                function changeActivity(activity) {
+                    if (activity != currentActivity) {
+                    document.getElementById(currentActivity).style.display = "none"
+                    document.getElementById(currentActivity).style.top = "-50px"
+                    document.getElementById(currentActivity).style.opacity = "0"
+    
+                    document.getElementById(activity).style.display = "block"
+                    setTimeout(function(){                    
+                        document.getElementById(activity).style.top = "30px"
+                        document.getElementById(activity).style.opacity = "100"
+                        currentActivity = activity;
+                    },100)
+                    }
+                }
+            </script>
+        </div>
+        <div id="Thematic" class="smallColourBox" style="background-color: #ec008b; position: relative; transition: all .5s ease; top: 30px;">
+            <img src="Images/TMTitle.png" width="100%" style="margin-top: -130px;">
+            Test
+        </div>
+        <div id="Inspiration" class="smallColourBox" style="background-color: #8cc63e; position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+            <img src="Images/InspMTitle.png" width="100%" style="margin-top: -130px;">
+            Test
+        </div>
+        <div id="Innovation" class="smallColourBox" style="background-color: #00adef; position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+            <img src="Images/InnoMTitle.png" width="100%" style="margin-top: -130px;">
+            Test
+        </div>
+    </div>
+    <div style="width: 60%; margin: auto; margin-top: 45px;"><img src="Images/6 PROGRAMS LOGOTYPES.png" width="100%"></div>
     <!--Startup animation-->
     <script>
             var i = 0;
