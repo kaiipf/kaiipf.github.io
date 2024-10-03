@@ -73,10 +73,7 @@
             border: 3px solid #ec008b;
             color: white;
             background-color: #ec008b;
-            padding: 10px;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-bottom: 3px;
+            padding: 20px;
             cursor: pointer;
             transition: .2s ease;
             border-radius: 20px;
@@ -151,13 +148,13 @@
         }
         .smallColourBox{
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.57);
-            width: 280px;
+            width: 80%;
+            max-width: 280px;
             min-height: 320px;
             padding: 20px;
             color: white;
             margin: auto;
             margin-top: 40px;
-            max-width: 1280px;
             position: relative;
             flex-wrap: nowrap;
             transition: transform .2s; /* Animation */
@@ -314,7 +311,8 @@
         }
         @media screen and (max-width: 850px) {
             .grid-Container {
-            width: 350px;
+            max-width: 350px;
+            width: 90%;
             grid-template-columns: auto;
             }
 }
@@ -372,7 +370,7 @@
         <img src="Images/Marscape.png" id="bannerDecoration" class="bannerDecoInvisible bannerDecoration">
         <img src="Images/homeBanner1.jpg" class="bannerImg">
     </div>
-    <h1 style="text-align: center; font-size: 82px;">About Us</h1>
+    <h1 style="text-align: center; font-size: min(18vw,82px);">About Us</h1>
     <div class="colourBox flyLeft" style="background-color: #ec008b;">
         <div>
         <img src="Images/theThematicSquare.jpg" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
@@ -401,7 +399,7 @@
         <p  class="rightText">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills. </p>
         </div>
     </div>
-    <h1 style="text-align: center; font-size: 82px;">Our Programs</h1>
+    <h1 style="text-align: center; font-size: min(18vw,82px);">Our Programs</h1>
     <div class="largeMonths" style="margin: auto; width: 1140px;">
         <table>
         <tr>
@@ -463,7 +461,7 @@
         </div>
     </div>
     <div style="width: 60%; margin: auto; margin-top: 45px;"><img src="Images/6 PROGRAMS LOGOTYPES.png" width="100%"></div>
-    <h1 style="text-align: center; font-size: 82px;">Our Locations</h1>
+    <h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
     <div class="grid-Container">
         <div class="grid-Content">
             <img src="Images/theThematic.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
@@ -529,14 +527,14 @@
             </div>
         </div>
     </div>
-    <h1 style="text-align: center; font-size: 82px;">Want to find out more?</h1>
+    <h1 style="text-align: center; font-size: min(18vw,82px);">Want to find out more?</h1>
     <div style="width: 80vw; max-width:614px; margin: auto;" id="contactSection">
     <p style="text-align: center; font-size: 24px;">Have any inquiries? Contact us below!</p>
     <div id="contactLine" style="border-top: 2px solid gray; position: relative; opacity: 0; width: 0%; transform-origin: center left; transition: all 1s ease-out;"></div>
     <img src="Images/pterodactyl.gif" id="contactPtero" style="position: relative; width: 40px; top:-30px; opacity: 0; transition: all 1s ease-out;">
     </div>
     <div style="text-align:center">
-        <a class="toContact" style="font-size: min(8vw,42px); font-family: GROBOLD;">Contact Us!</a>
+        <a id="contactButton" class="toContact" style="font-size: min(8vw,42px); position: relative; font-family: GROBOLD; top:-30px; opacity: 0; transition: all .5s ease;">Contact Us!</a>
     </div>
 
     <div class="footerDiv">
@@ -619,6 +617,8 @@
             document.getElementById("contactPtero").style.opacity = "100%"
             setTimeout(function() {
                 document.getElementById("contactPtero").src = "Images/pterodactyl.png"
+                document.getElementById("contactButton").style.opacity = "100%"
+                document.getElementById("contactButton").style.top = "0"
             }, 1000)
         }
         if (entry.classList.contains("colourBox") == true) {
