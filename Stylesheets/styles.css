@@ -122,7 +122,30 @@ h1, h2, h3, h4, h5, h6{
 .expandedMenu{
     top: 80px;
 }
-
+.blackLi{
+    list-style-image: url(../Images/ptero.png);
+    color: gray;
+}
+.whiteLi{
+    list-style-image: url(/Images/pteroWhite.png);
+}
+.socialMedia{
+    width: 154px;
+}
+.footerDiv{
+    background-color: #333;
+    width: 100%;
+    color: white;
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    height: 380px;
+}
+.footerDiv a, .footerDiv a:visited{
+    color: white;
+    font-weight: normal;
+    text-decoration: none;
+}
 @media screen and (max-width: 730px) {
     .navbar a{
         margin-left: 1%;

@@ -69,6 +69,28 @@
         .rightText{
             text-align: right;
         }
+        .toContact{
+            border: 3px solid #ec008b;
+            color: white;
+            background-color: #ec008b;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 3px;
+            cursor: pointer;
+            transition: .2s ease;
+            border-radius: 20px;
+        }
+        .toContact:hover{
+            background-color: #930056;
+            border: 3px solid #930056;
+            color:white
+        }
+        .toContact:active{
+            background-color: #d2007b;
+            border: 3px solid #d2007b;
+            color:white
+        }
         .right{
             float: right; 
             margin-left: 20px;
@@ -138,7 +160,11 @@
             max-width: 1280px;
             position: relative;
             flex-wrap: nowrap;
-            
+            transition: transform .2s; /* Animation */
+            cursor:pointer;
+        }
+        .smallColourBox:hover{
+             transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
         }
         .bannerText h1{
             font-size: 11vh;
@@ -163,6 +189,21 @@
         }
         .textSection h1{
             font-size: 64px;
+        }
+        .grid-Container {
+            width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 50px;
+        }
+        .grid-Content {
+            background-color: white;
+            box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.57);
+            border-radius: 10px;
+            width: 90vw;
+            max-width: 350px;
+            overflow: hidden;
         }
         .bannerDecoration{
             position: absolute; 
@@ -265,6 +306,18 @@
                 width: 60vw;
             }
         }
+        @media screen and (max-width: 1200px) {
+            .grid-Container {
+            width: 700px;
+            grid-template-columns: auto auto;
+            }
+        }
+        @media screen and (max-width: 850px) {
+            .grid-Container {
+            width: 350px;
+            grid-template-columns: auto;
+            }
+}
     </style>
 </head>
 
@@ -410,6 +463,94 @@
         </div>
     </div>
     <div style="width: 60%; margin: auto; margin-top: 45px;"><img src="Images/6 PROGRAMS LOGOTYPES.png" width="100%"></div>
+    <h1 style="text-align: center; font-size: 82px;">Our Locations</h1>
+    <div class="grid-Container">
+        <div class="grid-Content">
+            <img src="Images/theThematic.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Head Studio</h2>
+            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+                <ul>
+                    <li class="blackLi">12a, Jalan Midah 1, Taman Midah, 56000 Cheras. KL</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-Content">
+            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Bandar Puteri Puchong</h2>
+            <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
+                <ul>
+                    <li class="blackLi">Unit 6-2, Jln Bandar Puteri 2/3, Bandar Puteri Puchong. 47100 Puchong. Selangor.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-Content">
+            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Batu Pahat</h2>
+            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+                <ul>
+                    <li class="blackLi">Jalan Ungku, Mohd Salleh, Kg Merdeka, Batu Pahat, 83000, Johore</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-Content">
+            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Kuching</h2>
+            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+                <ul>
+                    <li class="blackLi">Gala Street Mall, Lot 12766 Parcel 16, Jalan Tun Jugah, KCLD93350 Kuching, Sarawak</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-Content">
+            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Ara Damansara</h2>
+            <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
+                <ul>
+                    <li class="blackLi">Taipan 1, Jalan PJU 1a/3k, Ara Damansara, 47301 Petaling Jaya. Selangor</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-Content">
+            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic OUG</h2>
+            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+                <ul>
+                    <li class="blackLi">79, Jalan Hujan Emas, Taman Overseas Union, 58200 KL</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-Content">
+            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Kota Damansara</h2>
+            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+                <ul>
+                    <li class="blackLi">Coming Soon!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h1 style="text-align: center; font-size: 82px;">Want to find out more?</h1>
+    <div style="width: 80vw; max-width:614px; margin: auto;" id="contactSection">
+    <p style="text-align: center; font-size: 24px;">Have any inquiries? Contact us below!</p>
+    <div id="contactLine" style="border-top: 2px solid gray; position: relative; opacity: 0; width: 0%; transform-origin: center left; transition: all 1s ease-out;"></div>
+    <img src="Images/pterodactyl.gif" id="contactPtero" style="position: relative; width: 40px; top:-30px; opacity: 0; transition: all 1s ease-out;">
+    </div>
+    <div style="text-align:center">
+        <a class="toContact" style="font-size: min(8vw,42px); font-family: GROBOLD;">Contact Us!</a>
+    </div>
+
+    <div class="footerDiv">
+        <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
+        <div class="socialMedia" style="position: absolute; top: 25px;left: 0; right: 0; margin: auto; background-color: #333;">
+          <img src="Images/fbook.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.facebook.com'" width="25%">
+          <img src="Images/igram.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.instagram.com'" width="25%">
+          <img src="Images/twtr.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.twitter.com'" width="25%">
+        </div>
+        <img src="Images/atLogo2.png" style="width: 80%; max-width: 250px;">
+        <p style="font-size: 14px;">Copyright &copy; 2024 Arthematic Malaysia</p>
+        <a href="privacypolicy.html" style="white-space: nowrap;"><b>Privacy Policy</b></a> | <a href="security.html" style="white-space: nowrap;"><b>Security</b></a> | <a href="contact.html" style="white-space: nowrap;"><b>Contact us</b></a> | <a href="about.html" style="white-space: nowrap;"><b>About us</b></a>
+      </div>
+</body>
     <!--Startup animation-->
     <script>
             var i = 0;
@@ -471,8 +612,14 @@
 
     const targetElement = document.querySelector('.target-element');
     function onElementInView(entry) {
-        if (entry.id == "insertIdHere") {
-        
+        if (entry.id == "contactSection") {
+            document.getElementById("contactLine").style.width = "100%"
+            document.getElementById("contactLine").style.opacity = "100%"
+            document.getElementById("contactPtero").style.marginLeft = "100%"
+            document.getElementById("contactPtero").style.opacity = "100%"
+            setTimeout(function() {
+                document.getElementById("contactPtero").src = "Images/pterodactyl.png"
+            }, 1000)
         }
         if (entry.classList.contains("colourBox") == true) {
             entry.classList.remove("flyLeft")
@@ -510,6 +657,7 @@
         $(".colourBox").each(function(){
             observer.observe(this)
         })
+        observer.observe(document.getElementById("contactSection"))
     },2000)
     </script>
 </body>
