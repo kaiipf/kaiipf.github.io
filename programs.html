@@ -10,10 +10,172 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <style>
+                body{
+            background-image: url(Images/bluestars.png);
+            background-size:contain;
+        }
+                .textSection{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 42px;
+            width: 55%;
+            position: relative;
+        }
+        .textSection h1{
+            font-size: 64px;
+        }
+        #ThematicButton{
+            border: 3px solid #ec008b;
+            color:#ec008b;
+        }
+        #ThematicButton:hover{
+            background: #ec008b;
+            color: white;
+        }
+        #ThematicButton:active{
+            background: #ffa8db;
+            border: 3px solid #ffa8db;
+        }
+        #InspirationButton{
+            border: 3px solid #89c33c;
+            color:#89c33c;
+        }
+        #InspirationButton:hover{
+            background: #89c33c;
+            color: white;
+        }
+        #InspirationButton:active{
+            background: #d5fba3;
+            border: 3px solid #d5fba3;
+        }
+        #InnovationButton{
+            border: 3px solid #25abe3;
+            color:#25abe3;
+        }
+        #InnovationButton:hover{
+            background: #25abe3;
+            color: white;
+        }
+        #InnovationButton:active{
+            background: #97e0ff;
+            border: 3px solid #97e0ff;
+        }
+        #InnovationImages{
+            display: block;
+        }
+        #responsiveInnovation{
+            display: none;
+        }
+        .activityInfoButton{
+            font-size: min(5vw, 18px);
+            border-radius: 20px;
+            padding: 5px;
+            width: 32%;
+            max-width: 120px;
+            position: relative;
+            z-index: 2;
+            transition: all .2s ease;
+            font-family: Grobold;
+            cursor: pointer;
+            background-color: white;
+        }
+            .programGrid {
+            width: 940px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            margin-top: 45px;
+            gap: 20px;
+        }
+        .programContent{
+            width: 300px;
+        }
+.unselectedCarousel{
+            background-color: rgb(230, 230, 230)rgb(79, 79, 79);
+            border: none;
+        }
+        .selectedCarousel{
+            background-color: rgb(130, 160, 201);
+            border: none;
+        }
+        .nextButton{
+            font-weight: bolder;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+            border: none; 
+            background: rgba(147, 145, 220, 0.508); 
+            color:white;  
+            border-radius: 10px;
+            transition: .1s ease;  
+        }
+        .nextButton:hover{
+            font-weight: bolder;
+            border: none; 
+            background: rgba(71, 75, 104, 0.527); 
+            color:white;  
+            border-radius: 10px;  
+        }
+        #responsiveProgramCarou {
+            display: none;
+        }
+        .programs td img{
+            user-select: none;
+            pointer-events: none;
+        }
+        .programs td{
+            width: 300px;
+        }
+        #verticalFlow{
+            display: none;
+        }
+        @media screen and (max-width: 1490px) {
+            .textSection{
+                margin-left: auto;
+                margin-right: auto;
+                width: 70%;
+        }
+    }
+
+
+        @media screen and (max-width: 1300px) {
+            #activityFlow{
+                display: none;
+            }
+            #verticalFlow{
+                display: block;
+            }
+        }
+        @media screen and (max-width: 1171px) {
+    .textSection{
+            width: 80%;
+        }
+    }
+        @media screen and (max-width: 940px) {
+            .programGrid {
+            width: 620px;
+            grid-template-columns: auto auto;
+            }
+        }
+        @media screen and (max-width: 900px) {
+            #InnovationImages{
+                display: none;
+            }
+            #responsiveInnovation{
+                display: block;
+            }
+        }
+        @media screen and (max-width: 620px) {
+            .programGrid {
+                display: none;
+            }
+            #responsiveProgramCarou {
+            display: block;
+        }
+        }
     </style>
 </head>
 
-<body>
+<body id="body">
     <!--Fade to page elements-->
     <div class="navbar" id="navbar">
         <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
@@ -43,15 +205,220 @@
     <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
     </ul>
     </div>
+    <h1 style="text-align: center; font-size: min(18vw,82px);">Our Programs</h1>
+    <div class="textSection">
+    <p>ArThematic's unique programming explores a new topic each month, ranging from exciting topics in history, geography, science and many more. Each month, children engage with these subjects through a structured approach built on three core pillars: <b>Thematics</b>, <b>Inspiration</b> and <b>Innovation</b>. This approach ensures a rich, well-rounded learning experience that sparks curiosity, encourages creativity, and fosters innovative thinking.</p>
+        </div>
+        <div class="center" style="text-align: center;">
+            <button class="activityInfoButton" id="ThematicButton" onclick="changeActivity('Thematic')">Thematic</button>
+            <button class="activityInfoButton" id="InspirationButton" onclick="changeActivity('Inspiration')">Inspiration</button>
+            <button class="activityInfoButton" id="InnovationButton" onclick="changeActivity('Innovation')">Innovation</button>
+            <p style="font-size: 12px; color: gray; position: relative; z-index: 5;">Click the buttons for information about our program structure</p>
+            <script>
+                var currentActivity = "Thematic"
+                function changeActivity(activity) {
+                    if (activity != currentActivity) {
+                    document.getElementById(currentActivity).style.display = "none"
+                    document.getElementById(currentActivity).style.top = "-50px"
+                    document.getElementById(currentActivity).style.opacity = "0"
+
+                    document.getElementById(activity).style.display = "block"
+                    setTimeout(function(){                    
+                        document.getElementById(activity).style.top = "0px"
+                        document.getElementById(activity).style.opacity = "100"
+                        currentActivity = activity;
+                    },100)
+                    }
+                }
+            </script>
+        </div>
+        <div id="Thematic" style="position: relative; top:0px; opacity: 100; transition: all .5s ease;">
+            <h1 style="text-align: center;">Thematic Month</h1>
+            <div class="textSection">
+                <p>During Thematic Month, we focus on integrating drawing, crafting, storyboarding, and presenting into a unified study flow, with our goal being to guide children through the creative transformation of a themed idea into a fully realized project, whilst also learning about the world around them. Throughout this process, your child will explore various aspects of creative design, ultimately mastering skills such as visual illustration, 3D modeling, and effective storyboarding for presentations. By the end of the program, they will have developed a comprehensive project that showcases their creativity, technical skills, and storytelling abilities.</p>
+            </div>
+            <h1 style="text-align: center;">Activity Flow</h1>
+            <div class="activityFlow" id="activityFlow" style="position: relative; width: 100%;">
+                    <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td><h2 id="actText1" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">2D Visuals</h2></td>
+                            <td><img src="Images/pterodactyl.gif" id="actRocket1" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine1" style="border-top: 2px solid gray; width: 0vw; opacity: 0;  transition: all .5s ease-out;"></div></td>
+                            <td><h2 id="actText2" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">3D Models</h2></td>
+                            <td><img src="Images/pterodactyl.gif" id="actRocket2" style="position: absolute; width: 40px; top: 5px; margin-left: 0vw; opacity: 0; transition: all .5s ease-out;"><div id="actLine2" style="border-top: 2px solid gray; width: 0vw; transform-origin: center left; opacity: 0;  transition: all .5s ease-out;"></div></td>
+                            <td><h2 id="actText3" style="text-align: center; margin-left: -200px; opacity: 0; transition: all .5s ease-out;">Storyboarding</h2></td>
+                        </tr>
+                        <tr>
+                            <td style="overflow: hidden;"><img src="Images/flow(1).png" id="actPhase1" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                            <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
+                            <td style="overflow: hidden;"><img src="Images/flow(2).png" id="actPhase2" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                            <td><div style="border-top: 0px solid; width: 15vw; transform-origin: center left;"></div></td>
+                            <td style="overflow: hidden;"><img src="Images/flow(3).png" id="actPhase3" width="300vw" style="position: relative; left:-100px; opacity: 0; transition: all .5s ease-out;"></td>
+                        </tr>
+                    </table>
+            </div>
+            <div id="verticalFlow" style="width: 400px;  margin-left: auto; margin-right: auto; margin-bottom: 20px; position: relative;">
+                <img src="Images/pterodactyl.gif" id="responsiveRocket" style="width: 40px; opacity: 0; position: absolute; float: right; z-index: 20; margin-right: 50px; left: 84%; top: 0%; transform: translate(-50%,-50%) rotate(90deg); transition: top 1.5s linear, opacity .5s ease;">
+                <div id="responsiveFlowLine" style="height: 0px; opacity: 0; position: relative; width: 0px; border-left: 2px solid gray; float: right; right: 18%; transition: height 1.5s linear, opacity .5s ease;"></div>
+                <table style="border-collapse: collapse;">
+                    <tr>
+                        <td style="text-align: right; overflow: hidden;"><h2 id="rActivity1" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">2D Visual</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(1).png" id="vertPhase1" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                    <tr>
+                        <td  style="text-align: right; overflow: hidden;"><h2 id="rActivity2" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">3D Models</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(2).png" id="vertPhase2" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right; overflow: hidden;"><h2 id="rActivity3" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;">Storyboarding</h2></td>
+                    </tr>
+                    <tr>
+                        <td style="overflow: hidden;"><img src="Images/flow(3).png" id="vertPhase3" width="300vw" style="position:relative; left: 400px; opacity: 0; transition: all .5s ease;"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    <div id="Inspiration" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+        <h1 style="text-align: center;">Inspiration Month</h1>
+        <div class="textSection">
+            <p>Inspiration Month is designed to unlock your child's self-expression through the transformative power of art. Whether they are just beginning or already experienced, this program equips them with essential techniques that foster creativity and personal expression. By the end of the program, your child will have discovered new and meaningful ways to communicate through art, gaining confidence and developing their unique creative voice.</p>
+        </div>
+        <h1 style="text-align: center;">Inspiration Month activities</h1>
+        <h2 style="text-align: center;">Fine Art</h2>
+        <img src="Images/fineart(1).jpg" style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+    </div>
+    <div id="Innovation" style="position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+        <h1 style="text-align: center;">Innovation Month</h1>
+        <div class="textSection">
+            <p>Our Innovation Month is aimed on helping your child discover the wonderful world of both art and science. Through our themed hands-on projects and more, this program encourages your child to experiment and explore the world around them, igniting that spark of curiosity in your child. This program will bring out the full extent of your child's creative mind and inspire them to become an innovative leader. </p>
+        </div>
+        <h1 style="text-align: center;">Innovation Month activities</h1>
+        <div  id="InnovationImages" style="margin-left: auto; margin-right: auto; width: 900px;">
+        <table>
+            <tr>
+                <td><h2 style="text-align: center;  padding-right: 50px;">STEAM Kidz</h2></td>
+                <td><h2 style="text-align: center;  padding-left: 50px;">Digital Art</h2></td>
+            </tr>
+            <tr>
+                <td><img src="Images/steamkids(1).jpg" style="max-width: 400px; padding-right: 50px;"></td>
+                <td><img src="Images/digitalArt.jpg" style="max-width: 400px;  padding-left: 50px;"></td>
+            </tr>
+        </table>
+    </div>
+        <!--Responsive part-->
+        <div id="responsiveInnovation">
+                <div style="display: block;">
+                    <h2 style="text-align: center;">STEAM Kidz</h2>
+                    <img src="Images/steamkids(1).jpg" style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+                <div class="InnovationImage" style="display: block;">
+                    <h2 style="text-align: center;">Digital Art</h2>
+                    <img src="Images/digitalArt.jpg"style="width:90%; max-width: 400px; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+            </div>
+    </div>
+
+    <div class="programGrid">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(0).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(1).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(2).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(3).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png">
+    </div>
+    <div id="responsiveProgramCarou" style="overflow: hidden; width: 300px; margin: auto; margin-top: 72px;">
+        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 120px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
+        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 120px; position: absolute; z-index: 10;" onclick="next('front')">></button>
+        <table ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+            <tr class="programs">
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="UCSI International School" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="International School of Kualar Lumpur" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Australian Internation School Malaysia" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Nexus International School" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="Pine Hills International School" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Beaconhouse Newlands International School" width="300px"></td>
+            </tr>
+        </table>
+        <div id="dotContainer" style="margin: auto; width: 72px; white-space: nowrap;">
+        </div>
+        <script src="Misc/programsCarou.js"></script>
+    </div>
+    
+    <div class="footerDiv">
+        <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
+        <div class="socialMedia" style="position: absolute; top: 25px;left: 0; right: 0; margin: auto; background-color: #333;">
+          <img src="Images/fbook.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.facebook.com'" width="25%">
+          <img src="Images/igram.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.instagram.com'" width="25%">
+          <img src="Images/twtr.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.twitter.com'" width="25%">
+        </div>
+        <img src="Images/atLogo2.png" style="width: 80%; max-width: 250px;">
+        <p style="font-size: 14px;">Copyright &copy; 2024 Arthematic Malaysia</p>
+        <a href="privacypolicy.html" style="white-space: nowrap;"><b>Privacy Policy</b></a> | <a href="security.html" style="white-space: nowrap;"><b>Security</b></a> | <a href="contact.html" style="white-space: nowrap;"><b>Contact us</b></a> | <a href="about.html" style="white-space: nowrap;"><b>About us</b></a>
+      </div>
     <!--Startup animation-->
     <script>
     // Scroll animations
     const targetElement = document.querySelector('.target-element');
     function onElementInView(entry) {
-        if (entry.id == "insertIdHere") {
-        
-        }
+        if (entry.id == "activityFlow") {
+            document.getElementById("actPhase1").style.left = "0px"
+            document.getElementById("actPhase1").style.opacity = "100"
+            document.getElementById("actText1").style.opacity = "100"
+            document.getElementById("actText1").style.marginLeft = "0px"
+        setTimeout(function() {
+            document.getElementById("actRocket1").style.marginLeft = "15vw"
+            document.getElementById("actLine1").style.width = "15vw"
+            document.getElementById("actRocket1").style.opacity = "100"
+            document.getElementById("actLine1").style.opacity = "100"
+            setTimeout(function() {
+                document.getElementById("actRocket1").src = "Images/pterodactyl.png"
+                document.getElementById("actPhase2").style.left = "0px"
+                document.getElementById("actPhase2").style.opacity = "100"
+                document.getElementById("actText2").style.opacity = "100"
+                document.getElementById("actText2").style.marginLeft = "0px"
+                setTimeout(function() {
+                    document.getElementById("actRocket2").style.marginLeft = "15vw"
+                    document.getElementById("actLine2").style.width = "15vw"
+                    document.getElementById("actRocket2").style.opacity = "100"
+                    document.getElementById("actLine2").style.opacity = "100"
+                    setTimeout(function() {
+                        document.getElementById("actRocket2").src = "Images/pterodactyl.png"
+                        document.getElementById("actPhase3").style.left = "0px"
+                        document.getElementById("actPhase3").style.opacity = "100"
+                        document.getElementById("actText3").style.opacity = "100"
+                        document.getElementById("actText3").style.marginLeft = "0px"
+                    } ,500)
+                } ,500)
+            } ,500)
+        },500)
+    }  else if (entry.id == "verticalFlow") {
+            document.getElementById("responsiveFlowLine").style.height = "800px"
+            document.getElementById("responsiveFlowLine").style.opacity = "100"
+            document.getElementById("responsiveRocket").style.top = "100%"
+            document.getElementById("responsiveRocket").style.opacity = "100"
+            document.getElementById("vertPhase1").style.opacity = "100"
+            document.getElementById("vertPhase1").style.left = "0px"
+            document.getElementById("rActivity1").style.opacity = "100"
+            document.getElementById("rActivity1").style.left = "0px"
+            setTimeout(function() {
+            document.getElementById("vertPhase2").style.opacity = "100"
+            document.getElementById("vertPhase2").style.left = "0px"
+            document.getElementById("rActivity2").style.opacity = "100"
+            document.getElementById("rActivity2").style.left = "0px"
+                setTimeout(function() {
+                    document.getElementById("responsiveRocket").src = "Images/pterodactyl.png"
+                    document.getElementById("vertPhase3").style.opacity = "100"
+                    document.getElementById("vertPhase3").style.left = "0px"
+                    document.getElementById("rActivity3").style.opacity = "100"
+                    document.getElementById("rActivity3").style.left = "0px"            
+                } ,750)
+            } ,750)
     }
+
+ }
 
     const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -66,11 +433,22 @@
     rootMargin: '0px', // Margin around the root
     threshold: .4 // Trigger when 100% of the element is in view
     });
-
+    function parallax() {
+                var scrolltotop = document.scrollingElement.scrollTop;
+                var target = document.getElementById("body");
+                var xvalue = "center";
+                var factor = 0.7;
+                var yvalue = scrolltotop * factor;
+                target.style.backgroundPosition = xvalue + " " + yvalue + "px";
+        }
+    window.addEventListener("scroll", function(){
+            parallax(); 
+        });
     // Start observing the target element
-    setTimeout(function() {
         // observer.observe(document.getElementById("InsertIdHere"));
-    },2000)
+        observer.observe(document.getElementById("activityFlow"));
+        observer.observe(document.getElementById("verticalFlow"));
+
     </script>
 </body>
 
