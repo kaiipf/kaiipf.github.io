@@ -187,6 +187,17 @@
         .textSection h1{
             font-size: 64px;
         }
+        .programGrid {
+            width: 940px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            margin-top: 45px;
+            gap: 20px;
+        }
+        .programContent{
+            width: 300px;
+        }
         .grid-Container {
             width: 1200px;
             margin: auto;
@@ -239,6 +250,41 @@
         }
         .rocketInPos{
             top:55vh
+        }
+        .unselectedCarousel{
+            background-color: rgb(230, 230, 230)rgb(79, 79, 79);
+            border: none;
+        }
+        .selectedCarousel{
+            background-color: rgb(130, 160, 201);
+            border: none;
+        }
+        .nextButton{
+            font-weight: bolder;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+            border: none; 
+            background: rgba(147, 145, 220, 0.508); 
+            color:white;  
+            border-radius: 10px;
+            transition: .1s ease;  
+        }
+        .nextButton:hover{
+            font-weight: bolder;
+            border: none; 
+            background: rgba(71, 75, 104, 0.527); 
+            color:white;  
+            border-radius: 10px;  
+        }
+        #responsiveProgramCarou {
+            display: none;
+        }
+        .programs td img{
+            user-select: none;
+            pointer-events: none;
+        }
+        .programs td{
+            width: 300px;
         }
         .rocketLandPos{
             top:65vh
@@ -309,6 +355,20 @@
             grid-template-columns: auto auto;
             }
         }
+        @media screen and (max-width: 940px) {
+            .programGrid {
+            width: 620px;
+            grid-template-columns: auto auto;
+            }
+        }
+        @media screen and (max-width: 620px) {
+            .programGrid {
+                display: none;
+            }
+            #responsiveProgramCarou {
+            display: block;
+        }
+        }
         @media screen and (max-width: 850px) {
             .grid-Container {
             max-width: 350px;
@@ -326,11 +386,11 @@
         <img src="Images/atLogo.png" style="width: 20%; position: absolute; left: 50%; top:35%; transform: translate(-50%, 0)">
     </div>
     <div class="navbar startup" id="navbar">
-            <img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;">
-            <a>Home</a>
-            <a>Programs</a>
-            <a>About us</a>
-            <a>Contact us</a>
+            <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
+            <a href="index.html">Home</a>
+            <a href="programs.html">Programs</a>
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact us</a>
             <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
             <script>
                 var hidden = true
@@ -347,10 +407,10 @@
     </div>
     <div class="navMenu" id="navMenu">
         <ul>
-        <li style="list-style-type: none;"><a href="./index copy.html">Home</a></li>
-        <li style="list-style-type: none;"><a>Programs</a></li>
-        <li style="list-style-type: none;"><a>About us</a></li>
-        <li style="list-style-type: none;"><a>Contact us</a></li>
+        <li style="list-style-type: none;"><a href="index.html">Home</a></li>
+        <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
+        <li style="list-style-type: none;"><a href="about.html">About us</a></li>
+        <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
         </ul>
     </div>
     <div class="homeBanner">
@@ -368,7 +428,7 @@
         </div>
         <img src="Images/skyscape.png"class="bannerDecoration" id="bannerSky" style="top: -999px;">
         <img src="Images/Marscape.png" id="bannerDecoration" class="bannerDecoInvisible bannerDecoration">
-        <img src="Images/coverpholder.jpg" class="bannerImg">
+        <img src="Images/homeBanner1.jpg" class="bannerImg">
     </div>
     <h1 style="text-align: center; font-size: min(18vw,82px);">About Us</h1>
     <div class="colourBox flyLeft" style="background-color: #ec008b;">
@@ -460,7 +520,31 @@
             Test
         </div>
     </div>
-    <div style="width: 60%; margin: auto; margin-top: 45px;"><img src="Images/6 PROGRAMS LOGOTYPES.png" width="100%"></div>
+    <div class="programGrid">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(0).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(1).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(2).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(3).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png">
+    </div>
+    <div id="responsiveProgramCarou" style="overflow: hidden; width: 300px; margin: auto; margin-top: 72px;">
+        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 150px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
+        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 150px; position: absolute; z-index: 10;" onclick="next('front')">></button>
+        <table ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+            <tr class="programs">
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="UCSI International School" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="International School of Kualar Lumpur" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Australian Internation School Malaysia" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Nexus International School" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="Pine Hills International School" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Beaconhouse Newlands International School" width="300px"></td>
+            </tr>
+        </table>
+        <div id="dotContainer" style="margin: auto; width: 72px;">
+        </div>
+        <script src="Misc/programsCarou.js"></script>
+    </div>
     <h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
     <div class="grid-Container">
         <div class="grid-Content">
@@ -469,6 +553,8 @@
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">12a, Jalan Midah 1, Taman Midah, 56000 Cheras. KL</li>
+                    <li class="blackLi"><a href="tel:+60162069339">60 162069339</a></li>
+                    <li class="blackLi"><a href="mailto:Artthematichq@gmail.com">Artthematichq@gmail.com</a></li>
                 </ul>
             </div>
         </div>
@@ -478,6 +564,8 @@
             <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">Unit 6-2, Jln Bandar Puteri 2/3, Bandar Puteri Puchong. 47100 Puchong. Selangor.</li>
+                    <li class="blackLi"><a href="tel:+601125805882">60 1125805882</a></li>
+                    <li class="blackLi"><a href="mailto:Artthematichq@gmail.com">Artthematichq@gmail.com</a></li>
                 </ul>
             </div>
         </div>
@@ -487,6 +575,8 @@
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">Jalan Ungku, Mohd Salleh, Kg Merdeka, Batu Pahat, 83000, Johore</li>
+                    <li class="blackLi"><a href="tel:">60 XXXXXXXXXX</a></li>
+                    <li class="blackLi"><a href="mailto:">xxxx@gmail.com</a></li>
                 </ul>
             </div>
         </div>

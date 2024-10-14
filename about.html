@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArThematic</title>
+    <link rel="stylesheet" href="Stylesheets/styles.css">
+    <link rel="icon" type="image/x-icon" href="Images/atLogo.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <!--Fade to page elements-->
+    <div class="navbar" id="navbar">
+        <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact us</a>
+        <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
+        <script>
+            var hidden = true
+            function showHide() {
+                if (hidden == false) {
+                    document.getElementById("navMenu").classList.remove('expandedMenu');
+                    hidden = true
+                } else {
+                    document.getElementById("navMenu").classList.add('expandedMenu');
+                    hidden = false
+                }
+            }
+        </script>
+</div>
+<div class="navMenu" id="navMenu">
+    <ul>
+    <li style="list-style-type: none;"><a href="index.html">Home</a></li>
+    <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
+    <li style="list-style-type: none;"><a href="about.html">About us</a></li>
+    <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
+    </ul>
+    </div>
+    <!--Startup animation-->
+    <script>
+    // Scroll animations
+    const targetElement = document.querySelector('.target-element');
+    function onElementInView(entry) {
+        if (entry.id == "insertIdHere") {
+        
+        }
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            onElementInView(entry.target);
+            // Optionally, if you only want to trigger the function once, you can unobserve the element
+            observer.unobserve(entry.target);
+            }
+        });
+    }, {
+    root: null, // Use the viewport as the root
+    rootMargin: '0px', // Margin around the root
+    threshold: .4 // Trigger when 100% of the element is in view
+    });
+
+    // Start observing the target element
+    setTimeout(function() {
+        // observer.observe(document.getElementById("InsertIdHere"));
+    },2000)
+    </script>
+</body>
+
+</html>

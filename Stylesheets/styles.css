@@ -66,6 +66,7 @@ h1, h2, h3, h4, h5, h6{
     z-index: 2001;
     transition: top 1s ease;
 }
+
 .startup{
     top:-999px;
 }
@@ -96,13 +97,22 @@ h1, h2, h3, h4, h5, h6{
 
 .navMenu a{
     padding-right: 2000px;
+    color: rgb(80, 80, 80);
+    text-decoration: none;
 }
-.navbar a{
+.navMenu a:visited{
+    color: rgb(80, 80, 80);
+    text-decoration: none;
+}
+.navbar a:not(.logo){
     margin-left: 4%;
     padding: 10px;
     border-radius: 10px;
     font-size: 25px;
     transition: 100ms;
+    color:white; 
+    text-decoration:none; 
+    cursor:pointer;  
     cursor: pointer;
 }
 
@@ -114,7 +124,10 @@ h1, h2, h3, h4, h5, h6{
     border: none;
     cursor: pointer;
 }
-.navbar a:Hover{
+.navbar a:Hover:not(.logo){
+    color:white; 
+    text-decoration:none; 
+    cursor:pointer;  
     background-color: white;
     color: black;
 }
@@ -147,7 +160,7 @@ h1, h2, h3, h4, h5, h6{
     text-decoration: none;
 }
 @media screen and (max-width: 730px) {
-    .navbar a{
+    .navbar a:not(.logo){
         margin-left: 1%;
     }
 }
@@ -156,7 +169,7 @@ h1, h2, h3, h4, h5, h6{
     .navMenu{
         display: flex;
     }
-    .navbar a{
+    .navbar a:not(.logo){
         display: none;
     }
     .navbar button{
