@@ -16,7 +16,7 @@ function changeSlide(slide) {
     document.getElementById("partnerCarousel").style.left = "-" + (currentSlide * 302) + "px"
     document.getElementById("carou" + currentSlide).classList.remove("unselectedCarousel")
     document.getElementById("carou" + currentSlide).classList.add("selectedCarousel")
-    console.log((currentSlide * 258))
+    console.log((currentSlide * 302))
 }
 function next(slide) {
     if (slide == "back") {
@@ -58,7 +58,7 @@ clearTimeout(currentTimeout)
 console.log(event.touches[0].pageX)
 touchStarted = true
 xPos = event.touches[0].pageX;
-curTouch = (currentSlide * 258)
+curTouch = (currentSlide * 302)
 }
 function touchMove(event) {
     if (touchStarted == true) {
@@ -67,19 +67,19 @@ function touchMove(event) {
         if (event.touches[0].clientX < xPos) {
             console.log(event.touches[0].clientX - xPos)
             curTouch = event.touches[0].clientX * 0.5
-            document.getElementById("partnerCarousel").style.left = - ((currentSlide * 258)  + (xPos - event.touches[0].clientX * 0.5)) + "px"
+            document.getElementById("partnerCarousel").style.left = - ((currentSlide * 302)  + (xPos - event.touches[0].clientX * 0.5)) + "px"
         } else {
         // you swiped right
             console.log(event.touches[0].clientX - xPos)
             curTouch = event.touches[0].clientX 
-            document.getElementById("partnerCarousel").style.left = - ((currentSlide * 258) + (xPos - event.touches[0].clientX)) + "px"
+            document.getElementById("partnerCarousel").style.left = - ((currentSlide * 302) + (xPos - event.touches[0].clientX)) + "px"
         }
     }
 }
 function touchEnd(event) {
     if (touchStarted == true) {
         touchStarted = false
-        console.log(Math.round((currentSlide * 258) + (xPos - curTouch))/ 258)
-        changeSlide(Math.round(((currentSlide * 258) + (xPos - curTouch))/ 258));
+        console.log(Math.round((currentSlide * 302) + (xPos - curTouch))/ 302)
+        changeSlide(Math.round(((currentSlide * 302) + (xPos - curTouch))/ 302));
     }
 };
