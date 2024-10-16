@@ -212,6 +212,11 @@
             width: 90vw;
             max-width: 350px;
             overflow: hidden;
+            transition: .2s transform;
+            cursor: pointer;
+        }
+        .grid-Content:hover {
+            transform: scale(1.05);
         }
         .bannerDecoration{
             position: absolute; 
@@ -546,92 +551,99 @@
         <script src="Misc/programsCarou.js"></script>
     </div>
     <h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
+    <script>
+        var anchorHovered = false
+    </script>
+    <!-- I cant figure out how to add nested links..
+     so basically i detect when an anchor is being hovered over and dont allow the gMap link to open when one of the anchor is being hovered
+     
+    -->
     <div class="grid-Container">
-        <div class="grid-Content">
+        <div class="grid-Content" onclick="if(anchorHovered == false) { window.open('about.html')}">
             <img src="Images/theThematic.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Head Studio</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">12a, Jalan Midah 1, Taman Midah, 56000 Cheras. KL</li>
-                    <li class="blackLi"><a href="tel:+60162069339">60 162069339</a></li>
-                    <li class="blackLi"><a href="mailto:Artthematichq@gmail.com">Artthematichq@gmail.com</a></li>
+                    <li class="blackLi"><a href="tel:+60162069339" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 162069339</a></li>
+                    <li class="blackLi"><a href="mailto:Artthematichq@gmail.com"  onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">Artthematichq@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-        <div class="grid-Content">
+        <div class="grid-Content" onclick="if(anchorHovered == false) { window.open('about.html')}">
             <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Bandar Puteri Puchong</h2>
             <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">Unit 6-2, Jln Bandar Puteri 2/3, Bandar Puteri Puchong. 47100 Puchong. Selangor.</li>
-                    <li class="blackLi"><a href="tel:+601125805882">60 1125805882</a></li>
-                    <li class="blackLi"><a href="mailto:Artthematichq@gmail.com">Artthematichq@gmail.com</a></li>
+                    <li class="blackLi"><a href="tel:+601125805882" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 1125805882</a></li>
+                    <li class="blackLi"><a href="mailto:Artthematichq@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">Artthematichq@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-        <div class="grid-Content">
+        <div class="grid-Content" onclick="if(anchorHovered == false) { window.open('about.html')}">
             <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Batu Pahat</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">Jalan Ungku, Mohd Salleh, Kg Merdeka, Batu Pahat, 83000, Johore</li>
-                    <li class="blackLi"><a href="tel:">60 XXXXXXXXXX</a></li>
-                    <li class="blackLi"><a href="mailto:">xxxx@gmail.com</a></li>
+                    <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
+                    <li class="blackLi"><a href="mailto:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">xxxx@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-        <div class="grid-Content">
+        <div class="grid-Content" onclick="if(anchorHovered == false) { window.open('about.html')}">
             <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Sarawak Sibu</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">1st Floor, Lorong 2A, 30, Jalan Aman, 96000 Sibu, Sarawak</li>
-                    <li class="blackLi"><a href="tel:+600129930905">60 0129930905</a></li>
-                    <li class="blackLi"><a href="mailto:artthematic.sarawaksibu@gmail.com">artthematic.sarawaksibu@gmail.com</a></li>
+                    <li class="blackLi"><a href="tel:+600129930905" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0129930905</a></li>
+                    <li class="blackLi"><a href="mailto:artthematic.sarawaksibu@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">artthematic.sarawaksibu@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-        <div class="grid-Content">
+        <div class="grid-Content" onclick="if(anchorHovered == false) { window.open('about.html')}">
             <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Kuching</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">Gala Street Mall, Lot 12766 Parcel 16, Jalan Tun Jugah, KCLD93350 Kuching, Sarawak</li>
-                    <li class="blackLi"><a href="tel:+600129930905">60 0129930905</a></li>
-                    <li class="blackLi"><a href="mailto:artthematic.sarawaksibu@gmail.com">artthematic.sarawaksibu@gmail.com</a></li>
+                    <li class="blackLi"><a href="tel:+600129930905" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0129930905</a></li>
+                    <li class="blackLi"><a href="mailto:artthematic.sarawaksibu@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">artthematic.sarawaksibu@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-        <div class="grid-Content">
+        <div class="grid-Content" onclick="if(anchorHovered == false) { window.open('about.html')}">
             <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Ara Damansara</h2>
             <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">Taipan 1, Jalan PJU 1a/3k, Ara Damansara, 47301 Petaling Jaya. Selangor</li>
-                    <li class="blackLi"><a href="tel:">60 XXXXXXXXXX</a></li>
-                    <li class="blackLi"><a href="mailto:C060joanne@gmail.com">C060joanne@gmail.com</a></li>
+                    <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
+                    <li class="blackLi"><a href="mailto:C060joanne@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">C060joanne@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-        <div class="grid-Content">
+        <div class="grid-Content" onclick="if(anchorHovered == false) { window.open('about.html')}">
             <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic OUG</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">79, Jalan Hujan Emas, Taman Overseas Union, 58200 KL</li>
-                    <li class="blackLi"><a href="tel:">60 XXXXXXXXXX</a></li>
-                    <li class="blackLi"><a href="mailto:">xxxx@gmail.com</a></li>
+                    <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0122831230</a></li>
+                    <li class="blackLi"><a href="mailto:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">xxxx@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-        <div class="grid-Content">
+        <div class="grid-Content" onclick="if(anchorHovered == false) { window.open('about.html')}">
             <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Kota Damansara</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
                     <li class="blackLi">Coming Soon!</li>
-                    <li class="blackLi"><a href="tel:">60 XXXXXXXXXX</a></li>
-                    <li class="blackLi"><a href="mailto:C060joanne@gmail.com">C060joanne@gmail.com</a></li>
+                    <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
+                    <li class="blackLi"><a href="mailto:C060joanne@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">C060joanne@gmail.com</a></li>
                 </ul>
             </div>
         </div>
