@@ -10,11 +10,69 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <style>
-       
+        .colourBox{
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.57);
+            width: 80%;
+            min-height: 320px;
+            padding: 20px;
+            color: white;
+            margin: auto;
+            margin-top: 40px;
+            max-width: 1280px;
+            position: relative;
+            flex-wrap: nowrap;
+            overflow: auto;
+            overflow-x: hidden;
+            transition: all .5s ease;
+            right:0;
+        }
+        .right{
+            float: right; 
+            margin-left: 20px;
+        }
+        .rightText{
+            text-align: right;
+        }
+        .left{
+            float: left; 
+            margin-right: 20px;
+        }
+        .colourBox h1{
+            font-size: 64px;
+        }
     </style>
 </head>
 
 <body>
+    <h1 style="text-align: center; font-size: min(18vw,82px);">About Us</h1>
+    <div class="colourBox flyLeft" style="background-color: #ec008b;">
+        <div>
+        <img src="Images/theThematicSquare.jpg" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
+        <h1>What is ArThematic?</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae diam sit amet eros ullamcorper bibendum. Sed lacus diam, tincidunt id placerat sit amet, efficitur rutrum est.</p>
+        </div>
+    </div>
+    <div class="colourBox flyRight" style="background-color: #8cc63e;">
+        <div>
+        <img src="Images/theThematicSquare.jpg" class="right" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
+        <h1 class="rightText">Why ArThematic?</h1>
+        <p  class="rightText">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills. </p>
+        </div>
+    </div>
+    <div class="colourBox flyLeft" style="background-color: #fff200;">
+        <div>
+        <img src="Images/theThematicSquare.jpg" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
+        <h1 style="text-shadow: .5px .5px 5px rgba(0, 0, 0, 0.453);">What is ArThematic?</h1>
+        <p style="text-shadow: .5px .5px 5px rgba(0, 0, 0, 0.518);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae diam sit amet eros ullamcorper bibendum. Sed lacus diam, tincidunt id placerat sit amet, efficitur rutrum est.</p>
+        </div>
+    </div>
+    <div class="colourBox flyRight" style="background-color: #00adef;">
+        <div>
+        <img src="Images/theThematicSquare.jpg" class="right" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
+        <h1 class="rightText">Why ArThematic?</h1>
+        <p  class="rightText">Art Thematic stands out by combining all art activities into a cohesive study flow, guiding students from visual art creation to model making, and finally, to storyboard development. This hands-on approach is further enriched with STEAM (Science, Technology, Engineering, Art, and Mathematics) discovery projects, designed to enhance independent thinking and problem-solving skills. </p>
+        </div>
+    </div>
     <!--Fade to page elements-->
     <div class="navbar" id="navbar">
         <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
