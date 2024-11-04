@@ -10,6 +10,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <style>
+        body{
+            background-image: url(Images/bluestars.png);
+            background-size:contain;
+        }
         .colourBox{
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.57);
             width: 80%;
@@ -79,7 +83,7 @@
     </style>
 </head>
 
-<body>
+<body id="body">
     <h1 style="text-align: center; font-size: min(18vw,82px);">About Us</h1>
     <div class="colourBox flyLeft" style="background-color: #ec008b;">
         <img src="Images/portrait2.png" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
@@ -95,7 +99,7 @@
     </div>
     <div class="colourBox flyRight" style="background-color: #8cc63e;">
         <div>
-        <img src="Images/aboutimg2.jpg" class="right" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
+        <img src="Images/theThematicSquare.jpg" class="right" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
         <h1 class="rightText">About Arthematic</h1>
         <p  class="rightText">ArThematic is an innovative, integrated art and science discovery program crafted for the 21st-century child. It’s designed to nurture the next generation of creative thinkers and visionary leaders. Through a blend of art and subjects like animal and marine geography, human activities, sci-fi, fantasy worlds, space exploration, cultural traditions, and festivals, ArThematic serves as a dynamic “art cyclopedia.”
             <br><br>
@@ -182,7 +186,17 @@
     rootMargin: '0px', // Margin around the root
     threshold: .4 // Trigger when 100% of the element is in view
     });
-
+    function parallax() {
+                var scrolltotop = document.scrollingElement.scrollTop;
+                var target = document.getElementById("body");
+                var xvalue = "center";
+                var factor = 0.7;
+                var yvalue = scrolltotop * factor;
+                target.style.backgroundPosition = xvalue + " " + yvalue + "px";
+        }
+    window.addEventListener("scroll", function(){
+            parallax(); 
+        });
     // Start observing the target element
     setTimeout(function() {
         // observer.observe(document.getElementById("InsertIdHere"));
