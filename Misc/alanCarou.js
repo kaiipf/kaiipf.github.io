@@ -81,13 +81,13 @@ function alantouchMove(event) {
     if (alantouchStarted == true) {
         event.preventDefault();
 
-        if (event.touches[0].clientX < xPos) {
-            console.log(event.touches[0].clientX - xPos)
+        if (event.touches[0].clientX < alanxPos) {
+            console.log(event.touches[0].clientX - alanxPos)
             alancurTouch = event.touches[0].clientX * 0.5
             document.getElementById("alanCarousel").style.left = - ((alancurrentSlide * 266)  + (alanxPos - event.touches[0].clientX * 0.5)) + "px"
         } else {
         // you swiped right
-            console.log(event.touches[0].clientX - xPos)
+            console.log(event.touches[0].clientX - alanxPos)
             alancurTouch = event.touches[0].clientX 
             document.getElementById("alanCarousel").style.left = - ((alancurrentSlide * 266) + (alanxPos - event.touches[0].clientX)) + "px"
         }

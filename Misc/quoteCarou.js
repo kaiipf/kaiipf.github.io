@@ -79,13 +79,13 @@ function quotetouchMove(event) {
     if (quotetouchStarted == true) {
         event.preventDefault();
 
-        if (event.touches[0].clientX < xPos) {
-            console.log(event.touches[0].clientX - xPos)
+        if (event.touches[0].clientX < quotexPos) {
+            console.log(event.touches[0].clientX - quotexPos)
             quotecurTouch = event.touches[0].clientX * 0.5
             document.getElementById("quoteCarousel").style.left = - ((quotecurrentSlide * 346)  + (quotexPos - event.touches[0].clientX * 0.5)) + "px"
         } else {
         // you swiped right
-            console.log(event.touches[0].clientX - xPos)
+            console.log(event.touches[0].clientX - quotexPos)
             quotecurTouch = event.touches[0].clientX 
             document.getElementById("quoteCarousel").style.left = - ((quotecurrentSlide * 346) + (quotexPos - event.touches[0].clientX)) + "px"
         }

@@ -79,13 +79,13 @@ function thumbtouchMove(event) {
     if (thumbtouchStarted == true) {
         event.preventDefault();
 
-        if (event.touches[0].clientX < xPos) {
-            console.log(event.touches[0].clientX - xPos)
+        if (event.touches[0].clientX < thumbxPos) {
+            console.log(event.touches[0].clientX - thumbxPos)
             thumbcurTouch = event.touches[0].clientX * 0.5
             document.getElementById("thumbCarousel").style.left = - ((thumbcurrentSlide * 346)  + (thumbxPos - event.touches[0].clientX * 0.5)) + "px"
         } else {
         // you swiped right
-            console.log(event.touches[0].clientX - xPos)
+            console.log(event.touches[0].clientX - thumbxPos)
             thumbcurTouch = event.touches[0].clientX 
             document.getElementById("thumbCarousel").style.left = - ((thumbcurrentSlide * 346) + (thumbxPos - event.touches[0].clientX)) + "px"
         }
