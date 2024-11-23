@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArThematic</title>
+    <link rel="stylesheet" href="Stylesheets/styles.css">
+    <link rel="icon" type="image/x-icon" href="Images/atLogo.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <style>
+        body{
+            background-image: url(Images/bluestars.png);
+            background-size:contain;
+        }
+       .thumbs td , .quotes td, .alans td{
+            width: 256px;
+        }
+        .alans td{
+            width: 256px;
+        }
+        .thumbs td img, .quotes td img, .alans td img{
+            user-select: none;
+            pointer-events: none;
+        }
+        .partners td img{
+            user-select: none;
+            pointer-events: none;
+        }
+        .bubble {
+            width: 328px;
+            height: 437px;
+            padding: .5em;
+        }
+        .bubble img {
+            width: 328px;
+            height: 437px;
+        }
+        .bubbleLS {
+            width: 328px;
+            height: 260px;
+            padding: .5em;
+        }
+        .bubbleLS img {
+            width: 328px;
+            height: 260px;
+        }
+        .alanbubble {
+            width: 248px;
+            height: 237px;
+            padding: .5em;
+        }
+        .alanbubble img {
+            width: 248px;
+            height: 237px;
+            object-fit: cover;
+        }
+        .unselectedCarousel{
+            background-color: rgb(230, 230, 230)rgb(79, 79, 79);
+            border: none;
+        }
+        .selectedCarousel{
+            background-color: rgb(161, 161, 161);
+            border: none;
+        }
+        .nextButton{
+            font-weight: bolder;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+            border: none; 
+            background: rgba(147, 145, 220, 0.508); 
+            color:white;  
+            border-radius: 10px;
+            transition: .1s ease;  
+        }
+        .nextButton:hover{
+            font-weight: bolder;
+            border: none; 
+            background: rgba(71, 75, 104, 0.527); 
+            color:white;  
+            border-radius: 10px;  
+        }
+    </style>
+</head>
+
+<body id="body">
+    <!--Fade to page elements-->
+    <div class="navbar" id="navbar">
+        <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact us</a>
+        <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
+        <script>
+            var hidden = true
+            function showHide() {
+                if (hidden == false) {
+                    document.getElementById("navMenu").classList.remove('expandedMenu');
+                    hidden = true
+                } else {
+                    document.getElementById("navMenu").classList.add('expandedMenu');
+                    hidden = false
+                }
+            }
+        </script>
+</div>
+<div class="navMenu" id="navMenu">
+    <ul>
+    <li style="list-style-type: none;"><a href="index.html">Home</a></li>
+    <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
+    <li style="list-style-type: none;"><a href="about.html">About us</a></li>
+    <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
+    </ul>
+    </div>
+</div>
+<h1 style="text-align: center; font-size: min(18vw,82px);">The Arthematic Gallery</h1>
+<p style="text-align: center;">A collection of our students' best works</p>
+<div class="colourBox" style="background-color: #ec008b;">
+    <img src="Images/alanImg.png" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
+    <h1>Featured Student</h1>
+    <div class="bottomFill">
+        <p style="font-size: 24px; margin-top: -28px; margin-bottom: -16px;"><b>Alan Yeoh</b></p>
+        <p>
+        Meet Alan Yeoh, an inspiring student who has been part of our Arthematic visual art program since he was 11. Born deaf, Alan joined our program initially to explore visual art, and over time, at the request of his parents, he ventured into digital art. In fact, our digital art curriculum was developed with him in mind. Alan has turned what some might see as a limitation into his greatest strength, demonstrating unwavering focus and dedication to his craft. With the support of his mother, Alan has now established his own art studio and is thriving as a professional illustrator. Skilled in both hand-drawn and digital artwork, he brings any subject to life with remarkable detail. We couldn’t be prouder of Alan’s achievements and the incredible artist he has become.
+        </p>
+    </div>
+    <div style="overflow: hidden; width: round(down,70vw,266px); min-width: 266px; max-width: 1064px; display: block; margin: auto; text-align: center;">
+        <button class="nextButton" style="width: 50px; height: 50px; right:92%; margin-top: 100px; position: absolute;  z-index: 10" onclick="alannext('back')"><</button>
+        <button class="nextButton" style="width: 50px; height: 50px; left: 92%; margin-top: 100px; position: absolute; z-index: 10;" onclick="alannext('front')">></button>
+        <table  ontouchstart="alantouchStart(event)" ontouchmove="alantouchMove(event)" ontouchend="alantouchEnd(event)" id="alanCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+            <tr class="alans">
+                <td>
+                    <div class="alanbubble">
+                        <img src="Images/AlanStuff/1.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="alanbubble">
+                        <img src="Images/AlanStuff/2.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="alanbubble">
+                        <img src="Images/AlanStuff/3.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="alanbubble">
+                        <img src="Images/AlanStuff/4.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="alanbubble">
+                        <img src="Images/AlanStuff/5.jpeg">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="alanContainer" >
+            <button onclick="alannext(1)">1</button>
+        </div>
+    </div>
+</div>
+
+   
+<script src="Misc/alanCarou.js"></script>
+<h1 style="text-align: center; font-size: min(18vw,82px);">Student Projects</h1>
+<div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px; max-width: 1730px; display: block; margin: auto; text-align: center;">
+    <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="quotenext('back')"><</button>
+    <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="quotenext('front')">></button>
+    <table  ontouchstart="quotetouchStart(event)" ontouchmove="quotetouchMove(event)" ontouchend="quotetouchEnd(event)" id="quoteCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+        <tr class="quotes">
+            <td>
+                <div class="bubble">
+                    <img src="Images/PortraitStuff/1.jpeg">
+                </div>
+            </td>
+            <td>
+                <div class="bubble">
+                    <img src="Images/PortraitStuff/2.jpeg">
+                </div>
+            </td>
+            <td>
+                <div class="bubble">
+                    <img src="Images/PortraitStuff/3.jpeg">
+                </div>
+            </td>
+            <td>
+                <div class="bubble">
+                    <img src="Images/PortraitStuff/4.jpeg">
+                </div>
+            </td>
+            <td>
+                <div class="bubble">
+                    <img src="Images/PortraitStuff/5.jpeg">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="quoteContainer" >
+        <button onclick="quotenext(1)">1</button>
+    </div>
+</div>
+   
+    <script src="Misc/quoteCarou.js"></script>
+<div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px; max-width: 1730px;  display: block; margin: auto; text-align: center;">
+    <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="thumbnext('back')"><</button>
+    <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="thumbnext('front')">></button>
+    <table  ontouchstart="thumbtouchStart(event)" ontouchmove="thumbtouchMove(event)" ontouchend="thumbtouchEnd(event)" id="thumbCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+        <tr class="thumbs">
+            <td>
+                <div class="bubbleLS">
+                    <img src="Images/LandscapeStuff/6.jpg">
+                </div>
+            </td>
+            <td>
+                <div class="bubbleLS">
+                    <img src="Images/LandscapeStuff/2.jpeg">
+                </div>
+            </td>
+            <td>
+                <div class="bubbleLS">
+                    <img src="Images/LandscapeStuff/3.jpeg">
+                </div>
+            </td>
+            <td>
+                <div class="bubbleLS">
+                    <img src="Images/LandscapeStuff/4.jpeg">
+                </div>
+            </td>
+            <td>
+                <div class="bubbleLS">
+                    <img src="Images/LandscapeStuff/5.jpeg">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="thumbContainer" >
+        <button onclick="thumbnext(1)">1</button>
+    </div>
+</div>
+   
+    <script src="Misc/thumbCarou.js"></script>
+    <div class="footerDiv">
+        <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
+        <div class="socialMedia" style="position: absolute; top: 25px;left: 0; right: 0; margin: auto; background-color: #333;">
+          <img src="Images/fbook.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.facebook.com'" width="25%">
+          <img src="Images/igram.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.instagram.com'" width="25%">
+          <img src="Images/twtr.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.twitter.com'" width="25%">
+        </div>
+        <img src="Images/atLogo2.png" style="width: 80%; max-width: 250px;">
+        <p style="font-size: 14px;">Copyright &copy; 2024 Arthematic Malaysia</p>
+        <a href="privacypolicy.html" style="white-space: nowrap;"><b>Privacy Policy</b></a> | <a href="security.html" style="white-space: nowrap;"><b>Security</b></a> | <a href="contact.html" style="white-space: nowrap;"><b>Contact us</b></a> | <a href="about.html" style="white-space: nowrap;"><b>About us</b></a>
+      </div>
+    <!--Startup animation-->
+    <script>
+    // Scroll animations
+    const targetElement = document.querySelector('.target-element');
+    function onElementInView(entry) {
+        if (entry.id == "insertIdHere") {
+        
+        }
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            onElementInView(entry.target);
+            // Optionally, if you only want to trigger the function once, you can unobserve the element
+            observer.unobserve(entry.target);
+            }
+        });
+    }, {
+    root: null, // Use the viewport as the root
+    rootMargin: '0px', // Margin around the root
+    threshold: .4 // Trigger when 100% of the element is in view
+    });
+    function parallax() {
+                var scrolltotop = document.scrollingElement.scrollTop;
+                var target = document.getElementById("body");
+                var xvalue = "center";
+                var factor = 0.7;
+                var yvalue = scrolltotop * factor;
+                target.style.backgroundPosition = xvalue + " " + yvalue + "px";
+        }
+    window.addEventListener("scroll", function(){
+            parallax(); 
+        });
+    // Start observing the target element
+    setTimeout(function() {
+        // observer.observe(document.getElementById("InsertIdHere"));
+    },2000)
+    </script>
+</body>
+
+</html>
