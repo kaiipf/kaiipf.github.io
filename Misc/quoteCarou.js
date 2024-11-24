@@ -1,5 +1,5 @@
 var quotenoOfDots = null
-var quotenoOfItems = 5
+var quotenoOfItems = 10
 var quotecurrentSlide = 0
 var quotecurrentTimeout = null
 function quotelimitNumberWithinRange(num, min, max){
@@ -49,8 +49,10 @@ function quotedetectDots() {
     if (quotenoOfDots != quotenoOfItems - quotecurrentOnScreen) {
         document.getElementById("quoteContainer").innerHTML = ""
         quotenoOfDots = quotenoOfItems - quotecurrentOnScreen
-        if ((window.innerWidth * (8/10))/ 346 * 346 < 346) {
+        if ((window.innerWidth * (8/10))/ 346 * 346 < 346 && window.innerWidth < 1730) {
             quotenoOfDots = quotenoOfDots - 1
+        } else if (window.innerWidth >= 1520) {
+            quotenoOfDots = quotenoOfItems - 4
         }
         for (let i = 0; i < quotenoOfDots+1; i++) { 
             document.getElementById("quoteContainer").innerHTML = document.getElementById("quoteContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="quotenext('+ i +')"" id="quoteCarou'+ i +'"></button>'

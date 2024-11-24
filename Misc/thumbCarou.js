@@ -1,5 +1,5 @@
 var thumbnoOfDots = null
-var thumbnoOfItems = 5
+var thumbnoOfItems = 10
 var thumbcurrentSlide = 0
 var thumbcurrentTimeout = null
 function thumblimitNumberWithinRange(num, min, max){
@@ -49,8 +49,10 @@ function thumbdetectDots() {
     if (thumbnoOfDots != thumbnoOfItems - thumbcurrentOnScreen) {
         document.getElementById("thumbContainer").innerHTML = ""
         thumbnoOfDots = thumbnoOfItems - thumbcurrentOnScreen
-        if ((window.innerWidth * (8/10))/ 346 * 346 < 346) {
+        if ((window.innerWidth * (8/10))/ 346 * 346 < 346 && window.innerWidth < 1730) {
             thumbnoOfDots = thumbnoOfDots - 1
+        } else if (window.innerWidth >= 1520) {
+            thumbnoOfDots = thumbnoOfItems - 4
         }
         for (let i = 0; i < thumbnoOfDots+1; i++) { 
             document.getElementById("thumbContainer").innerHTML = document.getElementById("thumbContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="thumbnext('+ i +')"" id="thumbCarou'+ i +'"></button>'
