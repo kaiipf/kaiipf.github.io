@@ -144,24 +144,41 @@
                 </td>
                 <td>
                     <div style="width:90%; max-width: 431.6px; margin: 0 auto; justify-content: center;">
-                        <form>
+                        <form action="https://formspree.io/f/xwpkwdyj" method="POST">
                             <label for="Name">Name:</label>
                             <br>
-                            <input name="Name" id="Name">
+                            <input name="Name" id="Name" required>
                             <br>
                             <label for="Email">Email:</label>
                             <br>
-                            <input name="Email" id="Email" type="email">
+                            <input name="Email" id="Email" type="email" required>
                             <br>
                             <label for="Subject">Subject:</label>
                             <br>
-                            <select name="Subject" id="Subject">
-                                <option value="Enrolment">I would like to Enrol</option>
-                                <option value="Investment">I would like to own a franchise location</option>
+                            <select name="Subject" id="Subject" required>
+                                <option value="I would like to enrol">I would like to Enrol</option>
+                                <option value="I would like to own a licensing location">I would like to own a license location</option>
+                            </select>
+                            <br>
+                            <label for="Location">Location:</label>
+                            <br>
+                            <select name="Location" id="Location" required>
+                                <option value="Arthematic Head Studio">Arthematic Head Studio</option>
+                                <option value="Arthematic Bandar Puteri Puchong">Arthematic Bandar Puteri Puchong</option>
+                                <option value="Arthematic Batu Pahat">Arthematic Batu Pahat</option>
+                                <option value="Arthematic Kuching">Arthematic Kuching</option>
+                                <option value="Arthematic Ara Damansara">Arthematic Ara Damansara</option>
+                                <option value="Arthematic OUG">Arthematic OUG</option>
+                                <option value="Arthematic Kota Damansara">Arthematic Kota Damansara</option>
+                                <option value="Arthematic Bandar Puteri Puchong">Arthematic Bandar Puteri Puchong</option>
+                                <option value="Arthematic Head Studio">Arthematic Head Studio</option>
+                                <option value="Arthematic Bandar Puteri Puchong">Arthematic Australia Melbourne</option>
                             </select>
                             <br>
                             <label for="Message">Message:</label><br>
                             <textarea name="Message" id="Message" rows="8"></textarea>
+                            <br>
+                            <input type="submit">
                         </form>
                     </div>
                 </td>
