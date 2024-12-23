@@ -96,6 +96,31 @@
             max-width: 350px;
             overflow: hidden;
         }
+        #posterEnlarged{
+        width: 100%;
+        height: 100vh;
+        top:0%;
+        background-color: rgba(0,0,0,.5);
+        position: fixed;
+        z-index: 9000;
+        display: none;
+       }
+       #posterEnlarged div{
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+       }
+       #posterEnlarged img{
+        margin: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        position: relative;
+        display: block;
+        width: auto;
+        object-fit: cover;
+        max-width: 90%;
+        max-height: 90%;
+       }
     </style>
 </head>
 
@@ -130,6 +155,14 @@
     </ul>
     </div>
 </div>
+<div id="posterEnlarged">
+    <div>
+    <img id="posterImg" src="Images/spookynightposter.jpg">
+    <button onclick="closePoster()" style="height: 40px; width: 40px; right: 40px; cursor: pointer; font-family: Arial, Helvetica, sans-serif; position: absolute; background:none; border: none; color:white; font-size: 50px; text-shadow: 0px 0px 3px black; top: 5%;">X</button>
+    </div>
+</div>  
+<br><Br>
+<script src="Misc/poster.js"></script>
 <h1 style="text-align: center; font-size: min(18vw,82px);">The Arthematic Gallery</h1>
 <p style="text-align: center;">A collection of our students' best works</p>
 <div class="colourBox" style="background-color: #ec008b;">
@@ -309,28 +342,28 @@
     <script src="Misc/thumbCarou.js"></script>
     <h1 style="text-align: center; font-size: min(18vw,82px);">Events</h1>
     <div class="grid-Container">
-        <div class="grid-Content">
+        <div class="grid-Content" style="cursor:pointer;" onclick="openPoster('Images/spookynightposter.jpg')">
             <img src="Images/spookynightheader.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39); margin-bottom: 15px;">Spooky Night ArtCamp</h2>
         </div>
-        <div class="grid-Content">
-            <img src="Images/spookynightheader.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <div class="grid-Content"  onclick="openPoster('Images/unicornPoster.jpg')">
+            <img src="Images/unicornheader.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39); margin-bottom: 15px;">Easy Clay Unicorn ArtCamp</h2>
+        </div>
+        <div class="grid-Content"  onclick="openPoster('Images/fossilPoster.jpg')">
+            <img src="Images/fossilheader.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39); margin-bottom: 15px;">Build Your Own Fossil ArtCamp</h2>
+        </div>
+        <div class="grid-Content"  onclick="openPoster('Images/steamPoster.jpg')">
+            <img src="Images/steamlabs.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39); margin-bottom: 15px;">Spooky Night ArtCamp</h2>
         </div>
-        <div class="grid-Content">
-            <img src="Images/spookynightheader.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <div class="grid-Content"  onclick="openPoster('Images/oceanPoster.jpg')">
+            <img src="Images/oceanartcamp.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39); margin-bottom: 15px;">Spooky Night ArtCamp</h2>
         </div>
-        <div class="grid-Content">
-            <img src="Images/spookynightheader.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39); margin-bottom: 15px;">Spooky Night ArtCamp</h2>
-        </div>
-        <div class="grid-Content">
-            <img src="Images/spookynightheader.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39); margin-bottom: 15px;">Spooky Night ArtCamp</h2>
-        </div>
-        <div class="grid-Content">
-            <img src="Images/spookynightheader.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <div class="grid-Content"  onclick="openPoster('Images/sunPoster.jpg')">
+            <img src="Images/suncamp.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39); margin-bottom: 15px;">Spooky Night ArtCamp</h2>
         </div>
     </div>
