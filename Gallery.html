@@ -96,6 +96,9 @@
             max-width: 350px;
             overflow: hidden;
         }
+        .grid-Content:hover {
+            transform: scale(1.05);
+        }
         #posterEnlarged{
         width: 100%;
         height: 100vh;
@@ -121,6 +124,19 @@
         max-width: 90%;
         max-height: 90%;
        }
+       @media screen and (max-width: 1200px) {
+            .grid-Container {
+            width: 700px;
+            grid-template-columns: auto auto;
+            }
+        }
+        @media screen and (max-width: 850px) {
+            .grid-Container {
+            max-width: 350px;
+            width: 90%;
+            grid-template-columns: auto;
+            }
+        }
     </style>
 </head>
 
