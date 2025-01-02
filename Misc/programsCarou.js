@@ -2,6 +2,15 @@ var noOfDots = 5
 var noOfItems = 6
 var currentSlide = 0
 var currentTimeout = null
+var consideredClick = false
+var slideFiles = [
+    'Images/visualArtPoster.jpeg',
+    'Images/storyBrdPoster.jpeg',
+    'Images/clayPoster.jpeg',
+    'Images/steamPoster.jpeg',
+    'Images/digArtPoster.jpeg',
+    'Images/fineArtPoster.jpeg',
+]
 function limitNumberWithinRange(num, min, max){
     const MIN = min ?? 0;
     const MAX = max ?? noOfDots;
@@ -55,10 +64,14 @@ let curTouch;
 var touchStarted = false
 function touchStart(event) {
 clearTimeout(currentTimeout)
+consideredClick = true
 console.log(event.touches[0].pageX)
 touchStarted = true
 xPos = event.touches[0].pageX;
 curTouch = (currentSlide * 302)
+setTimeout(function() {
+    consideredClick = false
+}, 50);
 }
 function touchMove(event) {
     if (touchStarted == true) {
@@ -75,11 +88,15 @@ function touchMove(event) {
             document.getElementById("partnerCarousel").style.left = - ((currentSlide * 302) + (xPos - event.touches[0].clientX)) + "px"
         }
     }
+    
 }
 function touchEnd(event) {
-    if (touchStarted == true) {
+    if (touchStarted == true && consideredClick == false) {
         touchStarted = false
         console.log(Math.round((currentSlide * 302) + (xPos - curTouch))/ 302)
         changeSlide(Math.round(((currentSlide * 302) + (xPos - curTouch))/ 302));
+    } else if (consideredClick == true) {
+        openPoster(slideFiles[currentSlide])
     }
+    consideredClick = false
 };

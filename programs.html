@@ -79,7 +79,7 @@
             cursor: pointer;
             background-color: white;
         }
-            .programGrid {
+        .programGrid {
             width: 940px;
             margin: auto;
             display: grid;
@@ -88,7 +88,12 @@
             gap: 20px;
         }
         .programContent{
+            cursor: pointer;
             width: 300px;
+            transition: transform .2s; /* Animation */
+        }
+        .programContent:hover{
+            transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
         }
 .unselectedCarousel{
             background-color: rgb(230, 230, 230)rgb(79, 79, 79);
@@ -173,9 +178,16 @@
         }
         }
     </style>
+    <script src="Misc/poster.js"></script>
 </head>
 
 <body id="body">
+    <div id="posterEnlarged">
+        <div>
+        <img id="posterImg" src="Images/spookynightposter.jpg">
+        <button onclick="closePoster()" style="height: 40px; width: 40px; right: 40px; cursor: pointer; font-family: Arial, Helvetica, sans-serif; position: absolute; background:none; border: none; color:white; font-size: 50px; text-shadow: 0px 0px 3px black; top: 5%;">X</button>
+        </div>
+    </div>  
     <!--Fade to page elements-->
     <div class="navbar" id="navbar">
         <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
@@ -328,19 +340,19 @@
     </div>
 
     <div class="programGrid">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(0).png">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(1).png">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(2).png">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(3).png">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(0).png" onclick="openPoster('Images/visualArtPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(1).png" onclick="openPoster('Images/storyBrdPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(2).png" onclick="openPoster('Images/clayPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(3).png" onclick="openPoster('Images/steamPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png" onclick="openPoster('Images/digArtPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png" onclick="openPoster('Images/fineArtPoster.jpeg')">
     </div>
     <div id="responsiveProgramCarou" style="overflow: hidden; width: 300px; margin: auto; margin-top: 72px;">
         <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 120px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
         <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 120px; position: absolute; z-index: 10;" onclick="next('front')">></button>
-        <table ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+        <table ontouchstart="touchStart(event)" onmouseup="openPoster(slideFiles[currentSlide])" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
             <tr class="programs">
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="UCSI International School" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" onclick="openPoster('Images/spookynightposter.jpg')" alt="UCSI International School" width="300px"></td>
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="International School of Kualar Lumpur" width="300px"></td>
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Australian Internation School Malaysia" width="300px"></td>
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Nexus International School" width="300px"></td>
@@ -351,7 +363,6 @@
         <div id="dotContainer" style="margin: auto; width: 72px; white-space: nowrap;">
         </div>
         <script src="Misc/programsCarou.js"></script>
-    </div>
     
     <div class="footerDiv">
         <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
