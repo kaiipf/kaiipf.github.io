@@ -1,5 +1,5 @@
 var quotenoOfDots = null
-var quotenoOfItems = 10
+var quotenoOfItems = 6
 var quotecurrentSlide = 0
 var quotecurrentTimeout = null
 function quotelimitNumberWithinRange(num, min, max){

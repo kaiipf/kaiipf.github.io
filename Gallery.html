@@ -14,13 +14,13 @@
             background-image: url(Images/bluestars.png);
             background-size:contain;
         }
-       .thumbs td , .quotes td, .alans td{
+       .thumbs td , .quotes td, .alans td, .clay td, .comic td, .FineArt, .digiArt{
             width: 256px;
         }
         .alans td{
             width: 256px;
         }
-        .thumbs td img, .quotes td img, .alans td img{
+        .thumbs td img, .quotes td img, .alans td img, .clay td img, .comic td img , .FineArt td img, .digiArt td img{
             user-select: none;
             pointer-events: none;
         }
@@ -206,6 +206,7 @@
    
 <script src="Misc/alanCarou.js"></script>
 <h1 style="text-align: center; font-size: min(18vw,82px);">Student Projects</h1>
+<h1 style="text-align: center;">STEAM Kidz</h1>
 <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px; max-width: 1384px; display: block; margin: auto; text-align: center;">
     <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 200px; position: absolute;  z-index: 10" onclick="quotenext('back')"><</button>
     <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 200px; position: absolute; z-index: 10;" onclick="quotenext('front')">></button>
@@ -241,27 +242,6 @@
                     <img src="Images/PortraitStuff/6.jpeg">
                 </div>
             </td>
-            <td>
-                <div class="bubble">
-                    <img src="Images/PortraitStuff/7.jpg">
-                </div>
-            </td>
-            <td>
-                <div class="bubble">
-                    <img src="Images/PortraitStuff/8.jpg">
-                </div>
-            </td>
-            <td>
-                <div class="bubble">
-                    <img src="Images/PortraitStuff/9.jpg">
-                </div>
-            </td>
-            <td>
-                <div class="bubble">
-                    <img src="Images/PortraitStuff/10.jpg">
-                </div>
-            </td>
-        </tr>
     </table>
     <div id="quoteContainer" >
         <button onclick="quotenext(1)">1</button>
@@ -269,6 +249,7 @@
 </div>
    
     <script src="Misc/quoteCarou.js"></script>
+    <h1 style="text-align: center;">Visual Art</h1>
 <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px;  max-width: 1384px;  display: block; margin: auto; text-align: center;">
     <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="thumbnext('back')"><</button>
     <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="thumbnext('front')">></button>
@@ -276,61 +257,210 @@
         <tr class="thumbs">
             <td>
                 <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/6.jpg">
+                    <img src="Images/visual1.jpg">
                 </div>
             </td>
             <td>
                 <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/2.jpeg">
+                    <img src="Images/visual5.jpeg">
                 </div>
             </td>
             <td>
                 <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/3.jpeg">
+                    <img src="Images/visual6.jpeg">
                 </div>
             </td>
             <td>
                 <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/4.jpeg">
+                    <img src="Images/visual4.jpeg">
                 </div>
             </td>
             <td>
                 <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/5.jpeg">
+                    <img src="Images/visual2.jpeg">
                 </div>
             </td>
             <td>
                 <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/6.jpg">
+                    <img src="Images/visual3.jpeg">
                 </div>
             </td>
-            <td>
-                <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/7.jpg">
-                </div>
-            </td>
-            <td>
-                <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/8.jpg">
-                </div>
-            </td>
-            <td>
-                <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/9.jpg">
-                </div>
-            </td>
-            <td>
-                <div class="bubbleLS">
-                    <img src="Images/LandscapeStuff/10.jpg">
-                </div>
-            </td>
-        </tr>
     </table>
     <div id="thumbContainer" >
         <button onclick="thumbnext(1)">1</button>
     </div>
 </div>
     <script src="Misc/thumbCarou.js"></script>
+    <h1 style="text-align: center;">Crafty Clay</h1>
+    <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px;  max-width: 1384px;  display: block; margin: auto; text-align: center;">
+        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="claynext('back')"><</button>
+        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="claynext('front')">></button>
+        <table  ontouchstart="claytouchStart(event)" ontouchmove="claytouchMove(event)" ontouchend="claytouchEnd(event)" id="clayCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+            <tr class="clays">
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/clay1.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/clay2.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/clay3.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/clay4.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/clay5.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/clay6.jpeg">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="clayContainer" >
+            <button onclick="claynext(1)">1</button>
+        </div>
+    </div>
+        <script src="Misc/clayCarou.js"></script>
+        <h1 style="text-align: center;">Comic Storyboarding</h1>
+        <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px;  max-width: 1384px;  display: block; margin: auto; text-align: center;">
+            <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="comicnext('back')"><</button>
+            <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="comicnext('front')">></button>
+            <table  ontouchstart="comictouchStart(event)" ontouchmove="comictouchMove(event)" ontouchend="comictouchEnd(event)" id="comicCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+                <tr class="comics">
+                    <td>
+                        <div class="bubbleLS">
+                            <img src="Images/sboard1.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bubbleLS">
+                            <img src="Images/sboard2.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bubbleLS">
+                            <img src="Images/sboard3.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bubbleLS">
+                            <img src="Images/sboard4.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bubbleLS">
+                            <img src="Images/sboard5.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bubbleLS">
+                            <img src="Images/sboard7.jpeg">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="comicContainer" >
+                <button onclick="comicnext(1)">1</button>
+            </div>
+        </div>
+            <script src="Misc/comicCarou.js"></script>
+            <h1 style="text-align: center;">Digital Art</h1>
+            <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px;  max-width: 1384px;  display: block; margin: auto; text-align: center;">
+                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="digiArtnext('back')"><</button>
+                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="digiArtnext('front')">></button>
+                <table  ontouchstart="digiArttouchStart(event)" ontouchmove="digiArttouchMove(event)" ontouchend="digiArttouchEnd(event)" id="digiArtCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+                    <tr class="digiArts">
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/dig1.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/dig2.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/dig3.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/dig4.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/dig5.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/dig6.jpeg">
+                            </div>
+                        </td>
+                </table>
+                <div id="digiArtContainer" >
+                    <button onclick="digiArtnext(1)">1</button>
+                </div>
+            </div>
+            <script src="Misc/digiArtCarou.js"></script>
+            <h1 style="text-align: center;">Fine Art</h1>
+            <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px;  max-width: 1384px;  display: block; margin: auto; text-align: center;">
+                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="FineArtnext('back')"><</button>
+                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="FineArtnext('front')">></button>
+                <table  ontouchstart="FineArttouchStart(event)" ontouchmove="FineArttouchMove(event)" ontouchend="FineArttouchEnd(event)" id="FineArtCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+                    <tr class="FineArts">
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/fine1.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/fine2.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/fine3.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/fine4.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/fine6.jpeg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bubbleLS">
+                                <img src="Images/fine5.jpeg">
+                            </div>
+                        </td>
+                </table>
+                <div id="FineArtContainer" >
+                    <button onclick="FineArtnext(1)">1</button>
+                </div>
+            </div>
+            <script src="Misc/FineArtCarou.js"></script>
     <h1 style="text-align: center; font-size: min(18vw,82px);">Events</h1>
     <div class="grid-Container">
         <div class="grid-Content" style="cursor:pointer;" onclick="openPoster('Images/spookynightposter.jpg')">

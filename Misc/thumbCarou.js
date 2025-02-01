@@ -1,5 +1,5 @@
 var thumbnoOfDots = null
-var thumbnoOfItems = 10
+var thumbnoOfItems = 6
 var thumbcurrentSlide = 0
 var thumbcurrentTimeout = null
 function thumblimitNumberWithinRange(num, min, max){

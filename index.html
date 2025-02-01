@@ -33,6 +33,8 @@
             text-align: left;
             left: 50%;
             top:25%;
+            text-align: center;
+            width: 60vw;
             transform: translate(-50%, 0);
         }
         .colourBox{
@@ -171,19 +173,17 @@
         .smallColourBox:hover{
              transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
         }
-        .bannerText h1{
-            font-size: 11vh;
-            margin-top: -20px;
-            text-align: left;
-            position: relative; 
-            left: 2px;
+        .bannerText img{
+            position: relative;
+            text-align: center;
             transition: top 1s ease;
         }
+
         .invisible{
          top: -100vh;
         }
         .visible{
-            top: 20px;
+            top: 5px;
         }
         .textSection{
             margin-left: auto;
@@ -444,9 +444,8 @@
     </div>  
     <div class="homeBanner">
         <div class="bannerText">
-        <h2 style="top: 47%;" id="welcomeText"></h2>
         <div style="overflow: hidden;">
-        <h1 id="bigHeader" class="invisible">Where Art<br>Meets Science</h1>
+        <img src="Images/logocombo2.png" width="40%" id="bigHeader" class="invisible">
         </div>
         </div>
         <div class="bannerDecoration">
@@ -457,7 +456,7 @@
         </div>
         <img src="Images/skyscape.png"class="bannerDecoration" id="bannerSky" style="top: -999px;">
         <img src="Images/Marscape.png" id="bannerDecoration" class="bannerDecoInvisible bannerDecoration">
-        <img src="Images/homeBanner1.jpg" class="bannerImg">
+        <img src="Images/newimg.jpg" class="bannerImg">
     </div>
     <h1 style="text-align: center; font-size: min(18vw,82px);">About Us</h1>
     <div class="colourBox flyLeft" style="background-color: #ec008b;">
@@ -516,27 +515,34 @@
         <table>
         <tr>
             <td style="padding-left: 30px; padding-right: 30px;">
-                <div class="smallColourBox" style="background-color: #ec008b;">
+                <div class="smallColourBox" style="background-color: #ec008b;" onclick="goToPrograms('Thematic')">
                     <img src="Images/TMTitle.png" width="100%" style="margin-top: -130px;">
                     <img src="Images/thematicMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
                     <p>Thematic Month guides children in turning ideas into projects through art, craft, and storytelling.</p>
                 </div> 
             </td>
             <td style="padding-left: 30px; padding-right: 30px;">
-                <div class="smallColourBox" style="background-color: #8cc63e;">
+                <div class="smallColourBox" style="background-color: #8cc63e;" onclick="goToPrograms('Inspiration')">
                     <img src="Images/InspMTitle.png" width="100%" style="margin-top: -130px;">
                     <img src="Images/inspirationMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
                     <p>Inspiration Month empowers children to express and communicate confidently through art.</p>
                 </div>
             </td>
             <td style="padding-left: 30px; padding-right: 30px;">
-                <div class="smallColourBox" style="background-color: #00adef">
+                <div class="smallColourBox" style="background-color: #00adef" onclick="goToPrograms('Innovation')">
                     <img src="Images/InnoMTitle.png" width="100%" style="margin-top: -130px;">
                     <img src="Images/innoMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
                     <p>Innovation Month blends art and science through hands-on projects, inspiring creativity and leadership.</p>
                 </div>
         </tr>
     </div>
+    <script>
+        function goToPrograms(programType) {
+            var url = "programs.html"
+            url = url + "?type=" + programType
+            location.href = url
+        }
+    </script>
     </table>
 </div>
     <div class="compactMonths">
@@ -562,17 +568,17 @@
                 }
             </script>
         </div>
-        <div id="Thematic" class="smallColourBox" style="background-color: #ec008b; position: relative; transition: all .5s ease; top: 30px;">
+        <div id="Thematic" class="smallColourBox" style="background-color: #ec008b; position: relative; transition: all .5s ease; top: 30px;" onclick="goToPrograms('Thematic')">
             <img src="Images/TMTitle.png" width="100%" style="margin-top: -130px;">
             <img src="Images/thematicMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
             <p>Thematic Month guides children in turning ideas into projects through art, craft, and storytelling.</p>
         </div>
-        <div id="Inspiration" class="smallColourBox" style="background-color: #8cc63e; position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+        <div id="Inspiration" class="smallColourBox" style="background-color: #8cc63e; position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;" onclick="goToPrograms('Inspiration')">
             <img src="Images/InspMTitle.png" width="100%" style="margin-top: -130px;">
             <img src="Images/inspirationMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
             <p>Inspiration Month empowers children to express and communicate confidently through art.</p>
         </div>
-        <div id="Innovation" class="smallColourBox" style="background-color: #00adef; position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;">
+        <div id="Innovation" class="smallColourBox" style="background-color: #00adef; position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;" onclick="goToPrograms('Innovation')">
                 <img src="Images/InnoMTitle.png" width="100%" style="margin-top: -130px;">
                 <img src="Images/innoMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
                 <p>Innovation Month blends art and science through hands-on projects, inspiring creativity and leadership.</p>
@@ -742,11 +748,7 @@
             var txt = 'Welcome to arThematic!';
             var speed = 50;
             function typeWriter() {
-            if (i < txt.length) {
-                document.getElementById("welcomeText").innerHTML += txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-                }
+           
             }
         setTimeout(function() {
         document.getElementById("navbar").classList.remove('startup');

@@ -224,10 +224,10 @@
         </p>
     </div> 
     <h1 style="text-align: center;">Program Activities</h1></p>
-    <div class="textSection">
+    <div class="textSection" id="OurPrograms">
     <p>ArThematic's unique programming explores a new topic each month, ranging from exciting topics in history, geography, science and many more. Each month, children engage with these subjects through a structured approach built on three core pillars: <b>Thematics</b>, <b>Inspiration</b> and <b>Innovation</b>. This approach ensures a rich, well-rounded learning experience that sparks curiosity, encourages creativity, and fosters innovative thinking.</p>
         </div>
-        <div class="center" style="text-align: center;">
+        <div class="center" style="text-align: center;" id="buttonSection">
             <button class="activityInfoButton" id="ThematicButton" onclick="changeActivity('Thematic')">Thematic</button>
             <button class="activityInfoButton" id="InspirationButton" onclick="changeActivity('Inspiration')">Inspiration</button>
             <button class="activityInfoButton" id="InnovationButton" onclick="changeActivity('Innovation')">Innovation</button>
@@ -465,6 +465,15 @@
         // observer.observe(document.getElementById("InsertIdHere"));
         observer.observe(document.getElementById("activityFlow"));
         observer.observe(document.getElementById("verticalFlow"));
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const program = urlParams.get('type')
+        if (program != null) {
+            changeActivity(program)
+            const element = document.getElementById("buttonSection");
+            //you can do it by jquery. no matter
+            element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    }
 
     </script>
 </body>
