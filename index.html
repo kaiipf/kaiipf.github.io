@@ -178,7 +178,31 @@
             text-align: center;
             transition: top 1s ease;
         }
-
+        .thumbs td{
+            width: 256px;
+        }
+        .thumbs td img{
+            user-select: none;
+            pointer-events: none;
+        }
+        .bubble {
+            width: 328px;
+            height: 437px;
+            padding: .5em;
+        }
+        .bubble img {
+            width: 328px;
+            height: 437px;
+        }
+        .bubbleLS {
+            width: 328px;
+            height: 260px;
+            padding: .5em;
+        }
+        .bubbleLS img {
+            width: 328px;
+            height: 260px;
+        }
         .invisible{
          top: -100vh;
         }
@@ -610,7 +634,50 @@
         <script src="Misc/programsCarou.js"></script>
     </div>
     <h1 style="text-align: center; font-size: min(18vw,82px);">Gallery</h1>
-    <p>p</p>
+    <p style="text-align: center;">A collection of our students' best works</p>
+    <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px;  max-width: 1384px;  display: block; margin: auto; text-align: center;">
+        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="thumbnext('back')"><</button>
+        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="thumbnext('front')">></button>
+        <table  ontouchstart="thumbtouchStart(event)" ontouchmove="thumbtouchMove(event)" ontouchend="thumbtouchEnd(event)" id="thumbCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+            <tr class="thumbs">
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/visual1.jpg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/steam1.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/clay1.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/sboard1.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/dig1.jpeg">
+                    </div>
+                </td>
+                <td>
+                    <div class="bubbleLS">
+                        <img src="Images/fine1.jpeg">
+                    </div>
+                </td>
+        </table>
+        <div id="thumbContainer" >
+            <button onclick="thumbnext(1)">1</button>
+        </div>
+    </div>
+    <br>
+    <div style="text-align: center;"><a class="toContact"  href="Gallery.html" style="font-size: min(8vw,42px); text-decoration: none; position: relative; font-family: GROBOLD;">See More!</a></div>
+        <script src="Misc/thumbCarou.js"></script>
     <h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
     <script>
         var anchorHovered = false
@@ -727,7 +794,7 @@
     <img src="Images/pterodactyl.gif" id="contactPtero" style="position: relative; width: 40px; top:-30px; opacity: 0; transition: all 1s ease-out;">
     </div>
     <div style="text-align:center">
-        <a id="contactButton" class="toContact" style="font-size: min(8vw,42px); position: relative; font-family: GROBOLD; top:-30px; opacity: 0; transition: all .5s ease;">Contact Us!</a>
+        <a id="contactButton" class="toContact" href="contact.html" style="font-size: min(8vw,42px); text-decoration: none; position: relative; font-family: GROBOLD; top:-30px; opacity: 0; transition: all .5s ease;">Contact Us!</a>
     </div>
 
     <div class="footerDiv">
