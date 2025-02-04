@@ -52,7 +52,7 @@ function claydetectDots() {
         if ((window.innerWidth * (8/10))/ 346 * 346 < 346 && window.innerWidth < 1730) {
             claynoOfDots = claynoOfDots - 1
         } else if (window.innerWidth >= 1520) {
-            claynoOfDots = claynoOfItems - 4
+            claynoOfDots = claynoOfItems - 3
         }
         for (let i = 0; i < claynoOfDots+1; i++) { 
             document.getElementById("clayContainer").innerHTML = document.getElementById("clayContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="claynext('+ i +')"" id="clayCarou'+ i +'"></button>'

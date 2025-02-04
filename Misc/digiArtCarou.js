@@ -52,7 +52,7 @@ function digiArtdetectDots() {
         if ((window.innerWidth * (8/10))/ 346 * 346 < 346 && window.innerWidth < 1730) {
             digiArtnoOfDots = digiArtnoOfDots - 1
         } else if (window.innerWidth >= 1520) {
-            digiArtnoOfDots = digiArtnoOfItems - 4
+            digiArtnoOfDots = digiArtnoOfItems - 3
         }
         for (let i = 0; i < digiArtnoOfDots+1; i++) { 
             document.getElementById("digiArtContainer").innerHTML = document.getElementById("digiArtContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="digiArtnext('+ i +')"" id="digiArtCarou'+ i +'"></button>'

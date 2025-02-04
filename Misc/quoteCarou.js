@@ -52,7 +52,7 @@ function quotedetectDots() {
         if ((window.innerWidth * (8/10))/ 346 * 346 < 346 && window.innerWidth < 1730) {
             quotenoOfDots = quotenoOfDots - 1
         } else if (window.innerWidth >= 1520) {
-            quotenoOfDots = quotenoOfItems - 4
+            quotenoOfDots = quotenoOfItems - 3
         }
         for (let i = 0; i < quotenoOfDots+1; i++) { 
             document.getElementById("quoteContainer").innerHTML = document.getElementById("quoteContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="quotenext('+ i +')"" id="quoteCarou'+ i +'"></button>'

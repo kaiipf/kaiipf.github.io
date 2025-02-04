@@ -52,7 +52,7 @@ function FineArtdetectDots() {
         if ((window.innerWidth * (8/10))/ 346 * 346 < 346 && window.innerWidth < 1730) {
             FineArtnoOfDots = FineArtnoOfDots - 1
         } else if (window.innerWidth >= 1520) {
-            FineArtnoOfDots = FineArtnoOfItems - 4
+            FineArtnoOfDots = FineArtnoOfItems - 3
         }
         for (let i = 0; i < FineArtnoOfDots+1; i++) { 
             document.getElementById("FineArtContainer").innerHTML = document.getElementById("FineArtContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="FineArtnext('+ i +')"" id="FineArtCarou'+ i +'"></button>'

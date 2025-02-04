@@ -52,7 +52,7 @@ function thumbdetectDots() {
         if ((window.innerWidth * (8/10))/ 346 * 346 < 346 && window.innerWidth < 1730) {
             thumbnoOfDots = thumbnoOfDots - 1
         } else if (window.innerWidth >= 1520) {
-            thumbnoOfDots = thumbnoOfItems - 4
+            thumbnoOfDots = thumbnoOfItems - 3
         }
         for (let i = 0; i < thumbnoOfDots+1; i++) { 
             document.getElementById("thumbContainer").innerHTML = document.getElementById("thumbContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="thumbnext('+ i +')"" id="thumbCarou'+ i +'"></button>'

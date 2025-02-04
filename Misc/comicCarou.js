@@ -52,7 +52,7 @@ function comicdetectDots() {
         if ((window.innerWidth * (8/10))/ 346 * 346 < 346 && window.innerWidth < 1730) {
             comicnoOfDots = comicnoOfDots - 1
         } else if (window.innerWidth >= 1520) {
-            comicnoOfDots = comicnoOfItems - 4
+            comicnoOfDots = comicnoOfItems - 3
         }
         for (let i = 0; i < comicnoOfDots+1; i++) { 
             document.getElementById("comicContainer").innerHTML = document.getElementById("comicContainer").innerHTML + '<button class="unselectedCarousel" style="width:10px; height:10px; border-radius:80px; margin:1px; cursor:pointer;" onclick="comicnext('+ i +')"" id="comicCarou'+ i +'"></button>'
