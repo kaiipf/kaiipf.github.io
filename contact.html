@@ -44,6 +44,24 @@
         border: 1px solid gray;
         color: rgb(65, 65, 65);
     }
+    input[Type="Submit"] {
+        margin-top: 10px;
+        border: 3px solid #ec008b;
+        color: white;
+        background-color: #ec008b;
+        padding: 10px;
+        width: calc(100% + 11.6px);
+        cursor: pointer;
+        font-family: "GROBOLD";
+        font-size:48px;
+        transition: .2s ease;
+        border-radius: 20px;
+    }
+    input[Type="Submit"]:hover{
+            background-color: #930056;
+            border: 3px solid #930056;
+            color:white
+        }
     .responsiveContacts{
                 display: none;
             }
@@ -67,6 +85,19 @@
         }
         .responsiveContacts .contactUl li {
             margin-left: -50px;
+        }
+        .grid-Content {
+            background-color: white;
+            box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.57);
+            border-radius: 10px;
+            width: 90vw;
+            max-width: 350px;
+            overflow: hidden;
+            transition: .2s transform;
+            cursor: pointer;
+        }
+        .grid-Content:hover {
+            transform: scale(1.05);
         }
     @media screen and (max-width: 1200px) {
             .grid-Container {
@@ -155,26 +186,33 @@
                             <br>
                             <label for="Subject">Subject:</label>
                             <br>
-                            <select name="Subject" id="Subject" required>
+                            <select name="Subject" id="Subject" required onchange="updateForm()" required>
                                 <option value="I would like to enrol">I would like to Enrol</option>
                                 <option value="I would like to own a licensing location">I would like to own a license location</option>
+                                <option value="I would like to collaborate">I would like to collaborate with ArThematic</option>
                             </select>
                             <br>
-                            <label for="Location">Location:</label>
-                            <br>
-                            <select name="Location" id="Location" required>
-                                <option value="Arthematic Head Studio">Arthematic Head Studio</option>
-                                <option value="Arthematic Bandar Puteri Puchong">Arthematic Bandar Puteri Puchong</option>
-                                <option value="Arthematic Batu Pahat">Arthematic Batu Pahat</option>
-                                <option value="Arthematic Kuching">Arthematic Kuching</option>
-                                <option value="Arthematic Ara Damansara">Arthematic Ara Damansara</option>
-                                <option value="Arthematic OUG">Arthematic OUG</option>
-                                <option value="Arthematic Kota Damansara">Arthematic Kota Damansara</option>
-                                <option value="Arthematic Bandar Puteri Puchong">Arthematic Bandar Puteri Puchong</option>
-                                <option value="Arthematic Head Studio">Arthematic Head Studio</option>
-                                <option value="Arthematic Bandar Puteri Puchong">Arthematic Australia Melbourne</option>
-                            </select>
-                            <br>
+                            <div id="locationField">
+                                <label for="Location">Location:</label>
+                                <br>
+                                <select name="Location" id="Location" required>
+                                    <option value="Arthematic Head Studio">Arthematic Head Studio</option>
+                                    <option value="Arthematic Bandar Puteri Puchong">Arthematic Bandar Puteri Puchong</option>
+                                    <option value="Arthematic Batu Pahat">Arthematic Batu Pahat</option>
+                                    <option value="Arthematic Kuching">Arthematic Kuching</option>
+                                    <option value="Arthematic Ara Damansara">Arthematic Ara Damansara</option>
+                                    <option value="Arthematic OUG">Arthematic OUG</option>
+                                    <option value="Arthematic Kota Damansara">Arthematic Kota Damansara</option>
+                                    <option value="Arthematic Australia Melbourne">Arthematic Australia Melbourne</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div id="collaborationField" style="display: none;">
+                                <label for="collaborationType">Collaboration Type:</label>
+                                <br>
+                                <input type="text" id="collaborationType" name="collaborationType">
+                                <br>
+                            </div>
                             <label for="Message">Message:</label><br>
                             <textarea name="Message" id="Message" rows="8"></textarea>
                             <br>
@@ -184,82 +222,143 @@
                 </td>
             </tr>
     </table>
-    <div class="responsiveContacts">
-        <div style="max-width: 344px; width: 95%; margin: auto;"><img src="Images/ContactBanner.png" alt="Our Contacts" style="width: 100%;"></div>
-        <p style="color: #333;"><b>ArThematic Head Studio</b></p>
-        <ul class="contactUl">
-            <li class="blackLi">email@arthematic.com</li>
-            <li class="blackLi">+60 3-XXXX XXXX</li>
-            <li class="blackLi">12a, Jalan Midah 1, Taman Midah, 56000 Cheras. KL</li>
-        </ul>
-        <div style="border: 5px solid white; box-shadow: .5px .5px 5px rgba(0, 0, 0, 0.57); max-width: 400px; width: 90%; margin: auto;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d664.7450253451744!2d101.7328757732273!3d3.1029866355011078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc351b0aa33a15%3A0x5fec501ae4d0224!2sArt%20Thematic%20Malaysia!5e0!3m2!1sen!2ssg!4v1728654830886!5m2!1sen!2ssg" height="300" width="100%" style="border:0; display: block; max-width: 420px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-    </div>
-    <h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
-    <div class="grid-Container">
-        <div class="grid-Content">
-            <img src="Images/theThematic.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Head Studio</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">12a, Jalan Midah 1, Taman Midah, 56000 Cheras. KL</li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Bandar Puteri Puchong</h2>
-            <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Unit 6-2, Jln Bandar Puteri 2/3, Bandar Puteri Puchong. 47100 Puchong. Selangor.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Batu Pahat</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Jalan Ungku, Mohd Salleh, Kg Merdeka, Batu Pahat, 83000, Johore</li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Kuching</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Gala Street Mall, Lot 12766 Parcel 16, Jalan Tun Jugah, KCLD93350 Kuching, Sarawak</li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Ara Damansara</h2>
-            <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Taipan 1, Jalan PJU 1a/3k, Ara Damansara, 47301 Petaling Jaya. Selangor</li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic OUG</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">79, Jalan Hujan Emas, Taman Overseas Union, 58200 KL</li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Kota Damansara</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Coming Soon!</li>
-                </ul>
-            </div>
+    <script>
+        function updateForm() {
+            const subject = document.getElementById("Subject").value;
+            const locationField = document.getElementById("locationField");
+            const locationInput = document.getElementById("Location");
+            const collaborationField = document.getElementById("collaborationField");
+    
+            if (!locationField || !collaborationField) return; // Prevents errors if elements are missing
+    
+            if (subject === "I would like to enrol") {
+                locationField.style.display = "block";
+                locationInput.setAttribute("required", "true");
+                collaborationField.style.display = "none";
+                document.getElementById("collaborationType").removeAttribute("required");
+            } else if (subject === "I would like to own a licensing location") {
+                locationField.style.display = "none";
+                locationInput.removeAttribute("required");
+                collaborationField.style.display = "none";
+                document.getElementById("collaborationType").removeAttribute("required");
+            } else if (subject === "I would like to collaborate") {
+                locationField.style.display = "none";
+                locationInput.removeAttribute("required");
+                collaborationField.style.display = "block";
+                document.getElementById("collaborationType").setAttribute("required", "true");
+            }
+        }
+        updateForm()
+    </script>
+<h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
+<script>
+    var anchorHovered = false
+</script>
+<!-- I cant figure out how to add nested links..
+ so basically i detect when an anchor is being hovered over and dont allow the gMap link to open when one of the anchor is being hovered
+ 
+-->
+<div class="grid-Container">
+    <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/BdxMAKZvbYxrDE4ZA')}">
+        <img src="Images/theThematic.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Head Studio</h2>
+        <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">12a, Jalan Midah 1, Taman Midah, 56000 Cheras. KL</li>
+                <li class="blackLi"><a href="tel:+60162069339" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 162069339</a></li>
+                <li class="blackLi"><a href="mailto:Artthematichq@gmail.com"  onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">Artthematichq@gmail.com</a></li>
+            </ul>
         </div>
     </div>
+    <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/Nhiftvi3UATgaVD17')}">
+        <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Bandar Puteri Puchong</h2>
+        <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">Unit 6-2, Jln Bandar Puteri 2/3, Bandar Puteri Puchong. 47100 Puchong. Selangor.</li>
+                <li class="blackLi"><a href="tel:+601125805882" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 1125805882</a></li>
+                <li class="blackLi"><a href="mailto:Artthematichq@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">Artthematichq@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/UURzYMWGg1bGe4bs5')}">
+        <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Batu Pahat</h2>
+        <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">Jalan Ungku, Mohd Salleh, Kg Merdeka, Batu Pahat, 83000, Johore</li>
+                <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
+                <li class="blackLi"><a href="mailto:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">xxxx@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/E7hRin8QKUP7vSyN7')}">
+        <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Sarawak Sibu</h2>
+        <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">1st Floor, Lorong 2A, 30, Jalan Aman, 96000 Sibu, Sarawak</li>
+                <li class="blackLi"><a href="tel:+600129930905" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0129930905</a></li>
+                <li class="blackLi"><a href="mailto:artthematic.sarawaksibu@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">artthematic.sarawaksibu@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/kskdYeFo7BcrP6HE8')}">
+        <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Kuching</h2>
+        <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">Gala Street Mall, Lot 12766 Parcel 16, Jalan Tun Jugah, KCLD93350 Kuching, Sarawak</li>
+                <li class="blackLi"><a href="tel:+600129930905" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0129930905</a></li>
+                <li class="blackLi"><a href="mailto:artthematic.sarawaksibu@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">artthematic.sarawaksibu@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/UUkkJMooDr5U4Zi49')}">
+        <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Ara Damansara</h2>
+        <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">Taipan 1, Jalan PJU 1a/3k, Ara Damansara, 47301 Petaling Jaya. Selangor</li>
+                <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
+                <li class="blackLi"><a href="mailto:C060joanne@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">C060joanne@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/X1FT3MJE4wKe7AWG7')}">
+        <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic OUG</h2>
+        <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">79, Jalan Hujan Emas, Taman Overseas Union, 58200 KL</li>
+                <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0122831230</a></li>
+                <li class="blackLi"><a href="mailto:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">xxxx@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-Content" title="View on Google Maps" onclick="">
+        <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Kota Damansara</h2>
+        <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">Coming Soon!</li>
+                <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
+                <li class="blackLi"><a href="mailto:C060joanne@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">C060joanne@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+<div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/gkaZ7q84AsakUA7a9')}">
+        <img src="Images/atMel.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+        <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Australia Melbourne</h2>
+        <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+            <ul>
+                <li class="blackLi">419 Tooronga Rd, Hawthorn East VIC 3123, Australia</li>
+                <li class="blackLi"><a href="tel:+61411757290" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">+61 411757290</a></li>
+                <li class="blackLi"><a href="mailto:artthematic.australia@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">artthematic.australia@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
     <div class="footerDiv">
         <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
         <div class="socialMedia" style="position: absolute; top: 25px;left: 0; right: 0; margin: auto; background-color: #333;">
