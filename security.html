@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArThematic</title>
+    <link rel="stylesheet" href="Stylesheets/styles.css">
+    <link rel="icon" type="image/x-icon" href="Images/atLogo.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <style>
+        body {
+            background-image: url(Images/bluestars.png);
+            background-size:contain;
+  font-size: 18px;
+  letter-spacing: .5px;
+        }
+       #posterEnlarged{
+        width: 100%;
+        height: 100vh;
+        top:0%;
+        background-color: rgba(0,0,0,.5);
+        position: fixed;
+        z-index: 9000;
+       }
+       .textSection{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 42px;
+            width: 55%;
+            position: relative;
+            font-size: 18px;
+            letter-spacing: .5px;
+        }
+       #posterEnlarged div{
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+       }
+       #posterEnlarged img{
+        margin: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        position: relative;
+        display: block;
+        width: auto;
+        object-fit: cover;
+        max-width: 90%;
+        max-height: 90%;
+       }
+    </style>
+</head>
+
+<body id="body" class="body">
+    <!--Fade to page elements-->
+    <div class="navbar" id="navbar">
+        <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact us</a>
+        <a href="Gallery.html">Gallery</a>
+        <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
+        <script>
+            var hidden = true
+            function showHide() {
+                if (hidden == false) {
+                    document.getElementById("navMenu").classList.remove('expandedMenu');
+                    hidden = true
+                } else {
+                    document.getElementById("navMenu").classList.add('expandedMenu');
+                    hidden = false
+                }
+            }
+        </script>
+</div>
+<div class="navMenu" id="navMenu">
+    <ul>
+    <li style="list-style-type: none;"><a href="index.html">Home</a></li>
+    <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
+    <li style="list-style-type: none;"><a href="about.html">About us</a></li>
+    <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
+    <li style="list-style-type: none;"><a href="Gallery.html">Gallery</a></li>
+    </ul>
+</div>
+<div class="textSection">
+<h2>1. Introduction</h2>
+<p>Welcome to ArThematic. Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our website and services.</p>
+
+<h2>2. Information We Collect</h2>
+<ul>
+    <li><strong>Personal Information:</strong> Name, email address, phone number, and location when you fill out forms on our website.</li>
+    <li><strong>Usage Data:</strong> IP address, browser type, and other analytics to improve our website experience.</li>
+    <li><strong>Cookies and Tracking Technologies:</strong> To enhance your browsing experience and analyze website traffic.</li>
+</ul>
+
+<h2>3. How We Use Your Information</h2>
+<ul>
+    <li>Processing enrollments and service requests.</li>
+    <li>Responding to inquiries and providing customer support.</li>
+    <li>Improving our website functionality and user experience.</li>
+    <li>Complying with legal requirements and protecting against fraud.</li>
+</ul>
+
+<h2>4. Information Sharing and Disclosure</h2>
+<p>We do not sell or rent your personal data. We may share information with:</p>
+<ul>
+    <li><strong>Service providers</strong> assisting in business operations (e.g., hosting, analytics).</li>
+    <li><strong>Legal authorities</strong> if required by law or to protect our rights.</li>
+</ul>
+
+<h2>5. Data Security</h2>
+<p>We implement security measures to protect your personal data from unauthorized access, alteration, or disclosure.</p>
+
+<h2>6. Your Rights</h2>
+<ul>
+    <li>Access, update, or delete your personal information.</li>
+    <li>Opt-out of marketing communications.</li>
+    <li>Request details on data collection and usage.</li>
+</ul>
+
+<h2>7. Contact Us</h2>
+<p>If you have questions about this Privacy Policy, please contact us at 60 162069339.</p>
+</div>
+    <!--Startup animation-->
+    <script>
+    // Scroll animations
+    const targetElement = document.querySelector('.target-element');
+    function onElementInView(entry) {
+        if (entry.id == "insertIdHere") {
+        
+        }
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            onElementInView(entry.target);
+            // Optionally, if you only want to trigger the function once, you can unobserve the element
+            observer.unobserve(entry.target);
+            }
+        });
+    }, {
+    root: null, // Use the viewport as the root
+    rootMargin: '0px', // Margin around the root
+    threshold: .4 // Trigger when 100% of the element is in view
+    });
+
+    // Start observing the target element
+    setTimeout(function() {
+        // observer.observe(document.getElementById("InsertIdHere"));
+    },2000)
+    </script>
+</body>
+
+</html>

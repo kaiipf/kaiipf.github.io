@@ -77,7 +77,7 @@ h1, h2, h3, h4, h5, h6{
     background-color: white;
     height: 0px;
     box-shadow: 0px .5px 5px black;
-    height:290px;
+    height:350px;
     top: -999px;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -257,7 +257,7 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 
-@media screen and (max-width: 638px) {
+@media screen and (max-width: 880px) {
     .navMenu{
         display: flex;
     }

@@ -84,6 +84,36 @@
 </head>
 
 <body id="body">
+    <div class="navbar" id="navbar">
+        <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact us</a>
+        <a href="Gallery.html">Gallery</a>
+        <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
+        <script>
+            var hidden = true
+            function showHide() {
+                if (hidden == false) {
+                    document.getElementById("navMenu").classList.remove('expandedMenu');
+                    hidden = true
+                } else {
+                    document.getElementById("navMenu").classList.add('expandedMenu');
+                    hidden = false
+                }
+            }
+        </script>
+</div>
+<div class="navMenu" id="navMenu">
+    <ul>
+    <li style="list-style-type: none;"><a href="index.html">Home</a></li>
+    <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
+    <li style="list-style-type: none;"><a href="about.html">About us</a></li>
+    <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
+    <li style="list-style-type: none;"><a href="Gallery.html">Gallery</a></li>
+    </ul>
+</div>
     <h1 style="text-align: center; font-size: min(18vw,82px);">About Us</h1>
     <div class="colourBox flyLeft" style="background-color: #ec008b;">
         <img src="Images/portrait2.png" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
@@ -137,34 +167,17 @@
         </div>
     </div>
     <!--Fade to page elements-->
-    <div class="navbar" id="navbar">
-        <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
-        <a href="index.html">Home</a>
-        <a href="programs.html">Programs</a>
-        <a href="about.html">About us</a>
-        <a href="contact.html">Contact us</a>
-        <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
-        <script>
-            var hidden = true
-            function showHide() {
-                if (hidden == false) {
-                    document.getElementById("navMenu").classList.remove('expandedMenu');
-                    hidden = true
-                } else {
-                    document.getElementById("navMenu").classList.add('expandedMenu');
-                    hidden = false
-                }
-            }
-        </script>
-</div>
-<div class="navMenu" id="navMenu">
-    <ul>
-    <li style="list-style-type: none;"><a href="index.html">Home</a></li>
-    <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
-    <li style="list-style-type: none;"><a href="about.html">About us</a></li>
-    <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
-    </ul>
-    </div>
+    <div class="footerDiv">
+        <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
+        <div class="socialMedia" style="position: absolute; top: 25px;left: 0; right: 0; margin: auto; background-color: #333;">
+          <img src="Images/fbook.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.facebook.com/p/Art-Thematic-100081307571309/'" width="25%">
+          <img src="Images/igram.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.instagram.com/artthematicmalaysia/'" width="25%">
+          <img src="Images/tiktok.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.tiktok.com/@joelee180'" width="25%">
+        </div>
+        <img src="Images/atLogo2.png" style="width: 80%; max-width: 250px;">
+        <p style="font-size: 14px;">Copyright &copy; 2024 Arthematic Malaysia</p>
+        <a href="privacypolicy.html" style="white-space: nowrap;"><b>Privacy Policy</b></a> | <a href="programs.html" style="white-space: nowrap;"><b>Programs</b></a> | <a href="contact.html" style="white-space: nowrap;"><b>Contact us</b></a> | <a href="about.html" style="white-space: nowrap;"><b>About us</b></a>
+      </div>
     <!--Startup animation-->
     <script>
     // Scroll animations

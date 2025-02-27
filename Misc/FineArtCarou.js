@@ -1,5 +1,5 @@
 var FineArtnoOfDots = null
-var FineArtnoOfItems = 6
+var FineArtnoOfItems = 8
 var FineArtcurrentSlide = 0
 var FineArtcurrentTimeout = null
 function FineArtlimitNumberWithinRange(num, min, max){

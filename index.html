@@ -203,6 +203,23 @@
             width: 328px;
             height: 260px;
         }
+        .alans td{
+            width: 256px;
+        }
+        .thumbs td img, .quotes td img, .alans td img, .clay td img, .comic td img , .FineArt td img, .digiArt td img{
+            user-select: none;
+            pointer-events: none;
+        }
+        .alanbubble {
+            width: 248px;
+            height: 237px;
+            padding: .5em;
+        }
+        .alanbubble img {
+            width: 248px;
+            height: 237px;
+            object-fit: cover;
+        }
         .invisible{
          top: -100vh;
         }
@@ -438,6 +455,7 @@
             <a href="programs.html">Programs</a>
             <a href="about.html">About us</a>
             <a href="contact.html">Contact us</a>
+            <a href="Gallery.html">Gallery</a>
             <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
             <script>
                 var hidden = true
@@ -458,6 +476,7 @@
         <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
         <li style="list-style-type: none;"><a href="about.html">About us</a></li>
         <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
+        <li style="list-style-type: none;"><a href="Gallery.html">Gallery</a></li>
         </ul>
     </div>
     <div id="posterEnlarged">
@@ -487,8 +506,8 @@
         <img src="Images/portrait2.png" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
         <h1>About the Founder</h1>
         <div class="bottomFill">
-            <p style="font-size: 24px; margin-top: -28px; margin-bottom: -16px;"><b>Lee Swee Yeong</b></p>
-            <p>Lee Swee Yeong, the founder of Arthematic, brings a wealth of expertise from the fields of broadcasting and advertising. With over 12 years of experience as a production designer at Astro TV, Lee specialized in designing and building dynamic set designs for television productions. His background in advertising refined his rapid sketching and visualization skills, a talent he further honed while working under Malaysia’s creative pioneer, the late Tan Sri Dato’ Dr. Lim Kok Wing, as a visualizer in his ad agency.
+            <p style="font-size: 24px; margin-top: -28px; margin-bottom: -16px;"><b>Joe SY Lee</b></p>
+            <p>Joe SY Lee, the founder of Arthematic, brings a wealth of expertise from the fields of broadcasting and advertising. With over 12 years of experience as a production designer at Astro TV, Lee specialized in designing and building dynamic set designs for television productions. His background in advertising refined his rapid sketching and visualization skills, a talent he further honed while working under Malaysia’s creative pioneer, the late Tan Sri Dato’ Dr. Lim Kok Wing, as a visualizer in his ad agency.
             </p>
             <p>
             During his time at Astro, Lee served as a senior production designer, creating iconic TV sets for popular shows like Wheel of Fortune, Deal or No Deal, Astro Talent Quest, Miss Astro Beauty Pageant, Academy Fantasia, and many other celebrated entertainment productions. His strong visualization skills allow him to transform abstract ideas into artist impressions and bring them to life.
@@ -496,10 +515,50 @@
             Now, Lee channels his extensive experience in broadcast and visual arts into Arthematic, an art academy dedicated to inspiring future generations. Through Arthematic, he aims to pass on his knowledge, encouraging young learners to explore their creativity and benefit from the same skills that defined his career.
             </p>
         </div>
+        <div style="overflow: hidden; width: round(down,70vw,266px); min-width: 266px; max-width: 1064px; display: block; margin: auto; text-align: center;">
+            <button class="nextButton" style="width: 50px; height: 50px; right:90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="alannext('back')"><</button>
+            <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="alannext('front')">></button>
+            <table  ontouchstart="alantouchStart(event)" ontouchmove="alantouchMove(event)" ontouchend="alantouchEnd(event)" id="alanCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+                <tr class="alans">
+                    <td>
+                        <div class="alanbubble">
+                            <img src="Images/jl1.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="alanbubble">
+                            <img src="Images/jl2.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="alanbubble">
+                            <img src="Images/jl3.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="alanbubble">
+                            <img src="Images/jl4.jpeg">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="alanbubble">
+                            <img src="Images/jl5.jpeg">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="alanContainer" >
+                <button onclick="alannext(1)">1</button>
+            </div>
+        </div>
+    </div>
+    
+       
+    <script src="Misc/alanCarou.js"></script>
     </div>
     <div class="colourBox flyRight" style="background-color: #8cc63e;">
         <div>
-        <img src="Images/theThematicSquare.jpg" class="right" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
+        <img src="Images/BOYLOGO.jpeg" class="right" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
         <h1 class="rightText">About Arthematic</h1>
         <p  class="rightText">ArThematic is an innovative, integrated art and science discovery program crafted for the 21st-century child. It’s designed to nurture the next generation of creative thinkers and visionary leaders. Through a blend of art and subjects like animal and marine geography, human activities, sci-fi, fantasy worlds, space exploration, cultural traditions, and festivals, ArThematic serves as a dynamic “art cyclopedia.”
             <br><br>
@@ -609,24 +668,24 @@
         </div>
     </div>
     <div class="programGrid">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(0).png" onclick="openPoster('Images/visualArtPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(1).png" onclick="openPoster('Images/storyBrdPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(2).png" onclick="openPoster('Images/clayPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(3).png" onclick="openPoster('Images/steamPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png" onclick="openPoster('Images/digArtPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png" onclick="openPoster('Images/fineArtPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="Visual Art" onclick="openPoster('Images/visualArtPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="Comic Storyboarding" onclick="openPoster('Images/storyBrdPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Crafty Clay" onclick="openPoster('Images/clayPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Steam KIDZ" onclick="openPoster('Images/steamPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="digital Art" onclick="openPoster('Images/digArtPoster.jpeg')">
+        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Fine Art" onclick="openPoster('Images/fineArtPoster.jpeg')">
     </div>
     <div id="responsiveProgramCarou" style="overflow: hidden; width: 300px; margin: auto; margin-top: 72px;">
         <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 120px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
         <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 120px; position: absolute; z-index: 10;" onclick="next('front')">></button>
-        <table ontouchstart="touchStart(event)" onmouseup="openPoster(slideFiles[currentSlide])" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+        <table ontouchstart="touchStart(event)" onmouseup="openPoster(slideFiles[currentSlide])" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="programrCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
             <tr class="programs">
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" onclick="openPoster('Images/spookynightposter.jpg')" alt="UCSI International School" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="International School of Kualar Lumpur" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Australian Internation School Malaysia" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Nexus International School" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="Pine Hills International School" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Beaconhouse Newlands International School" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="Visual Art" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="Comic Storyboarding" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Crafty Clay" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Steam KIDZ" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="digital Art" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Fine Art" width="300px"></td>
             </tr>
         </table>
         <div id="dotContainer" style="margin: auto; width: 72px; white-space: nowrap;">
@@ -678,6 +737,8 @@
     <br>
     <div style="text-align: center;"><a class="toContact"  href="Gallery.html" style="font-size: min(8vw,42px); text-decoration: none; position: relative; font-family: GROBOLD;">See More!</a></div>
         <script src="Misc/thumbCarou.js"></script>
+
+    
     <h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
     <script>
         var anchorHovered = false
@@ -688,7 +749,7 @@
     -->
     <div class="grid-Container">
         <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/BdxMAKZvbYxrDE4ZA')}">
-            <img src="Images/theThematic.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <img src="Images/Head.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="An Image of Head Studio">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Head Studio</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
@@ -699,7 +760,7 @@
             </div>
         </div>
         <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/Nhiftvi3UATgaVD17')}">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <img src="Images/Puchong.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="An Image of Bandar Puteri Puchong">
             <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Bandar Puteri Puchong</h2>
             <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
                 <ul>
@@ -710,7 +771,7 @@
             </div>
         </div>
         <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/UURzYMWGg1bGe4bs5')}">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <img src="Images/Batupahat.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="An Image of Batu Pahat">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Batu Pahat</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
@@ -720,19 +781,8 @@
                 </ul>
             </div>
         </div>
-        <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/E7hRin8QKUP7vSyN7')}">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Sarawak Sibu</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">1st Floor, Lorong 2A, 30, Jalan Aman, 96000 Sibu, Sarawak</li>
-                    <li class="blackLi"><a href="tel:+600129930905" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0129930905</a></li>
-                    <li class="blackLi"><a href="mailto:artthematic.sarawaksibu@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">artthematic.sarawaksibu@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/kskdYeFo7BcrP6HE8')}">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <img src="Images/Kuching.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="An Image of Kuching">
             <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Kuching</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
@@ -743,7 +793,7 @@
             </div>
         </div>
         <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/UUkkJMooDr5U4Zi49')}">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <img src="Images/Aradamansara.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="ArThematic Ara Damansara">
             <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Ara Damansara</h2>
             <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
                 <ul>
@@ -753,19 +803,8 @@
                 </ul>
             </div>
         </div>
-        <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/X1FT3MJE4wKe7AWG7')}">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic OUG</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">79, Jalan Hujan Emas, Taman Overseas Union, 58200 KL</li>
-                    <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0122831230</a></li>
-                    <li class="blackLi"><a href="mailto:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">xxxx@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="grid-Content" title="View on Google Maps" onclick="">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="ArThematic Kota Damansara">
             <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Kota Damansara</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
@@ -776,7 +815,7 @@
             </div>
         </div>
     <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/gkaZ7q84AsakUA7a9')}">
-            <img src="Images/atMel.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;">
+            <img src="Images/Australia.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="ArThematic Australia">
             <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Australia Melbourne</h2>
             <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
                 <ul>
@@ -800,13 +839,13 @@
     <div class="footerDiv">
         <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
         <div class="socialMedia" style="position: absolute; top: 25px;left: 0; right: 0; margin: auto; background-color: #333;">
-          <img src="Images/fbook.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.facebook.com'" width="25%">
-          <img src="Images/igram.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.instagram.com'" width="25%">
-          <img src="Images/twtr.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.twitter.com'" width="25%">
+          <img src="Images/fbook.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.facebook.com/p/Art-Thematic-100081307571309/'" width="25%">
+          <img src="Images/igram.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.instagram.com/artthematicmalaysia/'" width="25%">
+          <img src="Images/tiktok.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" onclick="location.href='https://www.tiktok.com/@joelee180'" width="25%">
         </div>
         <img src="Images/atLogo2.png" style="width: 80%; max-width: 250px;">
         <p style="font-size: 14px;">Copyright &copy; 2024 Arthematic Malaysia</p>
-        <a href="privacypolicy.html" style="white-space: nowrap;"><b>Privacy Policy</b></a> | <a href="security.html" style="white-space: nowrap;"><b>Security</b></a> | <a href="contact.html" style="white-space: nowrap;"><b>Contact us</b></a> | <a href="about.html" style="white-space: nowrap;"><b>About us</b></a>
+        <a href="privacypolicy.html" style="white-space: nowrap;"><b>Privacy Policy</b></a> | <a href="programs.html" style="white-space: nowrap;"><b>Programs</b></a> | <a href="contact.html" style="white-space: nowrap;"><b>Contact us</b></a> | <a href="about.html" style="white-space: nowrap;"><b>About us</b></a>
       </div>
 </body>
     <!--Startup animation-->
