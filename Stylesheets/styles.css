@@ -146,6 +146,31 @@ h1, h2, h3, h4, h5, h6{
 .socialMedia{
     width: 154px;
 }
+.unselectedCarousel{
+    background-color: rgb(230, 230, 230)rgb(79, 79, 79);
+    border: none;
+}
+.selectedCarousel{
+    background-color: rgb(130, 160, 201);
+    border: none;
+}
+.nextButton{
+    font-weight: bolder;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    border: none; 
+    background: rgba(147, 145, 220, 0.508); 
+    color:white;  
+    border-radius: 10px;
+    transition: .1s ease;  
+}
+.nextButton:hover{
+    font-weight: bolder;
+    border: none; 
+    background: rgba(71, 75, 104, 0.527); 
+    color:white;  
+    border-radius: 10px;  
+}
 .footerDiv{
     background-color: #333;
     width: 100%;
