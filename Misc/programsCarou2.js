@@ -93,12 +93,13 @@ function programtouchMove(event) {
     }
 }
 const programtouchEnd = (event) => {
-    if (programtouchStarted == true && consideredClick == false) {
+    if (consideredClick == true) {
+        openPoster(slideFiles[currentSlide])
+    } 
+    if (programtouchStarted == true) {
         programtouchStarted = false
         console.log(Math.round((programcurrentSlide * 302) + (programxPos - programcurTouch))/ 302)
         programchangeSlide(Math.round(((programcurrentSlide * 302) + (programxPos - programcurTouch))/ 302));
-    } else if (consideredClick == true) {
-        openPoster(slideFiles[currentSlide])
-    }
+    } 
     consideredClick = false
 };

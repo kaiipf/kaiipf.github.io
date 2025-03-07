@@ -92,6 +92,10 @@
             width: 300px;
             transition: transform .2s; /* Animation */
         }
+        .program img{
+            user-select: none;
+            pointer-events: none;
+        }
         .programContent:hover{
             transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
         }
@@ -352,7 +356,7 @@
     <div id="responsiveProgramCarou" style="overflow: hidden; width: round(down,80vw,300px); width: 300px; margin: auto; text-align: center;">
         <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="programnext('back')"><</button>
         <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="programnext('front')">></button>
-        <table ontouchstart="programtouchStart(event)" onmouseup="openPoster(slideFiles[programcurrentSlide])" ontouchmove="programtouchMove(event)" programtouchEnd="touchEnd(event)" id="programCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+        <table ontouchstart="programtouchStart(event)" onmouseup="openPoster(slideFiles[programcurrentSlide])" ontouchmove="programtouchMove(event)" ontouchend="programtouchEnd(event)" id="programCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
             <tr class="program">
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="Visual Art" width="300px"></td>
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="Comic Storyboarding" width="300px"></td>
