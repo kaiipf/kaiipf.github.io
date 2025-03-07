@@ -499,11 +499,11 @@
         </div>
         <img src="Images/skyscape.png"class="bannerDecoration" id="bannerSky" style="top: -999px;">
         <img src="Images/Marscape.png" id="bannerDecoration" class="bannerDecoInvisible bannerDecoration">
-        <img src="Images/newimg.jpg" class="bannerImg">
+        <img src="Images/ATBanner.jpeg" class="bannerImg">
     </div>
     <h1 style="text-align: center; font-size: min(18vw,82px);">About Us</h1>
     <div class="colourBox flyLeft" style="background-color: #ec008b;">
-        <img src="Images/LSY.jpeg" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
+        <img src="Images/portrait2.png" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
         <h1>About the Founder</h1>
         <div class="bottomFill">
             <p style="font-size: 24px; margin-top: -28px; margin-bottom: -16px;"><b>Joe SY Lee</b></p>
@@ -532,17 +532,17 @@
                     </td>
                     <td>
                         <div class="alanbubble">
-                            <img src="Images/jl3.jpeg">
+                            <img src="Images/J3.jpeg">
                         </div>
                     </td>
                     <td>
                         <div class="alanbubble">
-                            <img src="Images/jl4.jpeg">
+                            <img src="Images/J2.jpeg">
                         </div>
                     </td>
                     <td>
                         <div class="alanbubble">
-                            <img src="Images/jl5.jpeg">
+                            <img src="Images/J1.jpeg">
                         </div>
                     </td>
                 </tr>
@@ -675,11 +675,11 @@
         <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="digital Art" onclick="openPoster('Images/digArtPoster.jpeg')">
         <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Fine Art" onclick="openPoster('Images/fineArtPoster.jpeg')">
     </div>
-    <div id="responsiveProgramCarou" style="overflow: hidden; width: 300px; margin: auto; margin-top: 72px;">
-        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 120px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
-        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 120px; position: absolute; z-index: 10;" onclick="next('front')">></button>
-        <table ontouchstart="touchStart(event)" onmouseup="openPoster(slideFiles[currentSlide])" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="programrCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
-            <tr class="programs">
+    <div id="responsiveProgramCarou" style="overflow: hidden; width: round(down,80vw,300px); width: 300px; margin: auto; margin-top: 72px; text-align: center;">
+        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="programnext('back')"><</button>
+        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="programnext('front')">></button>
+        <table ontouchstart="programtouchStart(event)" onmouseup="openPoster(slideFiles[programcurrentSlide])" ontouchmove="programtouchMove(event)" programtouchEnd="touchEnd(event)" id="programCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+            <tr class="program">
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="Visual Art" width="300px"></td>
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="Comic Storyboarding" width="300px"></td>
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Crafty Clay" width="300px"></td>
@@ -688,10 +688,10 @@
                 <td><img src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Fine Art" width="300px"></td>
             </tr>
         </table>
-        <div id="dotContainer" style="margin: auto; width: 72px; white-space: nowrap;">
+        <div id="programContainer">
         </div>
-        <script src="Misc/programsCarou.js"></script>
     </div>
+    <script src="Misc/programsCarou2.js"></script>
     <h1 style="text-align: center; font-size: min(18vw,82px);">Gallery</h1>
     <p style="text-align: center;">A collection of our students' best works</p>
     <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px;  max-width: 1384px;  display: block; margin: auto; text-align: center;">

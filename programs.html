@@ -349,23 +349,23 @@
         <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png" onclick="openPoster('Images/digArtPoster.jpeg')">
         <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png" onclick="openPoster('Images/fineArtPoster.jpeg')">
     </div>
-    <div id="responsiveProgramCarou" style="overflow: hidden; width: 300px; margin: auto; margin-top: 72px;">
-        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 120px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
-        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 120px; position: absolute; z-index: 10;" onclick="next('front')">></button>
-        <table ontouchstart="touchStart(event)" onmouseup="openPoster(slideFiles[currentSlide])" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
-            <tr class="programs">
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" onclick="openPoster('Images/spookynightposter.jpg')" alt="UCSI International School" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="International School of Kualar Lumpur" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Australian Internation School Malaysia" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Nexus International School" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="Pine Hills International School" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Beaconhouse Newlands International School" width="300px"></td>
+    <div id="responsiveProgramCarou" style="overflow: hidden; width: round(down,80vw,300px); width: 300px; margin: auto; text-align: center;">
+        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="programnext('back')"><</button>
+        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="programnext('front')">></button>
+        <table ontouchstart="programtouchStart(event)" onmouseup="openPoster(slideFiles[programcurrentSlide])" ontouchmove="programtouchMove(event)" programtouchEnd="touchEnd(event)" id="programCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+            <tr class="program">
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="Visual Art" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="Comic Storyboarding" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Crafty Clay" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Steam KIDZ" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="digital Art" width="300px"></td>
+                <td><img src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Fine Art" width="300px"></td>
             </tr>
         </table>
-        <div id="dotContainer" style="margin: auto; width: 72px; white-space: nowrap;">
+        <div id="programContainer">
         </div>
-        <script src="Misc/programsCarou.js"></script>
     </div>
+    <script src="Misc/programsCarou2.js"></script>
     <div class="footerDiv">
         <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
         <div class="socialMedia" style="position: absolute; top: 25px;left: 0; right: 0; margin: auto; background-color: #333;">
