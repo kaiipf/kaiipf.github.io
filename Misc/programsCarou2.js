@@ -69,6 +69,7 @@ const programtouchStart = (event) => {
 clearTimeout(programcurrentTimeout)
 console.log("program")
 programtouchStarted = true
+consideredClick = true
 programxPos = event.touches[0].pageX;
 programcurTouch = (programcurrentSlide * 302)
 setTimeout(function() {
@@ -93,13 +94,13 @@ function programtouchMove(event) {
     }
 }
 const programtouchEnd = (event) => {
-    if (consideredClick == true) {
-        openPoster(slideFiles[currentSlide])
-    } 
-    if (programtouchStarted == true) {
+    if (programtouchStarted == true && consideredClick == false) {
         programtouchStarted = false
         console.log(Math.round((programcurrentSlide * 302) + (programxPos - programcurTouch))/ 302)
         programchangeSlide(Math.round(((programcurrentSlide * 302) + (programxPos - programcurTouch))/ 302));
+    } else if (consideredClick == true) {
+        console.log(programcurrentSlide)
+        openPoster(slideFiles[programcurrentSlide])
     } 
     consideredClick = false
 };
