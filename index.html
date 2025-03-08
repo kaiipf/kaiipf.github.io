@@ -177,6 +177,7 @@
             position: relative;
             text-align: center;
             transition: top 1s ease;
+            width:40%;
         }
         .thumbs td{
             width: 256px;
@@ -358,6 +359,18 @@
         .compactMonths{
             display: none;
         }
+        @media screen and (max-width: 1490px) {
+            .textSection{
+                margin-left: auto;
+                margin-right: auto;
+                width: 70%;
+        }
+    }
+    @media screen and (max-width: 1171px) {
+    .textSection{
+            width: 80%;
+        }
+    }
         @media screen and (max-width: 1150px) {
         .colourBox{
             text-align:center;
@@ -391,6 +404,9 @@
             .bannerText h2{
                 font-size: 18px;
             }
+            .bannerText img{
+            width:70%;
+        }
             .homeBanner {
                 height: 400px;
             }
@@ -492,7 +508,7 @@
     <div class="homeBanner">
         <div class="bannerText">
         <div style="overflow: hidden;">
-        <img src="Images/logocombo2.png" width="40%" id="bigHeader" class="invisible">
+        <img src="Images/logocombo2.png" id="bigHeader" class="invisible">
         </div>
         </div>
         <div class="bannerDecoration">
@@ -608,6 +624,9 @@
 </div>
 <br>
 <h1 style="text-align: center;">Program Activities</h1>
+<div class="textSection">
+    <p>ArThematic's unique programming explores a new topic each month, built on three core pillars: <b>Thematics</b>, <b>Inspiration</b> and <b>Innovation</b>.</p>
+    </div>
     <p style="font-size: 12px; color: gray; position: relative; z-index: 5; text-align: center; margin-top: 25px; margin-bottom: 45px;">Click the cards for more information about our program structure</p>
     <div class="largeMonths" style="margin: auto; width: 1140px;">
         <table>
