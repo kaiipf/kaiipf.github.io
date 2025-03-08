@@ -5,4 +5,5 @@ function openPoster(file) {
 
 function closePoster() {
     document.getElementById("posterEnlarged").style.display = "none"
+    document.getElementById("posterImg").src = ""
 }
