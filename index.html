@@ -770,10 +770,36 @@
         </div>
     </div>
     <br>
-    <div style="text-align: center;"><a class="toContact"  href="Gallery.html" style="font-size: min(8vw,42px); text-decoration: none; position: relative; font-family: GROBOLD;">See More!</a></div>
+    <div style="text-align: center; margin-bottom: 60px;"><a class="toContact"  href="Gallery.html" style="font-size: min(8vw,42px); text-decoration: none; position: relative; font-family: GROBOLD;">See More!</a></div>
         <script src="Misc/thumbCarou.js"></script>
-
-    
+        <h1 style="text-align: center; font-size: min(18vw,82px);">Our Partners</h1>
+            <div>
+            <p class="textSection" style="text-align: center; margin-top: -20px; ">ArThematic's unique program design is supported amongst the top international schools in Malaysia.</p>
+            <div style="overflow: hidden; width: round(down,80vw,258px); min-width: 258px; display: block; margin: auto;">
+                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
+                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="next('front')">></button>
+                <table ontouchstart="touchStart(event)" ontouchmove="quotetouchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
+                    <tr class="partners">
+                        <td><img src="Images/ucsi.png" alt="UCSI International School" width="256px"></td>
+                        <td><img src="Images/ISKL.png" alt="International School of Kualar Lumpur" width="256px"></td>
+                        <td><img src="Images/aism.png" alt="Australian Internation School Malaysia" width="256px"></td>
+                        <td><img src="Images/nexusis.png" alt="Nexus International School" width="256px"></td>
+                        <td><img src="Images/PHIS.png" alt="Pine Hills International School" width="256px"></td>
+                        <td><img src="Images/bnis.png" alt="Beaconhouse Newlands International School" width="256px"></td>
+                        <td><img src="Images/tis.png" alt="Taylor's International School" width="256px"></td>
+                        <td><img src="Images/tbiskl.png" alt="British International School Kualar Lumpur" width="256px"></td>
+                        <td><img src="Images/apis.png" alt="Asia Pacific School" width="256px"></td>
+                        <td><img src="Images/lsl.png" alt="Learn Share Lead (LSL) International School" width="256px"></td>
+                        <td><img src="Images/gkmk.png" alt="Global Kids Kindergarten" width="256px"></td>
+                        <td><img src="Images/ew.png" alt="Emilia Wolsey" width="256px"></td>
+                    </tr>
+                </table>
+                <div id="dotContainer" style="text-align: center;">
+                    <button onclick="next(1)">1</button>
+                </div>
+                <script src="Misc/partnerCarou.js"></script>
+            </div>
+    </div>
     <h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
     <script>
         var anchorHovered = false
