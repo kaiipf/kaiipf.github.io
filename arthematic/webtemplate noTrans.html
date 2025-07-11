@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArThematic</title>
+    <link rel="stylesheet" href="Stylesheets/styles.css">
+    <link rel="icon" type="image/x-icon" href="Images/atLogo.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <style>
+       #posterEnlarged{
+        width: 100%;
+        height: 100vh;
+        top:0%;
+        background-color: rgba(0,0,0,.5);
+        position: fixed;
+        z-index: 9000;
+       }
+       #posterEnlarged div{
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+       }
+       #posterEnlarged img{
+        margin: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        position: relative;
+        display: block;
+        width: auto;
+        object-fit: cover;
+        max-width: 90%;
+        max-height: 90%;
+       }
+    </style>
+</head>
+
+<body>
+    <!--Fade to page elements-->
+    <div class="navbar" id="navbar">
+        <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact us</a>
+        <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
+        <script>
+            var hidden = true
+            function showHide() {
+                if (hidden == false) {
+                    document.getElementById("navMenu").classList.remove('expandedMenu');
+                    hidden = true
+                } else {
+                    document.getElementById("navMenu").classList.add('expandedMenu');
+                    hidden = false
+                }
+            }
+        </script>
+</div>
+<div class="navMenu" id="navMenu">
+    <ul>
+    <li style="list-style-type: none;"><a href="index.html">Home</a></li>
+    <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
+    <li style="list-style-type: none;"><a href="about.html">About us</a></li>
+    <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
+    </ul>
+</div>
+<div id="posterEnlarged">
+    <div>
+    <img id="posterImg" src="Images/spookynightposter.jpg">
+    <button onclick="closePoster()" style="height: 40px; width: 40px; right: 40px; cursor: pointer; font-family: Arial, Helvetica, sans-serif; position: absolute; background:none; border: none; color:white; font-size: 50px; text-shadow: 0px 0px 3px black; top: 5%;">X</button>
+    </div>
+</div>  
+<br><Br>
+<script src="Misc/poster.js"></script>
+<button onclick="openPoster('Images/theThematic.jpg')">Test</button>
+    <!--Startup animation-->
+    <script>
+    // Scroll animations
+    const targetElement = document.querySelector('.target-element');
+    function onElementInView(entry) {
+        if (entry.id == "insertIdHere") {
+        
+        }
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            onElementInView(entry.target);
+            // Optionally, if you only want to trigger the function once, you can unobserve the element
+            observer.unobserve(entry.target);
+            }
+        });
+    }, {
+    root: null, // Use the viewport as the root
+    rootMargin: '0px', // Margin around the root
+    threshold: .4 // Trigger when 100% of the element is in view
+    });
+
+    // Start observing the target element
+    setTimeout(function() {
+        // observer.observe(document.getElementById("InsertIdHere"));
+    },2000)
+    </script>
+</body>
+
+</html>

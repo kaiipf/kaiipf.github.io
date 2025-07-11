@@ -1,1021 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ArThematic</title>
-    <link rel="stylesheet" href="Stylesheets/styles.css">
-    <link rel="icon" type="image/x-icon" href="Images/atLogo.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-    <style>
-        body{
-            /* background-image: url(Images/bluestars.png); */
-            background-size:contain;
-        }
-        .homeBanner {
-            overflow-y: hidden;
-            overflow-x: hidden;
-            position: relative;
-            height: 95vh;
-            background-color: white;
-            margin-bottom: 20px;
-        }
-        .bannerImg{
-            width: 100%;
-            height: 95vh;
-            object-fit: cover;
-        }
-        .bannerText{
-            color: white;
-            position: absolute;
-            text-align: left;
-            left: 50%;
-            top:25%;
-            text-align: center;
-            width: 60vw;
-            transform: translate(-50%, 0);
-        }
-        .colourBox{
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.57);
-            width: 80%;
-            min-height: 320px;
-            padding: 20px;
-            color: white;
-            margin: auto;
-            margin-top: 40px;
-            max-width: 1280px;
-            position: relative;
-            flex-wrap: nowrap;
-            overflow: auto;
-            overflow-x: hidden;
-            transition: all .5s ease;
-            right:0;
-        }
-        .flyLeft{
-            right: 20%;
-            opacity: 0;
-        }
-        .flyRight{
-            right: -20%;
-            opacity: 0;
-        }
-        .colourBox h1{
-            font-size: 64px;
-        }
-        .left{
-            float: left; 
-            margin-right: 20px;
-        }
-        .rightText{
-            text-align: right;
-            margin-right: 385px;
-        }
-        .bottomFill{
-            margin-left: 385px;
-        }
-        .right{
-            float: right; 
-            margin-left: 20px;
-        }
-        .toContact{
-            border: 3px solid #ec008b;
-            color: white;
-            background-color: #ec008b;
-            padding: 20px;
-            cursor: pointer;
-            transition: .2s ease;
-            border-radius: 20px;
-        }
-        .toContact:hover{
-            background-color: #930056;
-            border: 3px solid #930056;
-            color:white
-        }
-        .toContact:active{
-            background-color: #d2007b;
-            border: 3px solid #d2007b;
-            color:white
-        }
-        .right{
-            float: right; 
-            margin-left: 20px;
-        }
-        .bannerText h2{
-            font-family: Anek Devangari;
-            font-size: 4vh;
-            font-weight: 500;
-        }
-        .activityInfoButton{
-            font-size: min(5vw, 18px);
-            border-radius: 20px;
-            padding: 5px;
-            width: 32%;
-            max-width: 120px;
-            position: relative;
-            z-index: 2;
-            transition: all .2s ease;
-            font-family: Grobold;
-            cursor: pointer;
-            background-color: white;
-        }
-        #ThematicButton{
-            border: 3px solid #ec008b;
-            color:#ec008b;
-        }
-        #ThematicButton:hover{
-            background: #ec008b;
-            color: white;
-        }
-        #ThematicButton:active{
-            background: #ffa8db;
-            border: 3px solid #ffa8db;
-        }
-        #InspirationButton{
-            border: 3px solid #89c33c;
-            color:#89c33c;
-        }
-        #InspirationButton:hover{
-            background: #89c33c;
-            color: white;
-        }
-        #InspirationButton:active{
-            background: #d5fba3;
-            border: 3px solid #d5fba3;
-        }
-        #InnovationButton{
-            border: 3px solid #25abe3;
-            color:#25abe3;
-        }
-        #InnovationButton:hover{
-            background: #25abe3;
-            color: white;
-        }
-        #InnovationButton:active{
-            background: #97e0ff;
-            border: 3px solid #97e0ff;
-        }
-        .smallColourBox{
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.57);
-            width: 80%;
-            max-width: 280px;
-            min-height: 320px;
-            padding: 20px;
-            color: white;
-            margin: auto;
-            margin-top: 40px;
-            position: relative;
-            flex-wrap: nowrap;
-            transition: transform .2s; /* Animation */
-            cursor:pointer;
-        }
-        .smallColourBox:hover{
-             transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-        }
-        .bannerText img{
-            position: relative;
-            text-align: center;
-            transition: top 1s ease;
-            width:40%;
-        }
-        .thumbs td{
-            width: 256px;
-        }
-        .thumbs td img{
-            user-select: none;
-            pointer-events: none;
-        }
-        .bubble {
-            width: 328px;
-            height: 437px;
-            padding: .5em;
-        }
-        .bubble img {
-            width: 328px;
-            height: 437px;
-        }
-        .bubbleLS {
-            width: 328px;
-            height: 260px;
-            padding: .5em;
-        }
-        .bubbleLS img {
-            width: 328px;
-            height: 260px;
-        }
-        .alans td{
-            width: 256px;
-        }
-        .thumbs td img, .quotes td img, .alans td img, .clay td img, .comic td img , .FineArt td img, .digiArt td img{
-            user-select: none;
-            pointer-events: none;
-        }
-        .alanbubble {
-            width: 248px;
-            height: 237px;
-            padding: .5em;
-        }
-        .alanbubble img {
-            width: 248px;
-            height: 237px;
-            object-fit: cover;
-        }
-        .invisible{
-         top: -100vh;
-        }
-        .visible{
-            top: 5px;
-        }
-        .textSection{
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 42px;
-            width: 55%;
-            position: relative;
-        }
-        .textSection h1{
-            font-size: 64px;
-        }
-        .programGrid {
-            width: 940px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: auto auto auto;
-            margin-top: 45px;
-            gap: 20px;
-        }
-        .programContent{
-            cursor: pointer;
-            width: 300px;
-            transition: transform .2s; /* Animation */
-        }
-        .program img{
-            user-select: none;
-            pointer-events: none;
-        }
-        .programContent:hover{
-            transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-        }
-        .grid-Container {
-            width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: auto auto auto;
-            gap: 50px;
-        }
-        .grid-Content {
-            background-color: white;
-            box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.57);
-            border-radius: 10px;
-            width: 90vw;
-            max-width: 350px;
-            overflow: hidden;
-            transition: .2s transform;
-            cursor: pointer;
-        }
-        .grid-Content:hover {
-            transform: scale(1.05);
-        }
-        .bannerDecoration{
-            position: absolute; 
-            width: 100vw;
-            height: calc(100vw * 0.43935185185 );
-            transition: all 1s ease;
-        }
-        .bannerDecoInvisible{
-            bottom: -999px;
-        }
-        .bannerDecoVisible{
-            bottom: -5px;
-        }
-        #walkingDino{
-            position: absolute;
-            margin-top:-25px;
-            background-color: white;
-            opacity: 0;
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Khoo Kai Jie's Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-        }
-        .canWalk{
-            transition: margin-left 1.5s linear, opacity .25s ease;
-        }
-        .walk{
-            margin-left: 445px;
-        }
-        /*rocketIn is when rocket first flies in screen, land is when it lands after stop*/
-        .rocketIn{
-            transition: top 2s ease-out;
-        }
-        .rocketLand{
-            transition: top .5s ease-in;
-        }
-        .rocketInitialPos{
-            top:-350px
-        }
-        .rocketInPos{
-            top:55vh
-        }
-        .unselectedCarousel{
-            background-color: rgb(230, 230, 230)rgb(79, 79, 79);
-            border: none;
-        }
-        .selectedCarousel{
-            background-color: rgb(130, 160, 201);
-            border: none;
-        }
-        .nextButton{
-            font-weight: bolder;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-size: 20px;
-            border: none; 
-            background: rgba(147, 145, 220, 0.508); 
-            color:white;  
-            border-radius: 10px;
-            transition: .1s ease;  
-        }
-        .nextButton:hover{
-            font-weight: bolder;
-            border: none; 
-            background: rgba(71, 75, 104, 0.527); 
-            color:white;  
-            border-radius: 10px;  
-        }
-        #responsiveProgramCarou {
-            display: none;
-        }
-        .programs td img{
-            user-select: none;
-            pointer-events: none;
-        }
-        .programs td{
-            width: 300px;
-        }
-        .rocketLandPos{
-            top:65vh
-        }
-        #rocketWrapper{
-            width: 12%;
-        }
-        .compactMonths{
-            display: none;
-        }
-        @media screen and (max-width: 1490px) {
-            .textSection{
-                margin-left: auto;
-                margin-right: auto;
-                width: 70%;
-        }
-    }
-    @media screen and (max-width: 1171px) {
-    .textSection{
-            width: 80%;
-        }
-    }
-        @media screen and (max-width: 1150px) {
-        .colourBox{
-            text-align:center;
-        }
-        .bottomFill{
-            margin-left: 0px;
-        }
-        .left{
-            float: none;
-            margin-right: 0px;
-        }
-        .right{
-            float: none; 
-            margin-left: 0px;
-        }
-        .rightText{
-            text-align: center;
-            margin-right: 0;
-        }
-        .colourBox h1{
-            font-size: min(12vw, 64px);
-        }
-        .largeMonths{
-            display: none;
-        }
-        .compactMonths{
-            display: block;
-        }
-        }
-        @media screen and (max-width: 720px) {
-            .bannerText h2{
-                font-size: 18px;
-            }
-            .bannerText img{
-            width:70%;
-        }
-            .homeBanner {
-                height: 400px;
-            }
-            .bannerImg{
-            height: 400px;
-            }
-            #rocketWrapper{
-            width: 60px;
-        }
-            .rocketInPos{
-            top:280px
-        }
-        .rocketLandPos{
-            top:320px
-        }
-            .bannerText h1{
-                font-size: 32px;
-                text-align: center;
-            }
-            .bannerText{
-                text-align: center;
-                top:28%;
-                width: 60vw;
-            }
-        }
-        @media screen and (max-width: 1200px) {
-            .grid-Container {
-            width: 700px;
-            grid-template-columns: auto auto;
-            }
-        }
-        @media screen and (max-width: 940px) {
-            .programGrid {
-            width: 620px;
-            grid-template-columns: auto auto;
-            }
-        }
-        @media screen and (max-width: 620px) {
-            .programGrid {
-                display: none;
-            }
-            #responsiveProgramCarou {
-            display: block;
-        }
-        }
-        @media screen and (max-width: 850px) {
-            .grid-Container {
-            max-width: 350px;
-            width: 90%;
-            grid-template-columns: auto;
-            }
-}
-    </style>
-    <script src="Misc/poster.js"></script>
 </head>
 
-<body class="noScroll" id="body">
-    <!--Fade to page elements-->
-    <noscript><h1 style="position: fixed; z-index: 999; color:white;">This website requires javascript to be enabled.</h1></noscript>
-    <div id="screenCover">
-        <img src="Images/atLogo.png" style="width: 20%; position: absolute; left: 50%; top:35%; transform: translate(-50%, 0)">
-    </div>
-    <div class="navbar startup" id="navbar">
-            <a class="logo" href="index.html"><img src="Images/atLogo.png" alt="artThematic" width="80px" style="padding-left: 2%; cursor: pointer;"></a>
-            <a href="index.html">Home</a>
-            <a href="programs.html">Programs</a>
-            <a href="about.html">About us</a>
-            <a href="contact.html">Contact us</a>
-            <a href="Gallery.html">Gallery</a>
-            <button onclick="showHide()"><img src="Images/menu.png" width="30px"></button>
-            <script>
-                var hidden = true
-                function showHide() {
-                    if (hidden == false) {
-                        document.getElementById("navMenu").classList.remove('expandedMenu');
-                        hidden = true
-                    } else {
-                        document.getElementById("navMenu").classList.add('expandedMenu');
-                        hidden = false
-                    }
-                }
-            </script>
-    </div>
-    <div class="navMenu" id="navMenu">
-        <ul>
-        <li style="list-style-type: none;"><a href="index.html">Home</a></li>
-        <li style="list-style-type: none;"><a href="programs.html">Programs</a></li>
-        <li style="list-style-type: none;"><a href="about.html">About us</a></li>
-        <li style="list-style-type: none;"><a href="contact.html">Contact us</a></li>
-        <li style="list-style-type: none;"><a href="Gallery.html">Gallery</a></li>
-        </ul>
-    </div>
-    <div id="posterEnlarged">
-        <div>
-        <img id="posterImg" src="">
-        <button onclick="closePoster()" style="height: 40px; width: 40px; right: 40px; cursor: pointer; font-family: Arial, Helvetica, sans-serif; position: absolute; background:none; border: none; color:white; font-size: 50px; text-shadow: 0px 0px 3px black; top: 5%;">X</button>
-        </div>
-    </div>  
-    <div class="homeBanner">
-        <div class="bannerText">
-        <div style="overflow: hidden;">
-        <img src="Images/logocombo2.png" id="bigHeader" class="invisible">
-        </div>
-        </div>
-        <div class="bannerDecoration">
-        <div id="rocketWrapper" style="position: relative; left: 68%;" class="rocketInitialPos rocketIn">
-            <img src="Images/shuttle.png" style="position: relative; width:100%;">
-            <img src="Images/atRocketFlame.gif" id="rocketFlame" style="position: absolute; width: 15%; left: 50%; top: 50%; transform: translate(-50%,90%); transition: opacity .5s ease;">
-        </div>
-        </div>
-        <img src="Images/skyscape.png"class="bannerDecoration" id="bannerSky" style="top: -999px;">
-        <img src="Images/Marscape.png" id="bannerDecoration" class="bannerDecoInvisible bannerDecoration">
-        <img src="Images/ATBanner.jpeg" class="bannerImg">
-    </div>
-    <h1 style="text-align: center; font-size: min(18vw,82px);">About Us</h1>
-    <div class="colourBox flyLeft" style="background-color: #ec008b;">
-        <img src="Images/portrait2.png" class="left" style="max-width: 335px; width: 70%; object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
-        <h1>About the Founder</h1>
-        <div class="bottomFill">
-            <p style="font-size: 24px; margin-top: -28px; margin-bottom: -16px;"><b>Joe SY Lee</b></p>
-            <p>Joe SY Lee, the founder of Arthematic, brings a wealth of expertise from the fields of broadcasting and advertising. With over 12 years of experience as a production designer at Astro TV, Lee specialized in designing and building dynamic set designs for television productions. His background in advertising refined his rapid sketching and visualization skills, a talent he further honed while working under Malaysia’s creative pioneer, the late Tan Sri Dato’ Dr. Lim Kok Wing, as a visualizer in his ad agency.
-            </p>
-            <p>
-            During his time at Astro, Lee served as a senior production designer, creating iconic TV sets for popular shows like Wheel of Fortune, Deal or No Deal, Astro Talent Quest, Miss Astro Beauty Pageant, Academy Fantasia, and many other celebrated entertainment productions. His strong visualization skills allow him to transform abstract ideas into artist impressions and bring them to life.
-            <br><br>
-            Now, Lee channels his extensive experience in broadcast and visual arts into Arthematic, an art academy dedicated to inspiring future generations. Through Arthematic, he aims to pass on his knowledge, encouraging young learners to explore their creativity and benefit from the same skills that defined his career.
-            </p>
-        </div>
-        <div style="overflow: hidden; width: round(down,70vw,266px); min-width: 266px; max-width: 1064px; display: block; margin: auto; text-align: center;">
-            <button class="nextButton" style="width: 50px; height: 50px; right:90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="alannext('back')"><</button>
-            <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="alannext('front')">></button>
-            <table  ontouchstart="alantouchStart(event)" ontouchmove="alantouchMove(event)" ontouchend="alantouchEnd(event)" id="alanCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
-                <tr class="alans">
-                    <td>
-                        <div class="alanbubble">
-                            <img src="Images/jl1.jpeg">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="alanbubble">
-                            <img src="Images/jl2.jpeg">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="alanbubble">
-                            <img src="Images/J3.jpeg">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="alanbubble">
-                            <img src="Images/J2.jpeg">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="alanbubble">
-                            <img src="Images/J1.jpeg">
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <div id="alanContainer" >
-                <button onclick="alannext(1)">1</button>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-pic">
+                <img src="resumeImg.jpg" alt="Profile Picture" />
             </div>
-        </div>
-    </div>
-    
-       
-    <script src="Misc/alanCarou.js"></script>
-    </div>
-    <div class="colourBox flyRight" style="background-color: #8cc63e;">
-        <div>
-        <img src="Images/BOYLOGO.jpeg" class="right" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
-        <h1 class="rightText">About Arthematic</h1>
-        <p  class="rightText">ArThematic is an innovative, integrated art and science discovery program crafted for the 21st-century child. It’s designed to nurture the next generation of creative thinkers and visionary leaders. Through a blend of art and subjects like animal and marine geography, human activities, sci-fi, fantasy worlds, space exploration, cultural traditions, and festivals, ArThematic serves as a dynamic “art cyclopedia.”
-            <br><br>
-            Our program seamlessly weaves visual drawing, model creation, comic storyboarding, and public speaking into a comprehensive learning journey. Students begin by transforming ideas into vivid 2D artwork, then advance to creating precise 3D models. Finally, they bring their learning full circle by crafting storyboards, turning their topics into engaging stories, and building confidence through public speaking. With ArThematic, young learners don’t just explore knowledge—they turn it into art, stories, and ideas ready to share with the world.</p>
-        </div>
-    </div>
-    <div class="colourBox flyLeft" style="background-color: #00adef;">
-        <div>
-            <img src="Images/aboutimg2.jpg" class="left" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
-        <h1>Why choose Arthematic?</h1>
-        <p class="bottomFill">Arthematic offers a unique, integrated approach to learning that combines the creative world of art with the explorative nature of science. Through a blend of visual art, model-making, and comic storyboarding, Arthematic brings extra value and excitement to each lesson by connecting art with topics like scientific discovery, space, and geography. This distinct programming flow is designed to engage kids fully, encouraging them to explore skills like problem-solving and creative thinking in an immersive way.
-            <br><br>
-            In Arthematic, kids experience the thrill of transforming their ideas from 2D drawings into 3D models, tackling real-world, hands-on challenges that foster logical reasoning. By creating storyboards, children are encouraged to think independently, find solutions, and express themselves visually and verbally. Arthematic’s emphasis on application means that students learn practical skills they can apply beyond the classroom, equipping them with tools to improve their understanding of the world and to enrich their daily lives.</p>
-        </div>
-    </div>
-    <div class="colourBox flyRight" style="background-color: #662d91;">
-        <div>
-        <img src="Images/utPrograms.jpg" class="right" style="max-width: 335px; width: 70%;  object-fit: cover; border-radius: 500px; border: 15px solid white; box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.237);">
-        <h1 class="rightText">The Arthematic Program</h1>
-        <p  class="rightText">The Arthematic Program is a unique and comprehensive art and science learning experience, structured around five core programs: Visual Art, Crafty Clay (Model Making), Comic Storyboard, STEAM KiDZ, Digital Art, and Fine Art. Each component brings essential skills and creative expression together to form a dynamic, well-rounded curriculum. Driven by themes, Arthematic’s programming covers three key focus areas: 
-            <br>
-            <b style="font-size: 20px;">Innovation Month</b>
-            <br>
-            Science Innovation Month introduces topics like space exploration, the solar system, rockets, and space shuttles, sparking curiosity and understanding of our universe. 
-            <br>
-            <b style="font-size: 20px;">Thematic Month</b>
-            <br>
-            Thematic Art Month engages students with broader themes such as geography, human activities, cultural traditions, and festive celebrations, enriching their global awareness. 
-            <br>
-            <b style="font-size: 20px;">Inspiration Month</b>
-            <br>
-            Finally, Inspiration Month taps into sci-fi and fantasy worlds, encouraging imaginative thinking and storytelling. These themes form the DNA of Arthematic, creating a balanced and stimulating environment where young minds can explore, create, and bring ideas to life across multiple forms of art.</p>
-        </div>
-    </div>
-    <h1 style="text-align: center; font-size: min(18vw,82px);">Our Programs</h1>
-    <h1 style="text-align: center;">One Program to Engage All</h1>
-    <div class="textSection">
-    <p>Arthematic differs from other institutions with its unique All-In-One Program for all students. Combining visual arts, clay model making, comic storyboarding, STEAM learning, digital arts, and fine arts, Arthematic creates a well-rounded curriculum that cultivates creativity, problem-solving, and a love for discovery. Through this program, children gain hands-on experience in various art forms, refine their techniques, and develop a solid foundation in both the arts and creative sciences.</p>
-    </div>
-    <br>
-    <div style="text-align: center;">
-    <a class="toContact" href="programs.html" style="font-size: min(8vw,42px); text-decoration: none; position: relative; font-family: GROBOLD;">Read More!</a>
-</div>
-<br>
-<h1 style="text-align: center;">Program Activities</h1>
-<div class="textSection">
-    <p>ArThematic's unique programming explores a new topic each month, built on three core pillars: <b>Thematics</b>, <b>Inspiration</b> and <b>Innovation</b>.</p>
-    </div>
-    <p style="font-size: 12px; color: gray; position: relative; z-index: 5; text-align: center; margin-top: 25px; margin-bottom: 45px;">Click the cards for more information about our program structure</p>
-    <div class="largeMonths" style="margin: auto; width: 1140px;">
-        <table>
-        <tr>
-            <td style="padding-left: 30px; padding-right: 30px;">
-                <div class="smallColourBox" style="background-color: #ec008b;" onclick="goToPrograms('Thematic')">
-                    <img src="Images/TMTitle.png" width="100%" style="margin-top: -130px;">
-                    <img src="Images/thematicMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
-                    <p>Thematic Month guides children in turning ideas into projects through art, craft, and storytelling.</p>
-                </div> 
-            </td>
-            <td style="padding-left: 30px; padding-right: 30px;">
-                <div class="smallColourBox" style="background-color: #8cc63e;" onclick="goToPrograms('Inspiration')">
-                    <img src="Images/InspMTitle.png" width="100%" style="margin-top: -130px;">
-                    <img src="Images/inspirationMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
-                    <p>Inspiration Month empowers children to express and communicate confidently through art.</p>
-                </div>
-            </td>
-            <td style="padding-left: 30px; padding-right: 30px;">
-                <div class="smallColourBox" style="background-color: #00adef" onclick="goToPrograms('Innovation')">
-                    <img src="Images/InnoMTitle.png" width="100%" style="margin-top: -130px;">
-                    <img src="Images/innoMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
-                    <p>Innovation Month blends art and science through hands-on projects, inspiring creativity and leadership.</p>
-                </div>
-        </tr>
-    </div>
-    <script>
-        function goToPrograms(programType) {
-            var url = "programs.html"
-            url = url + "?type=" + programType
-            location.href = url
-        }
-    </script>
-    </table>
-</div>
-    <div class="compactMonths">
-        <div class="center" style="text-align: center;">
-            <button class="activityInfoButton" id="ThematicButton" onclick="changeActivity('Thematic')">Thematic</button>
-            <button class="activityInfoButton" id="InspirationButton" onclick="changeActivity('Inspiration')">Inspiration</button>
-            <button class="activityInfoButton" id="InnovationButton" onclick="changeActivity('Innovation')">Innovation</button>
-            <script>
-                var currentActivity = "Thematic"
-                function changeActivity(activity) {
-                    if (activity != currentActivity) {
-                    document.getElementById(currentActivity).style.display = "none"
-                    document.getElementById(currentActivity).style.top = "-50px"
-                    document.getElementById(currentActivity).style.opacity = "0"
-    
-                    document.getElementById(activity).style.display = "block"
-                    setTimeout(function(){                    
-                        document.getElementById(activity).style.top = "30px"
-                        document.getElementById(activity).style.opacity = "100"
-                        currentActivity = activity;
-                    },100)
-                    }
-                }
-            </script>
-        </div>
-        <div id="Thematic" class="smallColourBox" style="background-color: #ec008b; position: relative; transition: all .5s ease; top: 30px;" onclick="goToPrograms('Thematic')">
-            <img src="Images/TMTitle.png" width="100%" style="margin-top: -130px;">
-            <img src="Images/thematicMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
-            <p>Thematic Month guides children in turning ideas into projects through art, craft, and storytelling.</p>
-        </div>
-        <div id="Inspiration" class="smallColourBox" style="background-color: #8cc63e; position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;" onclick="goToPrograms('Inspiration')">
-            <img src="Images/InspMTitle.png" width="100%" style="margin-top: -130px;">
-            <img src="Images/inspirationMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
-            <p>Inspiration Month empowers children to express and communicate confidently through art.</p>
-        </div>
-        <div id="Innovation" class="smallColourBox" style="background-color: #00adef; position: relative; top:-50px; opacity: 0; display: none; transition: all .5s ease;" onclick="goToPrograms('Innovation')">
-                <img src="Images/InnoMTitle.png" width="100%" style="margin-top: -130px;">
-                <img src="Images/innoMonth.jpg" style="margin:auto; display: block; border-radius: 200px; margin-top: -80px; border: 15px solid white;border: 15px solid white; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.537); width: 230px; height: 230px; object-fit: cover;">
-                <p>Innovation Month blends art and science through hands-on projects, inspiring creativity and leadership.</p>
-        </div>
-    </div>
-    <p style="font-size: 12px; color: gray; position: relative; text-align: center; margin-top: 65px; margin-bottom: -45px;">Click the icons to view the posters for our programs</p>
-    <div class="programGrid">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="Visual Art" onclick="openPoster('Images/visualArtPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="Comic Storyboarding" onclick="openPoster('Images/storyBrdPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Crafty Clay" onclick="openPoster('Images/clayPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Steam KIDZ" onclick="openPoster('Images/steamPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="digital Art" onclick="openPoster('Images/digArtPoster.jpeg')">
-        <img class="programContent" src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Fine Art" onclick="openPoster('Images/fineArtPoster.jpeg')">
-    </div>
-    <div id="responsiveProgramCarou" style="overflow: hidden; width: round(down,80vw,300px); width: 300px; margin: auto; margin-top: 72px; text-align: center;">
-        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="programnext('back')"><</button>
-        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="programnext('front')">></button>
-        <table ontouchstart="programtouchStart(event)" onmouseup="openPoster(slideFiles[programcurrentSlide])" ontouchmove="programtouchMove(event)" ontouchend="programtouchEnd(event)" id="programCarousel" style="position:relative; cursor:pointer; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
-            <tr class="program">
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(0).png" alt="Visual Art" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(1).png" alt="Comic Storyboarding" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(2).png" alt="Crafty Clay" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(3).png" alt="Steam KIDZ" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(4).png" alt="digital Art" width="300px"></td>
-                <td><img src="Images/6 PROGRAMS LOGOTYPES(5).png" alt="Fine Art" width="300px"></td>
-            </tr>
-        </table>
-        <div id="programContainer">
-        </div>
-    </div>
-    <script src="Misc/programsCarou2.js"></script>
-    <h1 style="text-align: center; font-size: min(18vw,82px);">Gallery</h1>
-    <p style="text-align: center;">A collection of our students' best works</p>
-    <div style="overflow: hidden; width: round(down,80vw,346px); min-width: 346px;  max-width: 1384px;  display: block; margin: auto; text-align: center;">
-        <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="thumbnext('back')"><</button>
-        <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="thumbnext('front')">></button>
-        <table  ontouchstart="thumbtouchStart(event)" ontouchmove="thumbtouchMove(event)" ontouchend="thumbtouchEnd(event)" id="thumbCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
-            <tr class="thumbs">
-                <td>
-                    <div class="bubbleLS">
-                        <img src="Images/visual1.jpg">
-                    </div>
-                </td>
-                <td>
-                    <div class="bubbleLS">
-                        <img src="Images/steam1.jpeg">
-                    </div>
-                </td>
-                <td>
-                    <div class="bubbleLS">
-                        <img src="Images/clay1.jpeg">
-                    </div>
-                </td>
-                <td>
-                    <div class="bubbleLS">
-                        <img src="Images/sboard1.jpeg">
-                    </div>
-                </td>
-                <td>
-                    <div class="bubbleLS">
-                        <img src="Images/dig1.jpeg">
-                    </div>
-                </td>
-                <td>
-                    <div class="bubbleLS">
-                        <img src="Images/fine1.jpeg">
-                    </div>
-                </td>
-        </table>
-        <div id="thumbContainer" >
-            <button onclick="thumbnext(1)">1</button>
-        </div>
-    </div>
-    <br>
-    <div style="text-align: center; margin-bottom: 60px;"><a class="toContact"  href="Gallery.html" style="font-size: min(8vw,42px); text-decoration: none; position: relative; font-family: GROBOLD;">See More!</a></div>
-        <script src="Misc/thumbCarou.js"></script>
-        <h1 style="text-align: center; font-size: min(18vw,82px);">Our Partners</h1>
-            <div>
-            <p class="textSection" style="text-align: center; margin-top: -20px; ">ArThematic's unique program design is supported amongst the top international schools in Malaysia.</p>
-            <div style="overflow: hidden; width: round(down,80vw,258px); min-width: 258px; display: block; margin: auto;">
-                <button class="nextButton" style="width: 50px; height: 50px; right: 90%; margin-top: 100px; position: absolute;  z-index: 10" onclick="next('back')"><</button>
-                <button class="nextButton" style="width: 50px; height: 50px; left: 90%; margin-top: 100px; position: absolute; z-index: 10;" onclick="next('front')">></button>
-                <table ontouchstart="touchStart(event)" ontouchmove="quotetouchMove(event)" ontouchend="touchEnd(event)" id="partnerCarousel" style="position:relative; border-collapse: collapse; scroll-snap-type: x mandatory; transition: left .5s ease;">
-                    <tr class="partners">
-                        <td><img src="Images/ucsi.png" alt="UCSI International School" width="256px"></td>
-                        <td><img src="Images/ISKL.png" alt="International School of Kualar Lumpur" width="256px"></td>
-                        <td><img src="Images/aism.png" alt="Australian Internation School Malaysia" width="256px"></td>
-                        <td><img src="Images/nexusis.png" alt="Nexus International School" width="256px"></td>
-                        <td><img src="Images/PHIS.png" alt="Pine Hills International School" width="256px"></td>
-                        <td><img src="Images/bnis.png" alt="Beaconhouse Newlands International School" width="256px"></td>
-                        <td><img src="Images/tis.png" alt="Taylor's International School" width="256px"></td>
-                        <td><img src="Images/tbiskl.png" alt="British International School Kualar Lumpur" width="256px"></td>
-                        <td><img src="Images/apis.png" alt="Asia Pacific School" width="256px"></td>
-                        <td><img src="Images/lsl.png" alt="Learn Share Lead (LSL) International School" width="256px"></td>
-                        <td><img src="Images/gkmk.png" alt="Global Kids Kindergarten" width="256px"></td>
-                        <td><img src="Images/ew.png" alt="Emilia Wolsey" width="256px"></td>
-                    </tr>
-                </table>
-                <div id="dotContainer" style="text-align: center;">
-                    <button onclick="next(1)">1</button>
-                </div>
-                <script src="Misc/partnerCarou.js"></script>
-            </div>
-    </div>
-    <h1 style="text-align: center; font-size: min(18vw,82px);">Our Locations</h1>
-    <script>
-        var anchorHovered = false
-    </script>
-    <!-- I cant figure out how to add nested links..
-     so basically i detect when an anchor is being hovered over and dont allow the gMap link to open when one of the anchor is being hovered
-     
-    -->
-    <div class="grid-Container">
-        <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/BdxMAKZvbYxrDE4ZA')}">
-            <img src="Images/Head.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="An Image of Head Studio">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Head Studio</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
+            <h1>KHOO KAI JIE</h1>
+            <p>Aspiring Software Developer</p>
+            <nav>
                 <ul>
-                    <li class="blackLi">12a, Jalan Midah 1, Taman Midah, 56000 Cheras. KL</li>
-                    <li class="blackLi"><a href="tel:+60162069339" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 162069339</a></li>
-                    <li class="blackLi"><a href="mailto:Artthematichq@gmail.com"  onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">Artthematichq@gmail.com</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#skills">SKILLS</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
                 </ul>
+            </nav>
+            <div class="downloadResume">
+                <a style="margin-top: 40px;" href="Khoo_Kai_Jie_Resume.pdf" target="_blank">Download my Resume</a>
             </div>
-        </div>
-        <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/Nhiftvi3UATgaVD17')}">
-            <img src="Images/Puchong.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="An Image of Bandar Puteri Puchong">
-            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Bandar Puteri Puchong</h2>
-            <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Unit 6-2, Jln Bandar Puteri 2/3, Bandar Puteri Puchong. 47100 Puchong. Selangor.</li>
-                    <li class="blackLi"><a href="tel:+601125805882" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 1125805882</a></li>
-                    <li class="blackLi"><a href="mailto:Artthematichq@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">Artthematichq@gmail.com</a></li>
-                </ul>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/kai-jie-khoo-34b2a32a0/" target="_blank" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/kaiipf" target="_blank" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="mailto:khoo.kj1@gmail.com" aria-label="Email">
+                    <i class="bi bi-envelope-fill"></i>
+                </a>
             </div>
-        </div>
-        <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/UURzYMWGg1bGe4bs5')}">
-            <img src="Images/Batupahat.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="An Image of Batu Pahat">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Batu Pahat</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Jalan Ungku, Mohd Salleh, Kg Merdeka, Batu Pahat, 83000, Johore</li>
-                    <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
-                    <li class="blackLi"><a href="mailto:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">xxxx@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/kskdYeFo7BcrP6HE8')}">
-            <img src="Images/Kuching.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="An Image of Kuching">
-            <h2 style="text-align: center; margin-top: 5px; margin-bottom:5px; color: rgb(39, 39, 39);">Arthematic Kuching</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Gala Street Mall, Lot 12766 Parcel 16, Jalan Tun Jugah, KCLD93350 Kuching, Sarawak</li>
-                    <li class="blackLi"><a href="tel:+600129930905" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 0129930905</a></li>
-                    <li class="blackLi"><a href="mailto:artthematic.sarawaksibu@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">artthematic.sarawaksibu@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/UUkkJMooDr5U4Zi49')}">
-            <img src="Images/Aradamansara.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="ArThematic Ara Damansara">
-            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Ara Damansara</h2>
-            <div style="margin-top: -20px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Taipan 1, Jalan PJU 1a/3k, Ara Damansara, 47301 Petaling Jaya. Selangor</li>
-                    <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
-                    <li class="blackLi"><a href="mailto:C060joanne@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">C060joanne@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid-Content" title="View on Google Maps" onclick="">
-            <img src="Images/placeholder.jpg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="ArThematic Kota Damansara">
-            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Kota Damansara</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">Coming Soon!</li>
-                    <li class="blackLi"><a href="tel:" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">60 XXXXXXXXXX</a></li>
-                    <li class="blackLi"><a href="mailto:C060joanne@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">C060joanne@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
-    <div class="grid-Content" title="View on Google Maps" onclick="if(anchorHovered == false) { window.open('https://maps.app.goo.gl/gkaZ7q84AsakUA7a9')}">
-            <img src="Images/Australia.jpeg" style="object-fit: cover; width:90vw; max-width: 350px; height: 200px;" alt="ArThematic Australia">
-            <h2 style="text-align: center; margin-top: -10px; color: rgb(39, 39, 39);">Arthematic<br>Australia Melbourne</h2>
-            <div style="margin-top: -10px; padding-left: 10px; padding-right: 10px;">
-                <ul>
-                    <li class="blackLi">419 Tooronga Rd, Hawthorn East VIC 3123, Australia</li>
-                    <li class="blackLi"><a href="tel:+61411757290" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">+61 411757290</a></li>
-                    <li class="blackLi"><a href="mailto:artthematic.australia@gmail.com" onmousemove="anchorHovered = true" onmouseleave="anchorHovered = false">artthematic.australia@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <h1 style="text-align: center; font-size: min(18vw,82px);">Want to find out more?</h1>
-    <div style="width: 80vw; max-width:614px; margin: auto;" id="contactSection">
-    <p style="text-align: center; font-size: 24px;">Have any inquiries? Contact us below!</p>
-    <div id="contactLine" style="border-top: 2px solid gray; position: relative; opacity: 0; width: 0%; transform-origin: center left; transition: all 1s ease-out;"></div>
-    <img src="Images/pterodactyl.gif" id="contactPtero" style="position: relative; width: 40px; top:-30px; opacity: 0; transition: all 1s ease-out;">
-    </div>
-    <div style="text-align:center">
-        <a id="contactButton" class="toContact" href="contact.html" style="font-size: min(8vw,42px); text-decoration: none; position: relative; font-family: GROBOLD; top:-30px; opacity: 0; transition: all .5s ease;">Contact Us!</a>
-    </div>
+        </aside>
 
-    <div class="footerDiv">
-        <hr style="border-top: 1px solid gray; margin-top: 45px; width: 100%;display: inline-block; align-items: left;"><br><br><br>
-        <div class="socialMedia" style="position: absolute; top: 25px;left: 0; right: 0; margin: auto; background-color: #333;">
-        <a href="https://www.facebook.com/p/Art-Thematic-100081307571309/" target="_blank"><img src="Images/fbook.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" width="25%"></a>
-        <a href="https://www.instagram.com/artthematicmalaysia/" target="_blank"><img src="Images/igram.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" width="25%"></a>
-        <a href="https://www.tiktok.com/@joelee180" target="_blank"><img src="Images/tiktok.png" style="margin-left: 2%; margin-right:2%; cursor: pointer;" width="25%"></a>
-        </div>
-        <img src="Images/atLogo2.png" style="width: 80%; max-width: 250px;">
-        <p style="font-size: 14px;">Copyright &copy; 2024 Arthematic Malaysia</p>
-        <a href="privacypolicy.html" style="white-space: nowrap;"><b>Privacy Policy</b></a> | <a href="programs.html" style="white-space: nowrap;"><b>Programs</b></a> | <a href="contact.html" style="white-space: nowrap;"><b>Contact us</b></a> | <a href="about.html" style="white-space: nowrap;"><b>About us</b></a>
-      </div>
+        <main class="content">
+            <!-- Sections like About Me, Projects -->
+            <section id="about">
+                <div>
+                    <h2>Hi, I'm Kai Jie</h2>
+                    <p>
+                        I'm an aspiring software developer and a recent graduate of Nanyang Polytechnic’s
+                        <strong>Diploma in Information Technology</strong> program.
+                    </p>
+                    <p>
+                        Throughout my studies, I developed not only technical skills but also valuable soft skills such
+                        as
+                        <strong>leadership</strong>, <strong>teamwork</strong>, and <strong>effective
+                            communication</strong>.
+                        I’ve gained experience with multiple programming languages, including
+                        <strong>Python</strong>, <strong>JavaScript</strong>, and <strong>C#</strong>.
+                    </p>
+                    <p>
+                        My passion for programming began at the age of 10 through <strong>game development on
+                            Roblox</strong>.
+                        At first, I was simply piecing together assets without much understanding of code — but over
+                        time,
+                        I dove deeper into programming concepts and explored related skills like <strong>3D
+                            modeling</strong> and <strong>animation</strong>.
+                    </p>
+                    <p>
+                        Looking back, it’s inspiring to see how far I’ve come — both as a developer and as a person.
+                        I’m excited to carry this passion, curiosity, and drive into my professional work in the future.
+                    </p>
+                </div>
+            </section>
+            <section id="skills">
+                <div>
+                    <h2>My skills</h2>
+                </div>
+                <div class="skill-wrapper">
+                    <div class="skill-image">
+                        <img src="pythonlogo.png" alt="Python Logo" />
+                    </div>
+                    <div class="skill-text">
+                        <h3>Python</h3>
+                        <p>
+                            I use Python for scripting, automation, and backend development. It was one of the first
+                            languages I studied in depth, and I’ve built both personal projects and school assignments
+                            using it.
+                        </p>
+                    </div>
+                </div>
+                <div class="skill-wrapper">
+                    <div class="skill-image">
+                        <img src="lualogo.png" alt="Lua Logo" />
+                    </div>
+                    <div class="skill-text">
+                        <h3>Lua</h3>
+                        <p>
+                            I use Lua for scripting in ROBLOX's game engine. This was the first language and what I
+                            believe I am most proficient in. I have made many personal projects using this scripting
+                            language over the years.
+                        </p>
+                    </div>
+                </div>
+                <div class="skill-wrapper">
+                    <div class="skill-image">
+                        <img src="webdev.png" alt="Web Dev logo" />
+                    </div>
+                    <div class="skill-text">
+                        <h3>Web Development</h3>
+                        <p>
+                            I am well versed in many aspects of Web Development. I am confident in my front end
+                            engineering skills from creating mockups with Figma to creating websites with HTML, CSS and
+                            JavaScript. I also have experience in using Flask with Python to create user centric
+                            experiences.
+                        </p>
+                    </div>
+                </div>
+                <div class="skill-wrapper">
+                    <div class="skill-image">
+                        <img src="CSlogo.png" alt="C Sharp Logo" />
+                    </div>
+                    <div class="skill-text">
+                        <h3>C#</h3>
+                        <p>
+                            I use C# mainly for building web applications using the ASP.NET framework.
+                            Through my coursework and projects, I've developed dynamic, data-driven websites
+                            and gained experience working with backend logic, MVC architecture, and database
+                            integration.
+                        </p>
+                    </div>
+                </div>
+                <div class="skill-wrapper">
+                    <div class="skill-image">
+                        <img src="MysqlLogo.png" alt="MySql Logo" />
+                    </div>
+                    <div class="skill-text">
+                        <h3>MySQL</h3>
+                        <p>
+                            During my studies, I have gained experience in using MySQL for database management.
+                            I have created and managed databases, written complex queries, and integrated them with my
+                            projects.
+                            I am comfortable with data modeling, normalization, and optimizing queries for performance.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="projects">
+                <div>
+                    <h2>My projects</h2>
+                </div>
+                <div class="project ripblade" style="background-color: #1c1c24;">
+                    <div class="project-content">
+                        <div class="text">
+                            <h3>RIPBLADE</h3>
+                            <p>This is the game I am currently working on in ROBLOX's platform since 2024. Whilst
+                                developing, I handled aspects such as programming, animation and 3D Modelling</p>
+                            <a href="https://www.roblox.com/games/15853290560/RIPBLADE" target="_blank"
+                                class="ripblade-link">View RIPBLADE on Roblox <button class="icon-button">
+                                    <i class="bi bi-box-arrow-up-right"></i>
+                                </button></a>
+
+                        </div>
+                        <div class="image">
+                            <img src="ripblade-image.png" alt="RIPBLADE Screenshot">
+                            <video class="overlay" src="ripblade-video.mp4" muted loop></video>
+                        </div>
+                    </div>
+                </div>
+                <!-- REVERSED PROJECT -->
+                <div class="project reversed" style="padding-left: 0px;">
+                    <div class="project-content" style="padding-left: 0px;">
+                        <div class="text">
+                            <h3>Arthematic.com.my</h3>
+                            <p>A website I was commissioned by Arthematic to make. During which, I've applied
+                                what I've learnt and used HTML, CSS and JavaScript to build this site. I also made a
+                                form handler which stores and sends form responses to the owner's email address using
+                                Php.</p>
+                            <a href="https://arthematic.com.my/" target="_blank" class="ripblade-link">
+                                View Arthematic
+                                <button class="icon-button">
+                                    <i class="bi bi-box-arrow-up-right"></i>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="image">
+                            <img src="arthematic-image.png" alt="Other Game Thumbnail">
+                            <img src="arthematic-image2.png" class="overlay" alt="Other Game Thumbnail">
+                        </div>
+                    </div>
+                </div>
+                <div class="project ripblade" style="background-color: #1c1c24;">
+                    <div class="project-content">
+                        <div class="text">
+                            <h3>GreenByte</h3>
+                            <p>This is a school project I've worked on with my teammates during our App Development
+                                Project module. GreenByte was made with Python and Flask and features a comprehensive
+                                ingredient and recipe shopping system.</p>
+                        </div>
+                        <div class="image">
+                            <img src="GB-image1.png" alt="RIPBLADE Screenshot">
+                            <img src="GB-image2.png" class="overlay" alt="Other Game Thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <p style="text-align: center; margin-top: 20px; color: #888;">
+                Copyright © 2025 Khoo Kai Jie. All rights reserved.
+            </p>
+        </main>
+    </div>
 </body>
-    <!--Startup animation-->
-    <script>
-            var i = 0;
-            var txt = 'Welcome to arThematic!';
-            var speed = 50;
-            function typeWriter() {
-           
-            }
-        setTimeout(function() {
-        document.getElementById("navbar").classList.remove('startup');
-            setTimeout(function() {
-                document.getElementById("screenCover").classList.add('flashyIntroCover');
-                typeWriter()
-                setTimeout(function() {
-                    document.querySelector('body').classList.remove('noScroll');
-                    document.getElementById("bannerDecoration").classList.add('bannerDecoVisible');
-                    document.getElementById("bannerDecoration").classList.remove('bannerDecoInvisible');
-                    document.getElementById("bannerSky").style.top = "0px";
-                    document.getElementById("screenCover").remove()
-                    setTimeout(function() {
-                        document.getElementById("bigHeader").classList.remove('invisible');
-                        document.getElementById("bigHeader").classList.add('visible');
-                        document.getElementById("rocketWrapper").classList.remove('rocketInitialPos');
-                        document.getElementById("rocketWrapper").classList.add('rocketInPos');
-                    },1000 )
-                    setTimeout(function() {
-                        document.getElementById("rocketWrapper").classList.remove('rocketIn');
-                        document.getElementById("rocketWrapper").classList.add('rocketLand');
-                        document.getElementById("rocketWrapper").classList.remove('rocketInPos');
-                        document.getElementById("rocketWrapper").classList.add('rocketLandPos');
-                        document.getElementById("rocketFlame").style.opacity = 0
-                        setTimeout(function() {
-                            document.getElementById("rocketWrapper").classList.remove('rocketLand');
-                            // so that when resizing the page, the rocket doesnt transition there cus it looks weird
-                        }, 500)
-                     }, 3000);
-                }, 1000);
-            }, 1000);
-        }, 100);
+<script>
+    document.addEventListener('wheel', function (e) {
+        const content = document.querySelector('.content');
+        content.scrollTop += e.deltaY;
+    }, { passive: true });
 
-    // Scroll animations
-    $(window).scroll(function() {
-        $(".colourBox").each(function(){
-            var top_of_element = $(this).offset().top;
-            var bottom_of_element = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_screen = $(window).scrollTop() + window.innerHeight;
-            var top_of_screen = $(window).scrollTop();
+    const ripblade = document.querySelector('.project.ripblade');
 
-            if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
-
-            }
-        });
+    ripblade.addEventListener('mouseenter', () => {
+        const video = ripblade.querySelector('video');
+        video.play();
     });
 
+    ripblade.addEventListener('mouseleave', () => {
+        const video = ripblade.querySelector('video');
+        video.pause();
+        video.currentTime = 0; // rewind
+    });
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar nav a');
 
-    const targetElement = document.querySelector('.target-element');
-    function onElementInView(entry) {
-        if (entry.id == "contactSection") {
-            document.getElementById("contactLine").style.width = "100%"
-            document.getElementById("contactLine").style.opacity = "100%"
-            document.getElementById("contactPtero").style.marginLeft = "100%"
-            document.getElementById("contactPtero").style.opacity = "100%"
-            setTimeout(function() {
-                document.getElementById("contactPtero").src = "Images/pterodactyl.png"
-                document.getElementById("contactButton").style.opacity = "100%"
-                document.getElementById("contactButton").style.top = "0"
-            }, 1000)
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const link = document.querySelector(`.sidebar nav a[href="#${id}"]`);
+
+                if (entry.isIntersecting) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        },
+        {
+            root: document.querySelector('.content'),
+            rootMargin: '0px',
+            threshold: 0.8 // Section is active if 50% visible
         }
-        if (entry.classList.contains("colourBox") == true) {
-            entry.classList.remove("flyLeft")
-            entry.classList.remove("flyRight")
+    );
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        function isTouchDevice() {
+            return ('ontouchstart' in window && navigator.maxTouchPoints > 1);
         }
+
+        if (!isTouchDevice()) {
+            const spotlight = document.createElement('div');
+            spotlight.id = 'spotlight';
+            document.body.appendChild(spotlight);
+
+            document.addEventListener('mousemove', (e) => {
+                spotlight.style.left = `${e.clientX}px`;
+                spotlight.style.top = `${e.clientY}px`;
+            });
+        }
+    });
+    const video = document.querySelector('video');
+    if (video) {
+        video.disablePictureInPicture = true;
     }
-
-    const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            onElementInView(entry.target);
-            // Optionally, if you only want to trigger the function once, you can unobserve the element
-            observer.unobserve(entry.target);
-            }
-        });
-    }, {
-    root: null, // Use the viewport as the root
-    rootMargin: '0px', // Margin around the root
-    threshold: .2 // Trigger when 100% of the element is in view
-    });
-    function parallax() {
-                var scrolltotop = document.scrollingElement.scrollTop;
-                var target = document.getElementById("body");
-                var xvalue = "center";
-                var factor = 0.7;
-                var yvalue = scrolltotop * factor;
-                target.style.backgroundPosition = xvalue + " " + yvalue + "px";
-        }
-    window.addEventListener("scroll", function(){
-            parallax(); 
-        });
-    // Start observing the target element
-    setTimeout(function() {
-        // observer.observe(document.getElementById("InsertIdHere"));
-        $(".colourBox").each(function(){
-            observer.observe(this)
-        })
-        observer.observe(document.getElementById("contactSection"))
-    },2000)
-    </script>
-</body>
+</script>
 
 </html>

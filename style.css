@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  color: rgb(179, 187, 196);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #d0f0e6;;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.sidebar {
+  position: fixed;
+  /* Fixes it to the left side */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  /* Full height of the viewport */
+  width: calc(350px + 5vw);
+  background-color: #0f0f13;
+  padding: 40px 10px;
+  padding-left: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  overflow: hidden;
+}
+
+a:link {
+  color: rgb(196, 196, 196);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(196, 196, 196);
+}
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 20px 0;
+  box-shadow: 0px 0px 300px rgba(218, 193, 207, 0.527);
+}
+.profile-pic img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.sidebar h1 {
+  font-size: 22px;
+  text-align: left;
+}
+
+.sidebar p {
+  font-size: 18px;
+  text-align: left;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.sidebar nav li {
+  margin: 20px 0;
+}
+
+.sidebar nav a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+.sidebar nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: white;
+  width: 5px;
+  transition: width 0.3s ease-in-out;
+  opacity: 0.6;
+}
+
+.sidebar nav a.active::before {
+  width: 100%; /* expands the line */
+  opacity: 1;
+}
+.sidebar nav a.active, .sidebar nav a:hover{
+  color: #00ffff; /* or any highlight color you prefer */
+  font-weight: bold;
+  transition: 500ms ease-in-out;
+}
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00ffff;
+  transform: scale(1.2);
+}
+.content {
+  margin-left: calc(360px + 15vw);
+  /* Leaves space for the sidebar */
+  flex: 1;
+  background-color: #22222b;
+  overflow-y: auto;
+  /* enables scrolling */
+  height: 100vh;
+  /* ensures it takes full height of screen */
+}
+
+.project {
+  height: 300px;
+  overflow: hidden;
+}
+
+.content div {
+  padding-left: 2vw;
+}
+
+.project-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+}
+
+.project-content .text {
+  flex: 1;
+}
+
+.project-content .image {
+  position: relative;
+  height: 300px;
+  width: 20vw;
+  max-width: 400px;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+.project-content .image img,
+.project-content .image .overlay {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* 🔽 Gradient overlay */
+.project-content .image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(to right, #1c1c24 0%, transparent 100%);
+  z-index: 2;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+#about {
+  margin-right: 200px;
+}
+
+#spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle, rgba(73, 9, 177, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  /* Optional: brightens effect */
+}
+
+/* 🔽 Hide video initially */
+.project-content .image .overlay {
+  opacity: 0;
+  z-index: 1;
+}
+
+.project.reversed .project-content {
+  flex-direction: row-reverse;
+  padding-right: 10px;
+}
+
+/* 🔽 On hover: fade out gradient and fade in video */
+
+.project.reversed:hover .image::before {
+  opacity: 0;
+}
+
+.project.reversed:hover .image .overlay {
+  opacity: 1;
+}
+.project.ripblade {
+  text-align: right;
+}
+.project.ripblade:hover .image {
+  width: 30vw;
+  max-width: 600px;
+}
+
+.project.ripblade:hover .image .overlay {
+  opacity: 1;
+}
+
+.ripblade-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+/* Normal button state */
+.icon-button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 4px;
+}
+
+.ripblade-link:hover .icon-button {
+  transform: translateX(5px);
+}
+
+.project.reversed .image::before {
+  left: auto;
+  right: 0;
+  background: linear-gradient(to left, #22222b 0%, transparent 100%);
+}
+
+.project.reversed:hover .image {
+  width: 30vw;
+  max-width: 600px;
+}
+
+.project.reversed:hover .image::before {
+  opacity: 1;
+}
+
+.skill-section {
+  padding: 40px;
+  background-color: #1c1c24;
+  color: white;
+  border-bottom: 1px solid #333;
+}
+
+.skill-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.skill-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.skill-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.skill-text h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.skill-text p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+#skills .skill-wrapper:nth-child(odd) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.downloadResume {
+  margin-top: 20px;
+}
+@media (max-width: 1240px) {
+  .social-icons {
+    justify-content: center;  /* center horizontally */
+  align-items: center;
+  margin-top: 20px;
+  }
+  #about {
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    
+  }
+  .skill-wrapper {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  #skills .skill-wrapper:nth-child(odd) {
+    flex-direction: column;
+    text-align: center;
+  }
+ h2 {
+  text-align: center;
+ }
+  nav {
+    display: none;
+  }
+  .downloadResume {
+    text-align: center;
+  }
+  .sidebar {
+    position: relative;
+    /* no longer fixed */
+    width: calc(100vw - 40px);
+    height: 300px;
+    padding: 20px;
+    display: block;
+    align-items: center;
+  }
+
+
+  .sidebar h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .sidebar p {
+    font-size: 18px;
+        text-align: center;
+  }
+.profile-pic {
+  margin: auto;
+}
+  .container {
+    display: block;
+    width: 100vw;
+  }
+
+  .content {
+    margin-left: 0;
+    /* remove left margin */
+    display: block;
+      overflow: hidden; /* ❌ disables scrolling */
+  height: auto;     /* ✅ allows it to grow with content */
+  }
+
+  .content div {
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  .project-content .image {
+    position: relative;
+    height: 300px;
+    width: 100px;
+  }
+
+  .project-content .image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+  }
+
+  .skill-image img {
+    margin: 0 auto;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  #spotlight {
+    display: none !important;
+  }
+}
