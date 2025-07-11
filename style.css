@@ -228,22 +228,20 @@ a:visited {
   padding-right: 10px;
 }
 
-.project.reversed:hover .image::before {
-  opacity: 0;
-}
 
-.project.reversed:hover .image .overlay {
+
+.project.reversed .image:hover .overlay {
   opacity: 1;
 }
 .project.ripblade {
   text-align: right;
 }
-.project.ripblade:hover .image {
+.project.ripblade .image:hover.image {
   width: 30vw;
   max-width: 600px;
 }
 
-.project.ripblade:hover .image .overlay {
+.project.ripblade .image:hover .overlay {
   opacity: 1;
 }
 
@@ -278,12 +276,12 @@ a:visited {
   background: linear-gradient(to left, #22222b 0%, transparent 100%);
 }
 
-.project.reversed:hover .image {
+.project.reversed .image:hover {
   width: 30vw;
   max-width: 600px;
 }
 
-.project.reversed:hover .image::before {
+.project.reversed .image:hover .image::before {
   opacity: 1;
 }
 
@@ -299,7 +297,7 @@ a:visited {
   align-items: center;
   gap: 40px;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 20px;
   flex-wrap: wrap;
 }
 
@@ -398,6 +396,7 @@ a:visited {
     display: block;
       overflow: hidden; /* disables scrolling */
   height: auto;     /* allows it to grow with content */
+    scroll-behavior: smooth;
   }
 
   .content div {
