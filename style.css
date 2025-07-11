@@ -184,7 +184,7 @@ a:visited {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* 🔽 Gradient overlay */
+/* Gradient overlay */
 .project-content .image::before {
   content: "";
   position: absolute;
@@ -217,7 +217,7 @@ a:visited {
   /* Optional: brightens effect */
 }
 
-/* 🔽 Hide video initially */
+/* Hide video initially */
 .project-content .image .overlay {
   opacity: 0;
   z-index: 1;
@@ -227,8 +227,6 @@ a:visited {
   flex-direction: row-reverse;
   padding-right: 10px;
 }
-
-/* 🔽 On hover: fade out gradient and fade in video */
 
 .project.reversed:hover .image::before {
   opacity: 0;
@@ -398,8 +396,8 @@ a:visited {
     margin-left: 0;
     /* remove left margin */
     display: block;
-      overflow: hidden; /* ❌ disables scrolling */
-  height: auto;     /* ✅ allows it to grow with content */
+      overflow: hidden; /* disables scrolling */
+  height: auto;     /* allows it to grow with content */
   }
 
   .content div {

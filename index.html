@@ -42,7 +42,6 @@
         </aside>
 
         <main class="content">
-            <!-- Sections like About Me, Projects -->
             <section id="about">
                 <div>
                     <h2>Hi, I'm Kai Jie</h2>
@@ -167,7 +166,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- REVERSED PROJECT -->
                 <div class="project reversed" style="padding-left: 0px;">
                     <div class="project-content" style="padding-left: 0px;">
                         <div class="text">
@@ -226,7 +224,7 @@
     ripblade.addEventListener('mouseleave', () => {
         const video = ripblade.querySelector('video');
         video.pause();
-        video.currentTime = 0; // rewind
+        video.currentTime = 0;
     });
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.sidebar nav a');
@@ -246,7 +244,7 @@
         {
             root: document.querySelector('.content'),
             rootMargin: '0px',
-            threshold: 0.8 // Section is active if 50% visible
+            threshold: 0.8 
         }
     );
 
